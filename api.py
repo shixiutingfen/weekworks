@@ -21,7 +21,7 @@ def getPageData():
     totalCount  = cur.fetchone()
     data = []
     for result in results:
-        id=  result[0]
+        id=   result[0]
         name = result[1]
         type = result[2]
         data.append({'id':id,'name':name,'type':type})
