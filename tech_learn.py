@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 from myapp import app
-from utils import param_util,redis_utils
+from utils import param_util
 from flask import render_template, url_for, redirect, request
 from flask import  jsonify
 import json,os,sys
