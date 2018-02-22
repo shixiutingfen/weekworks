@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>clear命令</strong>用于清除当前屏幕终端上的任何信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+clear</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	直接输入clear命令当前终端上的任何信息就可被清除。</p>
+</div>

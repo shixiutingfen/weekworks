@@ -1,0 +1,148 @@
+<div class="post_bd post">
+<p>
+<strong>partprobe命令</strong>用于重读分区表，当出现删除文件后，出现仍然占用空间。可以partprobe在不重启的情况下重读分区。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+partprobe(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d：不更新内核；
+-s：显示摘要和分区；
+-h：显示帮助信息；
+-v：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	设备：指定需要确认分区表改变的硬盘对应的设备文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用partprobe不重启系统添加新的磁盘分区，主机自带硬盘超过300GB，目前只划分使用了3个主分区，不到70GB，如下：
+</p>
+<pre>
+<span style="color:#B22222;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/df" target="_blank" title="df命令">df</a></span> -h </span>
+Filesystem Size Used Avail Use% Mounted on 
+/dev/sda1 29G 3.7G  24G 14% / 
+/dev/sda2 29G  22G 5.2G 81% /oracle 
+tmpfs    2.0G    0 2.0G  0% /dev/shm</pre>
+<pre>
+<span style="color:#B22222;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/cat" target="_blank" title="cat命令">cat</a></span> /proc/partitions</span>
+major minor  #blocks  name
+
+   8     0  311427072 sda
+   8     1   30716248 sda1
+   8     2   30716280 sda2
+   8     3    8193150 sda3
+   8    16     976896 sdb
+   8    32     976896 sdc
+
+…省略其他
+</pre>
+<p>
+	现在需要给系统添加1个100GB的空间存放数据文件，而又不影响现有系统上业务的运行，使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/fdisk" target="_blank" title="fdisk命令">fdisk</a></span>结合partprobe命令不重启系统添加一块新的磁盘分区。操作步骤如下：
+</p>
+<p>
+<strong>第1步 添加新的磁盘分区</strong>：
+</p>
+<pre>
+<span style="color:#B22222;">[root@localhost ~]# fdisk /dev/sda</span>
+The number of cylinders for this disk is <span class="wp_keywordlink"><a href="http://man.linuxde.net/set" target="_blank" title="set命令">set</a></span> to 38770.
+There is nothing wrong with that, but this is larger than 1024,
+and could in certain setups cause problems with:
+1) software that runs <span class="wp_keywordlink"><a href="http://man.linuxde.net/at" target="_blank" title="at命令">at</a></span> boot <span class="wp_keywordlink"><a href="http://man.linuxde.net/time" target="_blank" title="time命令">time</a></span> (e.g., old versions of <span class="wp_keywordlink"><a href="http://man.linuxde.net/lilo" target="_blank" title="lilo命令">lilo</a></span>)
+2) booting and partitioning software from other OSs
+   (e.g., DOS FDISK, OS/2 FDISK)
+
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span> (m for <span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>): p
+
+Disk /dev/sda: 318.9 GB, 318901321728 bytes
+255 heads, 63 sectors/track, 38770 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   <span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>  System
+/dev/sda1   *           1        3824    30716248+  83  Linux
+/dev/sda2            3825        7648    30716280   83  Linux
+/dev/sda3            7649        8668     8193150   82  Linux swap / Solaris
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Selected partition 4
+First cylinder (8669-38770, default 8669):
+Using default value 8669
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/last" target="_blank" title="last命令">last</a></span> cylinder or +size or +sizeM or +sizeK (8669-38770, default 38770): +100G   
+Command (m for help): <span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>
+The partition table has been altered!
+
+Calling ioctl() to re-<span class="wp_keywordlink"><a href="http://man.linuxde.net/read" target="_blank" title="read命令">read</a></span> partition table.
+
+WARNING: Re-reading the partition table failed with error 16: 
+
+Device or resource busy.
+The kernel still uses the old table.
+The new table will be used at the next <span class="wp_keywordlink"><a href="http://man.linuxde.net/reboot" target="_blank" title="reboot命令">reboot</a></span>.
+Syncing disks.</pre>
+<p>
+<strong>第2步 使用工具partprobe让kernel读取分区信息：</strong>
+</p>
+<pre>
+[root@localhost ~]# partprobe</pre>
+<p>
+	使用fdisk工具只是将分区信息写到磁盘，如果需要<span class="wp_keywordlink"><a href="http://man.linuxde.net/mkfs" target="_blank" title="mkfs命令">mkfs</a></span>磁盘分区则需要重启系统，而使用partprobe则可以使kernel重新读取分区信息，从而避免重启系统。
+</p>
+<p>
+<strong>第3步 格式化文件系统：</strong>
+</p>
+<pre>
+<span style="color:#B22222;">[root@localhost ~]# mkfs.ext3 /dev/sda4</span>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/mke2fs" target="_blank" title="mke2fs命令">mke2fs</a></span> 1.39 (29-May-2006)
+Filesystem label=
+OS <span class="wp_keywordlink"><a href="http://man.linuxde.net/type" target="_blank" title="type命令">type</a></span>: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+12222464 inodes, 24416791 blocks
+1220839 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=4294967296
+746 block <span class="wp_keywordlink"><a href="http://man.linuxde.net/groups" target="_blank" title="groups命令">groups</a></span>
+32768 blocks per group, 32768 fragments per group
+16384 inodes per group
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 
+　　　　2654208, 4096000, 7962624, 11239424, 20480000, 23887872
+
+Writing inode tables: done
+Creating journal (32768 blocks): done
+Writing superblocks and filesystem accounting information:
+
+done
+
+This filesystem will be automatically checked every 26 mounts or
+180 days, whichever comes first.  Use <span class="wp_keywordlink"><a href="http://man.linuxde.net/tune2fs" target="_blank" title="tune2fs命令">tune2fs</a></span> -c or -i to override.
+[root@localhost ~]#</pre>
+<p>
+<strong>第4步 <span class="wp_keywordlink"><a href="http://man.linuxde.net/mount" target="_blank" title="mount命令">mount</a></span>新的分区<code>/dev/sda4</code>：</strong>
+</p>
+<pre>
+[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/e2label" target="_blank" title="e2label命令">e2label</a></span>  /dev/sda4 /data
+[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/mkdir" target="_blank" title="mkdir命令">mkdir</a></span> /data
+[root@localhost ~]# mount /dev/sda4 /data
+[root@localhost ~]# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda1             29753556   3810844  24406900  14% /
+/dev/sda2             29753588  11304616  16913160  41% /oracle
+tmpfs                  2023936         0   2023936   0% /dev/shm
+/dev/sda4             96132968    192312  91057300   1% /data</pre>
+<p>
+	使用partprobe可以不用重启系统即可配合fdisk工具创建新的分区。</p>
+</div>

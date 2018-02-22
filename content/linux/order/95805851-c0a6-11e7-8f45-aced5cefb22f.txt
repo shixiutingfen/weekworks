@@ -1,0 +1,161 @@
+<div class="post_bd post">
+<p>
+<strong>iptables命令</strong>是Linux上常用的防火墙软件，<span style="color: rgb(68, 68, 68); font-family: arial, sans-serif; font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 16px; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none; ">是netfilter项目的一部分。可以直接配置，也可以通过许多前端和图形界面配置。</span>
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+iptables(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-t&lt;表&gt;：指定要操纵的表；
+-A：向规则链中添加条目；
+-D：从规则链中删除条目；
+-i：向规则链中插入条目；
+-R：替换规则链中的条目；
+-L：显示规则链中已有的条目；
+-F：清楚规则链中已有的条目；
+-Z：清空规则链中的数据包计算器和字节计数器；
+-N：创建新的用户自定义规则链；
+-P：定义规则链中的默认目标；
+-h：显示帮助信息；
+-p：指定要匹配的数据包协议类型；
+-s：指定要匹配的数据包源<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址；
+-j&lt;目标&gt;：指定要跳转的目标；
+-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；
+-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</pre>
+<p>
+<strong>iptables命令选项输入顺序：</strong>
+</p>
+<pre>
+iptables -t <span style="color:#FF0000;">表名</span> &lt;-A/I/D/R&gt; <span style="color:#008000;">规则链名</span> [规则号] &lt;-i/o 网卡名&gt; -p 协议名 &lt;-s 源IP/源子网&gt; --sport 源端口 &lt;-d 目标IP/目标子网&gt; --dport 目标端口 -j <span style="color:#800080;">动作</span></pre>
+<p>
+<span style="color:#FF0000;">表名包括：</span>
+</p>
+<ul>
+<li>
+<strong>raw</strong>：高级功能，如：网址过滤。
+	</li>
+<li>
+<strong>mangle</strong>：数据包修改（QOS），用于实现服务质量。
+	</li>
+<li>
+<strong>net</strong>：地址转换，用于网关路由器。
+	</li>
+<li>
+<strong>filter</strong>：包过滤，用于防火墙规则。
+	</li>
+</ul>
+<p>
+<span style="color:#008000;">规则链名包括：</span>
+</p>
+<ul>
+<li>
+<strong>INPUT链</strong>：处理输入数据包。
+	</li>
+<li>
+<strong>OUTPUT链</strong>：处理输出数据包。
+	</li>
+<li>
+<strong>PORWARD链</strong>：处理转发数据包。
+	</li>
+<li>
+<strong>PREROUTING链</strong>：用于目标地址转换（DNAT）。
+	</li>
+<li>
+<strong>POSTOUTING链</strong>：用于源地址转换（SNAT）。
+	</li>
+</ul>
+<p>
+<span style="color:#800080;">动作包括：</span>
+</p>
+<ul>
+<li>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/accept" target="_blank" title="accept命令">accept</a></span></strong>：接收数据包。
+	</li>
+<li>
+<strong>DROP</strong>：丢弃数据包。
+	</li>
+<li>
+<strong>REDIRECT</strong>：重定向、映射、透明代理。
+	</li>
+<li>
+<strong>SNAT</strong>：源地址转换。
+	</li>
+<li>
+<strong>DNAT</strong>：目标地址转换。
+	</li>
+<li>
+<strong>MASQUERADE</strong>：IP伪装（NAT），用于ADSL。
+	</li>
+<li>
+<strong>LOG</strong>：日志记录。
+	</li>
+</ul>
+<h3>
+	实例<br/>
+</h3>
+<p>
+<strong>清除已有iptables规则</strong>
+</p>
+<pre>
+iptables -F
+iptables -X
+iptables -Z</pre>
+<p>
+<strong>开放指定的端口</strong>
+</p>
+<pre>
+iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT              <span style="color:#808080;"> #允许本地回环接口(即运行本机访问本机)</span>
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT    <span style="color:#808080;">#允许已建立的或相关连的通行</span>
+iptables -A OUTPUT -j ACCEPT         <span style="color:#808080;">#允许所有本机向外的访问</span>
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT    <span style="color:#808080;">#允许访问22端口</span>
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT    <span style="color:#808080;">#允许访问80端口</span>
+iptables -A INPUT -p tcp --dport 21 -j ACCEPT    <span style="color:#808080;">#允许<span class="wp_keywordlink"><a href="http://man.linuxde.net/ftp" target="_blank" title="ftp命令">ftp</a></span>服务的21端口</span>
+iptables -A INPUT -p tcp --dport 20 -j ACCEPT   <span style="color:#808080;"> #允许FTP服务的20端口</span>
+iptables -A INPUT -j <span class="wp_keywordlink"><a href="http://man.linuxde.net/reject" target="_blank" title="reject命令">reject</a></span>       <span style="color:#808080;">#禁止其他未允许的规则访问</span>
+iptables -A FORWARD -j REJECT     <span style="color:#808080;">#禁止其他未允许的规则访问</span></pre>
+<p>
+<strong>屏蔽IP</strong>
+</p>
+<pre>
+iptables -I INPUT -s 123.45.6.7 -j DROP       <span style="color:#808080;">#屏蔽单个IP的命令</span>
+iptables -I INPUT -s 123.0.0.0/8 -j DROP      <span style="color:#808080;">#封整个段即从123.0.0.1到123.255.255.254的命令</span>
+iptables -I INPUT -s 124.45.0.0/16 -j DROP    <span style="color:#808080;">#封IP段即从123.45.0.1到123.45.255.254的命令</span>
+iptables -I INPUT -s 123.45.6.0/24 -j DROP    <span style="color:#808080;">#封IP段即从123.45.6.1到123.45.6.254的命令是</span></pre>
+<p>
+<strong>查看已添加的iptables规则</strong>
+</p>
+<pre>
+<span style="color:#FF0000;">iptables -L -n -v</span>
+Chain INPUT (policy DROP 48106 packets, 2690K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 5075  589K ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+ 191K   90M ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:22
+1499K  133M ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:80
+4364K 6351M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           state RELATED,ESTABLISHED
+ 6256  327K ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 3382K packets, 1819M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 5075  589K ACCEPT     all  --  *      lo      0.0.0.0/0            0.0.0.0/0  </pre>
+<p>
+<strong>删除已添加的iptables规则</strong>
+</p>
+<p>
+	将所有iptables以序号标记显示，执行：
+</p>
+<pre>
+iptables -L -n --line-numbers</pre>
+<p>
+	比如要删除INPUT里序号为8的规则，执行：
+</p>
+<pre>
+iptables -D INPUT 8</pre>
+</div>

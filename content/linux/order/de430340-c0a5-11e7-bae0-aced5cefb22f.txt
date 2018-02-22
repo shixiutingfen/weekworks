@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>groupdel命令</strong>用于删除指定的工作组，本命令要修改的系统文件包括/ect/group和/ect/gshadow。若该群组中仍包括某些用户，则必须先删除这些用户后，方能删除群组。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+groupdel(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	组：要删除的工作组名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/groupadd" target="_blank" title="groupadd命令">groupadd</a></span> damon  //创建damon工作组
+groupdel damon  //删除这个工作组</pre>
+</div>

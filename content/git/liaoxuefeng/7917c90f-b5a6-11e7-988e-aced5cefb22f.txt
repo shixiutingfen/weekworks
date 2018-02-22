@@ -1,0 +1,73 @@
+﻿<div class="x-content" style="width:100%">
+<h4>配置别名</h4>
+<div class="x-wiki-info"><span>Reads: 188879</span></div>
+<hr/>
+<div class="x-wiki-content x-main-content"><p>有没有经常敲错命令？比如<code>git status</code>？<code>status</code>这个单词真心不好记。</p>
+<p>如果敲<code>git st</code>就表示<code>git status</code>那就简单多了，当然这种偷懒的办法我们是极力赞成的。</p>
+<p>我们只需要敲一行命令，告诉Git，以后<code>st</code>就表示<code>status</code>：</p>
+<pre><code>$ git config --global alias.st status
+</code></pre><p>好了，现在敲<code>git st</code>看看效果。</p>
+<p>当然还有别的命令可以简写，很多人都用<code>co</code>表示<code>checkout</code>，<code>ci</code>表示<code>commit</code>，<code>br</code>表示<code>branch</code>：</p>
+<pre><code>$ git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+</code></pre><p>以后提交就可以简写成：</p>
+<pre><code>$ git ci -m "bala bala bala..."
+</code></pre><p><code>--global</code>参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。</p>
+<p>在<a href="/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374831943254ee90db11b13d4ba9a73b9047f4fb968d000" target="_blank">撤销修改</a>一节中，我们知道，命令<code>git reset HEAD file</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区。既然是一个unstage操作，就可以配置一个<code>unstage</code>别名：</p>
+<pre><code>$ git config --global alias.unstage 'reset HEAD'
+</code></pre><p>当你敲入命令：</p>
+<pre><code>$ git unstage test.py
+</code></pre><p>实际上Git执行的是：</p>
+<pre><code>$ git reset HEAD test.py
+</code></pre><p>配置一个<code>git last</code>，让其显示最后一次提交信息：</p>
+<pre><code>$ git config --global alias.last 'log -1'
+</code></pre><p>这样，用<code>git last</code>就能显示最近一次的提交：</p>
+<pre><code>$ git last
+commit adca45d317e6d8a4b23f9811c3d7b7f0f180bfe2
+Merge: bd6ae48 291bea8
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Thu Aug 22 22:49:22 2013 +0800
+
+    merge &amp; fix hello.py
+</code></pre><p>甚至还有人丧心病狂地把<code>lg</code>配置成了：</p>
+<pre><code>git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"
+</code></pre><p>来看看<code>git lg</code>的效果：</p>
+<p><img alt="git-lg" src="/files/attachments/00138492662982594cbd1a942114472aeeb5f0a502faed1000/0"/></p>
+<p>为什么不早点告诉我？别激动，咱不是为了多记几个英文单词嘛！</p>
+<h3><a name="#-E9-85-8D-E7-BD-AE-E6-96-87-E4-BB-B6"></a>配置文件</h3>
+<p>配置Git的时候，加上<code>--global</code>是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</p>
+<p>配置文件放哪了？每个仓库的Git配置文件都放在<code>.git/config</code>文件中：</p>
+<pre><code>$ cat .git/config 
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+[remote "origin"]
+    url = git@github.com:michaelliao/learngit.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[alias]
+    last = log -1
+</code></pre><p>别名就在<code>[alias]</code>后面，要删除别名，直接把对应的行删掉即可。</p>
+<p>而当前用户的Git配置文件放在用户主目录下的一个隐藏文件<code>.gitconfig</code>中：</p>
+<pre><code>$ cat .gitconfig
+[alias]
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
+[user]
+    name = Your Name
+    email = your@email.com
+</code></pre><p>配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。</p>
+<h3><a name="#-E5-B0-8F-E7-BB-93"></a>小结</h3>
+<p>给Git配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。</p>
+</div>
+
+</div>

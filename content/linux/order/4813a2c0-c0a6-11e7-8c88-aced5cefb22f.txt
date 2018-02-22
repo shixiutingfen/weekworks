@@ -1,0 +1,24 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/dpkg" target="_blank" title="dpkg命令">dpkg</a></span>-trigger命令</strong>是Debian Linux下的软件包触发器。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dpkg-trigger(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--check-supported：检查运行的dpkg是否支持触发器，返回值为0，则支持触发器。
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助信息；
+--admindir=&lt;目录&gt;：设置dpkg数据库所在的目录；
+--no-act：仅用于测试，不执行任何操作；
+--by-package=&lt;软件包&gt;：覆盖触发器等待者。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	触发器名：指定触发器名称。</p>
+</div>

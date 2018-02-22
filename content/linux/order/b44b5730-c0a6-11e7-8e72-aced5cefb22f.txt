@@ -1,0 +1,24 @@
+<div class="post_bd post">
+<p>
+<strong>rlogin命令</strong>用于从当前终端登录到远程Linux主机。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rlogin(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-8：允许输入8位字符数据；
+-e脱离字符&gt;：设置脱离字符；
+-E：滤除脱离字符；
+-l用户名称&gt;：指定要登入远端主机的用户名称；
+-L：使用litout模式进行远端登入阶段操作。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	远程主机：指定要登录的远程主机（<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址或者域名）。</p>
+</div>

@@ -1,0 +1,104 @@
+<div class="post_bd post">
+<p>
+<strong>hdparm命令</strong>提供了一个命令行的接口用于读取和设置IDE或SCSI硬盘参数。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+hdparm(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a&lt;快取分区&gt;：设定读取文件时，预先存入块区的分区数，若不加上&lt;快取分区&gt;选项，则显示目前的设定；
+-A&lt;0或1&gt;：启动或关闭读取文件时的快取功能；
+-c&lt;I/O模式&gt;：设定IDE32位I/O模式；
+-C：检测IDE硬盘的电源管理模式；
+-d&lt;0或1&gt;：设定磁盘的DMA模式；
+-f：将内存缓冲区的数据写入硬盘，并清楚缓冲区；
+-g：显示硬盘的磁轨，磁头，磁区等参数；
+-h：显示帮助；
+-i：显示硬盘的硬件规格信息，这些信息是在开机时由硬盘本身所提供；
+-I：直接读取硬盘所提供的硬件规格信息；
+-k&lt;0或1&gt;：重设硬盘时，保留-dmu参数的设定；
+-K&lt;0或1&gt;：重设硬盘时，保留-APSWXZ参数的设定；
+-m&lt;磁区数&gt;：设定硬盘多重分区存取的分区数；
+-n&lt;0或1&gt;：忽略硬盘写入时所发生的错误；
+-p&lt;PIO模式&gt;：设定硬盘的PIO模式；
+-P&lt;磁区数&gt;：设定硬盘内部快取的分区数；
+-q:在执行后续的参数时，不在屏幕上显示任何信息；
+-r&lt;0或1&gt;:设定硬盘的读写模式；
+-S&lt;时间&gt;:设定硬盘进入省电模式前的等待时间；
+-t;评估硬盘的读取效率；
+-T：平谷硬盘快取的读取效率；
+-u&lt;0或1&gt;：在硬盘存取时，允许其他中断要求同时执行；
+-v：显示硬盘的相关设定；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>&lt;0或1&gt;：设定硬盘的写入快取；
+-X&lt;传输模式&gt;：设定硬盘的传输模式；
+-y：使IDE硬盘进入省电模式；
+-Y：使IDE硬盘进入睡眠模式；
+-Z：关闭某些Seagate硬盘的自动省电功能。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	设备文件：指定<span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>驱动对应的设备文件名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示硬盘的相关设置：
+</p>
+<pre>
+<span style="color:#FF0000;">hdparm /dev/sda</span>
+/dev/sda:
+IO_support = 0 (default 16-bit)
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/readonly" target="_blank" title="readonly命令">readonly</a></span> = 0 (off)
+readahead = 256 (on)
+geometry = 19457［柱面数］/255［磁头数］/63［扇区数］, sectors = 312581808［总扇区数］, start = 0［起始扇区数］
+</pre>
+<p>
+	显示硬盘的柱面、磁头、扇区数：
+</p>
+<pre>
+<span style="color:#FF0000;">hdparm -g /dev/sda</span>
+/dev/sda:
+geometry = 19457［柱面数］/255［磁头数］/63［扇区数］, sectors = 312581808［总扇区数］, start = 0［起始扇区数］</pre>
+<p>
+	测试硬盘的读取速度：
+</p>
+<pre>
+<span style="color:#FF0000;">hdparm -T /dev/sda</span>
+/dev/sda:
+ Timing cached reads:   4684 MB in  2.00 seconds = 2342.92 MB/sec</pre>
+<p>
+	测试硬盘缓存的读取速度：
+</p>
+<pre>
+<span style="color:#FF0000;">hdparm -T /dev/xvda</span>
+/dev/xvda:
+Timing cached reads: 11154 MB in 1.98 seconds = 5633.44 MB/sec
+</pre>
+<p>
+	检测硬盘的电源管理模式：
+</p>
+<pre>
+<span style="color:#FF0000;">hdparm -C /dev/sda</span>
+/dev/sda:
+drive state is: standby [省电模式]</pre>
+<p>
+	查询并设置硬盘多重扇区存取的扇区数，以增进硬盘的存取效率：
+</p>
+<pre>
+hdparm -m /dev/sda
+hdparm -m    <span style="color:#A9A9A9;">#参数值为整数值如8 /dev/sda</span></pre>
+<p>
+<strong>附：硬盘坏道修复方法</strong>
+</p>
+<pre>
+检查：smartctl -l selftest /dev/sda
+卸载：<span class="wp_keywordlink"><a href="http://man.linuxde.net/umount" target="_blank" title="umount命令">umount</a></span> /dev/sda*
+修复：<span class="wp_keywordlink"><a href="http://man.linuxde.net/badblocks" target="_blank" title="badblocks命令">badblocks</a></span> /dev/sda</pre>
+</div>

@@ -1,0 +1,29 @@
+<div class="post_bd post">
+<p>
+<strong>swapoff命令</strong>用于关闭指定的交换空间（包括交换文件和交换分区）。swapoff实际上为<span class="wp_keywordlink"><a href="http://man.linuxde.net/swapon" target="_blank" title="swapon命令">swapon</a></span>的符号连接，可用来关闭系统的交换区。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+swapoff(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a：关闭配置文件“/etc/fstab”中所有的交换空间。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	交换空间：指定需要激活的交换空间，可以是交换文件和交换分区，如果是交换分区则指定交换分区对应的设备文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	关闭交换分区
+</p>
+<pre>
+swapoff /dev/sda2</pre>
+</div>

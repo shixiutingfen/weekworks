@@ -1,0 +1,63 @@
+<div class="post_bd post">
+<p>
+<strong>ftp命令</strong>用来设置文件系统相关功能。ftp服务器在网上较为常见，Linux ftp命令的功能是用命令的方式来控制在本地机和远程机之间传送文件，这里详细介绍Linux ftp命令的一些经常使用的命令，相信掌握了这些使用Linux进行ftp操作将会非常容易。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ftp(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d：详细显示指令执行过程，便于排错或分析程序执行的情况；
+-i：关闭互动模式，不询问任何问题；
+-g：关闭本地主机文件名称支持特殊字符的扩充特性；
+-n：不使用自动登录；
+-v：显示指令执行过程。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	主机：指定要连接的FTP服务器的主机名或<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+FTP&gt;ascii: 设定以ASCII方式传送文件(缺省值)
+FTP&gt;bell: 每完成一次文件传送,报警提示.
+FTP&gt;binary: 设定以二进制方式传送文件.
+FTP&gt;bye: 终止主机FTP进程,并退出FTP管理方式.
+FTP&gt;case: 当为ON时,用MGET命令拷贝的文件名到本地机器中,全部转换为小写字母.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/cd" target="_blank" title="cd命令">cd</a></span>: 同UNIX的CD命令.
+FTP&gt;cdup: 返回上一级目录.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/chmod" target="_blank" title="chmod命令">chmod</a></span>: 改变远端主机的文件权限.
+FTP&gt;close: 终止远端的FTP进程,返回到FTP命令状态, 所有的宏定义都被删除.
+FTP&gt;delete: 删除远端主机中的文件.
+FTP&gt;dir [remote-directory] [local-<span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span>] 列出当前远端主机目录中的文件.如果有本地文件,就将结果写至本地文件.
+FTP&gt;get [remote-file] [local-file] 从远端主机中传送至本地主机中.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span> [<span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span>] 输出命令的解释.
+FTP&gt;lcd: 改变当前本地主机的工作目录,如果缺省,就转到当前用户的HOME目录.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span> [remote-directory] [local-file] 同DIR.
+FTP&gt;macdef: 定义宏命令.
+FTP&gt;mdelete [remote-files] 删除一批文件.
+FTP&gt;mget [remote-files] 从远端主机接收一批文件至本地主机.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/mkdir" target="_blank" title="mkdir命令">mkdir</a></span> directory-name 在远端主机中建立目录.
+FTP&gt;mput local-files 将本地主机中一批文件传送至远端主机.
+FTP&gt;open <span class="wp_keywordlink"><a href="http://man.linuxde.net/host" target="_blank" title="host命令">host</a></span> [port] 重新建立一个新的连接.
+FTP&gt;prompt: 交互提示模式.
+FTP&gt;put local-file [remote-file] 将本地一个文件传送至远端主机中.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/pwd" target="_blank" title="pwd命令">pwd</a></span>: 列出当前远端主机目录.
+FTP&gt;quit: 同BYE.
+FTP&gt;recv remote-file [local-file] 同GET.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/rename" target="_blank" title="rename命令">rename</a></span> [from] [to] 改变远端主机中的文件名.
+FTP&gt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/rmdir" target="_blank" title="rmdir命令">rmdir</a></span> directory-name 删除远端主机中的目录.
+FTP&gt;send local-file [remote-file] 同PUT.
+FTP&gt;status: 显示当前FTP的状态.
+FTP&gt;system: 显示远端主机系统类型.
+FTP&gt;user user-name [password] [account] 重新以别的用户名登录远端主机.
+FTP&gt;? [command]: 同HELP. [command]指定需要帮助的命令名称。如果没有指定 command，ftp 将显示全部命令的列表。
+FTP&gt;! 从 ftp 子系统退出到外壳。</pre>
+</div>

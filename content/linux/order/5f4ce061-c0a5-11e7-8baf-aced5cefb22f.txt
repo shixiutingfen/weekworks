@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>tac命令</strong>用于将文件已行为单位的反序输出，即第一行最后显示，最后一行先显示。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+tac(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a或——append：将内容追加到文件的末尾；
+-i或——ignore-interrupts：忽略中断信号。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件列表：指定要保存内容的文件列表。</p>
+</div>

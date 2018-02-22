@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>mesg命令</strong>用于设置当前终端的写权限，即是否让其他用户向本终端发信息。将mesg设置y时，其他用户可利用<span class="wp_keywordlink"><a href="http://man.linuxde.net/write" target="_blank" title="write命令">write</a></span>命令将信息直接显示在您的屏幕上。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+mesg(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	y/n：y表示运行向当前终端写信息，n表示禁止向当前终端写信息。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+[root@localhost ~]# mesg y    <span style="color:#808080;">#允许系统用户将信息直接显示在你的屏幕上。</span>
+[root@localhost ~]# mesg n    <span style="color:#808080;">#不允许系统用户将信息直接显示在你的屏幕上。</span></pre>
+</div>

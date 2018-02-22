@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>userdel命令</strong>用于删除给定的用户，以及与用户相关的文件。若不加选项，则仅删除用户帐号，而不删除相关文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+userdel(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-f：强制删除用户，即使用户当前已登录；
+-r：删除用户的同时，删除与用户相关的所有文件。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	用户名：要删除的用户名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	userdel命令很简单，比如我们现在有个用户linuxde，其家目录位于<code>/var</code>目录中，现在我们来删除这个用户：
+</p>
+<pre>
+userdel linuxde       //删除用户linuxde，但不删除其家目录及文件；
+userdel -r linuxde    //删除用户linuxde，其家目录及文件一并删除；</pre>
+<p>
+	请不要轻易用<code>-r</code>选项；他会删除用户的同时删除用户所有的文件和目录，切记如果用户目录下有重要的文件，在删除前请备份。
+</p>
+<p>
+	其实也有最简单的办法，但这种办法有点不安全，也就是直接在<code>/etc/<span class="wp_keywordlink"><a href="http://man.linuxde.net/passwd" target="_blank" title="passwd命令">passwd</a></span></code>中删除您想要删除用户的记录；但最好不要这样做，<code>/etc/passwd</code>是极为重要的文件，可能您一不小心会操作失误。</p>
+</div>

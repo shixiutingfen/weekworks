@@ -1,0 +1,39 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/dpkg" target="_blank" title="dpkg命令">dpkg</a></span>-<span class="wp_keywordlink"><a href="http://man.linuxde.net/split" target="_blank" title="split命令">split</a></span>命令</strong>用来将Debian Linux中的大软件包分割成小软件包，它还能够将已分割的文件进行合并。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dpkg-split(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-S：设置分割后的每个小文件最大尺寸（以字节为单位）；
+-s：分割软件包；
+-j&lt;分块文件&gt;&lt;分块文件&gt;：把各个分块合并到一起；
+-I&lt;分块文件&gt;：显示分块文件的相关信息；
+-l：列出不匹配的部分；
+-dscard&lt;文件名&gt;：忽略不匹配的部分。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	软件包：指定需要分割的“.deb”软件包。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	把foo.deb分割出N个大小为460KB的文件：
+</p>
+<pre>
+dpkg-split -s foo.deb</pre>
+<p>
+	合并分割文件：
+</p>
+<pre>
+dpkg-split -j "foo*"</pre>
+</div>

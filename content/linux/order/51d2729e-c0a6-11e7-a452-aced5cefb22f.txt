@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/dpkg" target="_blank" title="dpkg命令">dpkg</a></span>-statoverride命令</strong>用于Debian Linux中覆盖文件的所有权和模式，让dpkg于包安装时使得文件所有权与模式失效。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dpkg-statoverride(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-add：为文件添加一个改写；
+--remove：为文件删除一个改写；
+--list：显示所有改写列表；
+--update：如果文件存在，则立刻执行改写操作。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	修改文件夹的权限属性：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/sudo" target="_blank" title="sudo命令">sudo</a></span> dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3</pre>
+<p>
+	强制修改文件夹的权限属性：
+</p>
+<pre>
+sudo dpkg-statoverride --force --update --add root sasl 755 /var/spool/postfix/var/run/saslauthd</pre>
+<p>
+	将文件从数据库中删除：
+</p>
+<pre>
+sudo dpkg-statoverride --remove /usr/bin/<span class="wp_keywordlink"><a href="http://man.linuxde.net/wall" target="_blank" title="wall命令">wall</a></span></pre>
+</div>

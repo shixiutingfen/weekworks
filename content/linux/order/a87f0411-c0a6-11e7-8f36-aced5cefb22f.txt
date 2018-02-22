@@ -1,0 +1,45 @@
+<div class="post_bd post">
+<p>
+<strong>nfsstat命令</strong>用于列出NFS客户端和服务器的工作状态。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+nfsstat(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-s：仅列出NFS服务器端状态；
+-c：仅列出NFS客户端状态；
+-n：仅列出NFS状态，默认显示nfs客户端和服务器的状态；
+-2：仅列出NFS版本2的状态；
+-3：仅列出NFS版本3的状态；
+-4：仅列出NFS版本4的状态；
+-m：打印以加载的nfs文件系统状态；
+-r：仅打印rpc状态。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	要显示关于客户机发送和拒绝的RPC和NFS调用数目的信息，输入：
+</p>
+<pre>
+nfsstat -c</pre>
+<p>
+	要显示和打印与客户机NFS调用相关的信息，输入如下命令：
+</p>
+<pre>
+nfsstat -cn</pre>
+<p>
+	要显示和打印客户机和服务器的与RPC调用相关的信息，输入如下命令：
+</p>
+<pre>
+nfsstat -r</pre>
+<p>
+	要显示关于服务器接收和拒绝的RPC和NFS调用数目的信息，输入如下命令：
+</p>
+<pre>
+nfsstat –s</pre>
+</div>

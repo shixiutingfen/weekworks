@@ -1,0 +1,49 @@
+<div class="post_bd post">
+<p>
+<strong>readonly命令</strong>用于定义只读shell变量和shell函数。readonly命令的选项-p可以输出显示系统中所有定义的只读变量。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+readonly(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-f：定义只读函数；
+-a：定义只读数组变量；
+-p：显示系统中全部只读变量列表。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	变量定义：定义变量，格式为“变量名=‘变量值’”。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用readonly命令显示系统中所有的已经定义的只读变量，输入如下命令：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# readonly</span>    <span style="color:#A9A9A9;"> #显示只读变量</span>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/declare" target="_blank" title="declare命令">declare</a></span> -ar BASH_VERSINFO='([0]="3" [1]="2" [2]="25" [3]="1" [4]="release" [5]="i686-redhat-linux-gnu")'
+declare -ir EUID="0"
+declare -ir PPID="31436"
+declare -r SHELLOPTS="braceexpand:<span class="wp_keywordlink"><a href="http://man.linuxde.net/emacs" target="_blank" title="emacs命令">emacs</a></span>:hashall:histexpand:<span class="wp_keywordlink"><a href="http://man.linuxde.net/history" target="_blank" title="history命令">history</a></span>:interactive-comments:monitor"
+declare -ir UID="0"</pre>
+<p>
+	对于只读变量而言，若用户对其值进行修改，则会立即报错。例如，使用该指令定义一个只读变量"<span class="wp_keywordlink"><a href="http://man.linuxde.net/test" target="_blank" title="test命令">test</a></span>"，并且将其值初始化为"ok"，输入如下命令：
+</p>
+<pre>
+[root@localhost ~]# readonly test='ok'        <span style="color:#A9A9A9;"> #定义只读变量并初始化 </span></pre>
+<p>
+	那么当用户直接修改该只读变量时，就会被报错，如下所示：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# test='my'</span>                 <span style="color:#A9A9A9;">#试图修改只读变量的值</span>
+-bash: test: readonly variable</pre>
+<p>
+	当用户试图修改只读变量的值时，会被提示该变量为只读变量。</p>
+</div>

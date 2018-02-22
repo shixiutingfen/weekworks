@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>wc命令</strong>用来计算数字。利用wc指令我们可以计算文件的Byte数、字数或是列数，若不指定文件名称，或是所给予的文件名为“-”，则wc指令会从标准输入设备读取数据。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+wc(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c或--bytes或——chars：只显示Bytes数；
+-l或——lines：只显示列数；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>或——words：只显示字数。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：需要统计的文件列表。</p>
+</div>

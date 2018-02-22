@@ -1,0 +1,31 @@
+<div class="post_bd post">
+<p>
+<strong>poweroff命令</strong>用来关闭计算机操作系统并且切断系统电源。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+poweroff(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-n：关闭操作系统时不执行<span class="wp_keywordlink"><a href="http://man.linuxde.net/sync" target="_blank" title="sync命令">sync</a></span>操作；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>：不真正关闭操作系统，仅在日志文件“/var/log/wtmp”中；
+-d：关闭操作系统时，不将操作写入日志文件“/var/log/wtmp”中添加相应的记录；
+-f：强制关闭操作系统；
+-i：关闭操作系统之前关闭所有的网络接口；
+-h：关闭操作系统之前将系统中所有的硬件设置为备用模式。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	如果确认系统中已经没有用户存在且所有数据都已保存，需要立即关闭系统，可以使用poweroff命令。
+</p>
+<p>
+	使用poweroff立即关闭系统：
+</p>
+<pre>
+poweroff</pre>
+</div>

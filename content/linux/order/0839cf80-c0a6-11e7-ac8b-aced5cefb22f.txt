@@ -1,0 +1,38 @@
+<div class="post_bd post">
+<p>
+<strong>help命令</strong>用于显示shell内部命令的帮助信息。help命令只能显示shell内部的命令帮助信息。而对于外部命令的帮助信息只能使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/man" target="_blank" title="man命令">man</a></span>或者<span class="wp_keywordlink"><a href="http://man.linuxde.net/info" target="_blank" title="info命令">info</a></span>命令查看。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+help(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-s：输出短格式的帮助信息。仅包括命令格式。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	内部命令：指定需要显示帮助信息的shell内部命令。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用help命令显示shell内部<span class="wp_keywordlink"><a href="http://man.linuxde.net/shopt" target="_blank" title="shopt命令">shopt</a></span>命令的帮助信息，输入如下命令：
+</p>
+<pre>
+<span style="color:#FF0000;">help shopt</span>                <span style="color:#A9A9A9;">#获取shopt命令的帮助信息</span>
+shopt: shopt [-pqsu] [-o long-option] optname [optname...]
+    Toggle the values of variables controlling optional behavior.
+    The -s flag means to <span class="wp_keywordlink"><a href="http://man.linuxde.net/enable" target="_blank" title="enable命令">enable</a></span> (<span class="wp_keywordlink"><a href="http://man.linuxde.net/set" target="_blank" title="set命令">set</a></span>) each OPTNAME; the -u flag
+    unsets each OPTNAME.  The -q flag suppresses output; the <span class="wp_keywordlink"><a href="http://man.linuxde.net/exit" target="_blank" title="exit命令">exit</a></span>
+    status indicates whether each OPTNAME is set or <span class="wp_keywordlink"><a href="http://man.linuxde.net/unset" target="_blank" title="unset命令">unset</a></span>.  The -o
+    option restricts the OPTNAMEs to those defined for use with
+    `set -o'.  With no options, or with the -p option, a list of all
+    settable options is displayed, with an indication of whether or
+    not each is set.</pre>
+</div>

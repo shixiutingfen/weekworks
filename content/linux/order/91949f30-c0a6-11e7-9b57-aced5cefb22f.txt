@@ -1,0 +1,16 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/ip6tables" target="_blank" title="ip6tables命令">ip6tables</a></span>-<span class="wp_keywordlink"><a href="http://man.linuxde.net/restore" target="_blank" title="restore命令">restore</a></span>命令</strong>用来还原ip6tables表。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ip6tables-restore(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c：指定在还原<span class="wp_keywordlink"><a href="http://man.linuxde.net/iptables" target="_blank" title="iptables命令">iptables</a></span>表时，还原当前的数据包计数器和字节计数器值；
+-t：指定要还原的表的名称。</pre>
+</div>

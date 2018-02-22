@@ -1,0 +1,37 @@
+<div class="post_bd post">
+<p>
+<strong>killall命令</strong>使用进程的名称来杀死进程，使用此指令可以杀死一组同名进程。我们可以使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/kill" target="_blank" title="kill命令">kill</a></span>命令杀死指定进程PID的进程，如果要找到我们需要杀死的进程，我们还需要在之前使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/ps" target="_blank" title="ps命令">ps</a></span>等命令再配合<span class="wp_keywordlink"><a href="http://man.linuxde.net/grep" target="_blank" title="grep命令">grep</a></span>来查找进程，而killall把这两个过程合二为一，是一个很好用的命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+killall(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-e：对长名称进行精确匹配；
+-l：忽略大小写的不同；
+-p：杀死进程所属的进程组；
+-i：交互式杀死进程，杀死进程前需要进行确认；
+-l：打印所有已知信号列表；
+-q：如果没有进程被杀死。则不输出任何信息；
+-r：使用正规表达式匹配要杀死的进程名称；
+-s：用指定的进程号代替默认信号“SIGTERM”；
+-u：杀死指定用户的进程。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	进程名称：指定要杀死的进程名称。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	杀死所有同名进程
+</p>
+<pre>
+killall <span class="wp_keywordlink"><a href="http://man.linuxde.net/vi" target="_blank" title="vi命令">vi</a></span></pre>
+</div>

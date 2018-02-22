@@ -1,0 +1,33 @@
+<div class="post_bd post">
+<p>
+<strong>builtin命令</strong>用于执行指定的shell内部命令，并返回内部命令的返回值。builtin命令在使用时，将不能够再使用Linux中的外部命令。当系统中定义了与shell内部命令相同的函数时，使用builtin显式地执行shell内部命令，从而忽略定义的shell函数。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+builtin(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	shell内部命令：指定需要执行的shell内部命令。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用builtin命令执行shell内部命<span class="wp_keywordlink"><a href="http://man.linuxde.net/alias" target="_blank" title="alias命令">alias</a></span>显示命令别名，输入如下命令：
+</p>
+<pre>
+<span style="color:#FF0000;">builtin alias</span>                 <span style="color:#A9A9A9;">#执行shell内部指令</span>
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/cp" target="_blank" title="cp命令">cp</a></span>='cp -i'
+alias l.='<span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span> -d .* --color=tty'
+alias ll='ls -l --color=tty'
+alias ls='ls --color=tty'
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/mv" target="_blank" title="mv命令">mv</a></span>='mv -i'
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/rm" target="_blank" title="rm命令">rm</a></span>='rm -i'
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/which" target="_blank" title="which命令">which</a></span>='alias | /usr/bin/which --tty-only --<span class="wp_keywordlink"><a href="http://man.linuxde.net/read" target="_blank" title="read命令">read</a></span>-alias --show-dot --show-tilde'</pre>
+<p>
+	上面的命令执行后，将输出当前系统下的命令别名。</p>
+</div>

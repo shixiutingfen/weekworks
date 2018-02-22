@@ -1,0 +1,39 @@
+<div class="post_bd post">
+<p>
+<strong>apachectl命令</strong>是Apache的Web服务器前端控制工具，用以启动、关闭和重新启动Web服务器进程。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+apachectl(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		configtest：检查设置文件中的语法是否正确；
+	</li>
+<li>
+		fullstatus：显示服务器完整的状态信息；
+	</li>
+<li>
+		graceful：重新启动Apache服务器，但不会中断原有的连接；
+	</li>
+<li>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助信息；
+	</li>
+<li>
+		restart：重新启动Apache服务器；
+	</li>
+<li>
+		start：启动Apache服务器；
+	</li>
+<li>
+		status：显示服务器摘要的状态信息；
+	</li>
+<li>
+		stop：停止Apache服务器。
+	</li>
+</ul>
+</div>

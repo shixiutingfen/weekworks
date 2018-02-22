@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>egrep命令</strong>用于在文件内查找指定的字符串。egrep执行效果与<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/grep" target="_blank" title="grep命令">grep</a></span> -E</code>相似，使用的语法及参数可参照grep指令，与grep的不同点在于解读字符串的方法。egrep是用extended regular expression语法来解读的，而grep则用basic regular expression 语法解读，extended regular expression比basic regular expression的表达更规范。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+egrep(选项)(查找模式)(文件名1，文件名2，……)</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示文件中符合条件的字符。例如，查找当前目录下所有文件中包含字符串"Linux"的文件，可以使用如下命令：
+</p>
+<pre>
+egrep Linux *</pre>
+<p>
+	结果如下所示：
+</p>
+<pre>
+#以下五行为 testfile 中包含Linux字符的行
+testfile:hello Linux!
+testfile:Linux is a <span class="wp_keywordlink"><a href="http://man.linuxde.net/free" target="_blank" title="free命令">free</a></span> Unix-<span class="wp_keywordlink"><a href="http://man.linuxde.net/type" target="_blank" title="type命令">type</a></span> operating system.
+testfile:This is a Linux testfile!
+testfile:Linux
+testfile:Linux
+
+#以下两行为testfile1中含Linux字符的行
+testfile1:helLinux!
+testfile1:This a Linux testfile!
+
+#以下两行为 testfile_2 中包含Linux字符的行
+testfile_2:Linux is a free unix-type opterating system
+testfile_2:Linux <span class="wp_keywordlink"><a href="http://man.linuxde.net/test" target="_blank" title="test命令">test</a></span></pre>
+</div>

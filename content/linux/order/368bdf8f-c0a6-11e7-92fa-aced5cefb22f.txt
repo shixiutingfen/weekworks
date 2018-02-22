@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>mktemp命令</strong>被用来创建临时文件供shell脚本使用。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+mktemp(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-q：执行时若发生错误，不会显示任何信息；
+-u：暂存文件会在mktemp结束前先行删除；
+-d：创建一个目录而非文件。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定创建的临时文件。</p>
+</div>

@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>bzcmp命令</strong>主要功能是在不真正解压缩.bz2压缩包的情况下，比较两个压缩包中的文件，省去了解压缩后在调用<span class="wp_keywordlink"><a href="http://man.linuxde.net/cmp" target="_blank" title="cmp命令">cmp</a></span>命令的过程。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bzcmp(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		文件1：指定要比较的第一个.bz2压缩包；
+	</li>
+<li>
+		文件2：指定要比较的第二个.bz2压缩包。
+	</li>
+</ul>
+</div>

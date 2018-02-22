@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>ifdown命令</strong>用于禁用指定的网络接口。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ifdown(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	网络接口：要禁用的网络接口。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+ifdown eth0  <span style="color:#808080;">#禁用eth0</span></pre>
+</div>

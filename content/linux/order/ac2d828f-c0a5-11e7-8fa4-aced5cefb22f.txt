@@ -1,0 +1,35 @@
+<div class="post_bd post">
+<p>
+	使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/seinfo" target="_blank" title="seinfo命令">seinfo</a></span>命令可以查询SELinux的策略提供多少相关规则，如果查到的相关类型或者布尔值，想要知道详细规则时，使用<strong>sesearch命令</strong>查询。SELinux的策略与规则管理相关命令：seinfo命令、sesearch命令、<span class="wp_keywordlink"><a href="http://man.linuxde.net/getsebool" target="_blank" title="getsebool命令">getsebool</a></span>命令、<span class="wp_keywordlink"><a href="http://man.linuxde.net/setsebool" target="_blank" title="setsebool命令">setsebool</a></span>命令、<span class="wp_keywordlink"><a href="http://man.linuxde.net/semanage" target="_blank" title="semanage命令">semanage</a></span>命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+sesearch [-a] [-s 主体类型] [-t 目标类型] [-b 布尔值]</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a:列出该类型或布尔值的所有相关信息
+-t:后面还要接类型，例如 -t httpd_t
+-b:后面还要接布尔值的规则，例如 -b httpd_enable_ftp_server</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	找出目标文件资源类型为<code>httpd_sys_content_t</code>的有关信息：
+</p>
+<pre>
+sesearch -a -t httpd_sys_content_t</pre>
+<p>
+	找出主体进程为<code>httpd_t</code>且目标文件类型为<span class="wp_keywordlink"><a href="http://man.linuxde.net/httpd" target="_blank" title="httpd命令">httpd</a></span>相关的所有信息：
+</p>
+<pre>
+sesearch -s httpd_t -t httpd_* -a</pre>
+<p>
+	查看布尔值<code>httpd_enable_homedirs</code>设置了多少规则
+</p>
+<pre>
+sesearch -b httpd_enable_homedirs -a</pre>
+</div>

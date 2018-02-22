@@ -1,0 +1,16 @@
+<div class="post_bd post">
+<p>
+<strong>ftpwho命令</strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/ftp" target="_blank" title="ftp命令">ftp</a></span>服务器套件proftpd的工作指令，用于显示当前每个ftp会话信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ftpwho(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-h：显示帮助信息；
+-v：详细模式，输出更多信息。</pre>
+</div>

@@ -1,0 +1,42 @@
+<div class="post_bd post">
+<p>
+<strong>ipcalc命令</strong>是一个简单的<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址计算器，可以完成简单的IP地址计算任务。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ipcalc(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-b：由给定的IP地址和网络掩码计算出广播地址；
+-h：显示给定UP地址所对应的主机名；
+-m：由给定的IP地址计算器网络掩码；
+-p：显示给定的掩码或IP地址的前缀；
+-n：由给定的IP地址和网络掩码计算网络地址；
+-s：安静模式；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+[root@localhost ~]# <span style="color:#FF0000;">ipcalc -p 192.168.2.1 255.255.255.0</span>
+PREFIX=24
+
+[root@localhost ~]# <span style="color:#FF0000;">ipcalc -n 192.168.2.1 255.255.255.0</span>
+NETWORK=192.168.2.0
+
+[root@localhost ~]# <span style="color:#FF0000;">ipcalc -h 127.0.0.1</span>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/hostname" target="_blank" title="hostname命令">hostname</a></span>=localhost.localdomain
+
+[root@localhost ~]# <span style="color:#FF0000;">ipcalc -m 192.168.2.1</span>
+NETMASK=255.255.255.0
+
+[root@localhost ~]# <span style="color:#FF0000;">ipcalc -pnbm 192.168.2.1 255.255.255.0</span>
+NETMASK=255.255.255.0
+PREFIX=24
+BROADCAST=192.168.2.255
+NETWORK=192.168.2.0</pre>
+</div>

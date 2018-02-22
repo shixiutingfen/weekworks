@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>hostid命令</strong>用于打印当前主机的十六进制数字标识。是主机的唯一标识，是被用来限时软件的使用权限，不可改变。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+hostid</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助信息；
+--version：显示版本信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# hostid</span>
+007f0100</pre>
+</div>

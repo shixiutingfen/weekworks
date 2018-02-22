@@ -1,0 +1,16 @@
+<div class="post_bd post">
+<p>
+<strong>logname命令</strong>用来显示用户名称。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+logname(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+--vesion：显示版本信息。</pre>
+</div>

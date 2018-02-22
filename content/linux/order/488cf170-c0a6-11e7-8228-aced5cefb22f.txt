@@ -1,0 +1,17 @@
+<div class="post_bd post">
+<p>
+<strong>rcconf命令</strong>是Debian Linux下的运行等级服务配置工具，用以设置在特定的运行等级下系统服务的启动配置。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rcconf(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：打印帮助信息；
+--dialog：使用对话命令显示菜单；
+--notermcheck：不按照终端属性来设置窗口尺寸。</pre>
+</div>

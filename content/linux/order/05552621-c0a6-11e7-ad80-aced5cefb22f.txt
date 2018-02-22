@@ -1,0 +1,92 @@
+<div class="post_bd post">
+<p>
+<strong>enable命令</strong>用于临时关闭或者激活指定的shell内部命令。若要执行的文件名称与shell内建命令相同，可用<code>enable -n</code>来关闭shell内建命令。若不加<code>-n</code>选项，enable可重新启动关闭的命令。
+</p>
+<p>
+	linux shell命令执行时，shell总是先在自己的shell <span class="wp_keywordlink"><a href="http://man.linuxde.net/builtin" target="_blank" title="builtin命令">builtin</a></span>中查找该命令，如果找到则执行该命令；如果找不到该命令，则会从环境变量$PATH指定的路径中依次去查找待执行的命令。因为了解了这一点，所以看起来好像没有办法编写用户自己的命令来替代shell builtin命令。幸运的是，有了enable命令我们就能做到了。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+enable(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-n：关闭指定的内部命令；
+-a：显示所有激活的内部命令；
+-f：从指定文件中读取内部命令。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	内部命令：指定要关闭或激活的内部命令。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用enable命令显示所有激活的内部命令：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# enable -a</span>
+enable .
+enable :
+enable [
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/alias" target="_blank" title="alias命令">alias</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/bg" target="_blank" title="bg命令">bg</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/bind" target="_blank" title="bind命令">bind</a></span>
+enable break
+enable builtin
+enable caller
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/cd" target="_blank" title="cd命令">cd</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span>
+enable compgen
+enable complete
+enable continue
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/declare" target="_blank" title="declare命令">declare</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/dirs" target="_blank" title="dirs命令">dirs</a></span>
+enable disown
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span>
+enable enable
+enable eval
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/exec" target="_blank" title="exec命令">exec</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/exit" target="_blank" title="exit命令">exit</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/export" target="_blank" title="export命令">export</a></span>
+enable false
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/fc" target="_blank" title="fc命令">fc</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/fg" target="_blank" title="fg命令">fg</a></span>
+enable getopts
+enable hash
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/history" target="_blank" title="history命令">history</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/jobs" target="_blank" title="jobs命令">jobs</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/kill" target="_blank" title="kill命令">kill</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/let" target="_blank" title="let命令">let</a></span>
+enable local
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/logout" target="_blank" title="logout命令">logout</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/popd" target="_blank" title="popd命令">popd</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/printf" target="_blank" title="printf命令">printf</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/pushd" target="_blank" title="pushd命令">pushd</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/pwd" target="_blank" title="pwd命令">pwd</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/read" target="_blank" title="read命令">read</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/readonly" target="_blank" title="readonly命令">readonly</a></span>
+enable return
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/set" target="_blank" title="set命令">set</a></span>
+enable shift
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/shopt" target="_blank" title="shopt命令">shopt</a></span>
+enable source
+enable suspend
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/test" target="_blank" title="test命令">test</a></span>
+enable times
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/trap" target="_blank" title="trap命令">trap</a></span>
+enable true
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/type" target="_blank" title="type命令">type</a></span>
+enable typeset
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/ulimit" target="_blank" title="ulimit命令">ulimit</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/umask" target="_blank" title="umask命令">umask</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/unalias" target="_blank" title="unalias命令">unalias</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/unset" target="_blank" title="unset命令">unset</a></span>
+enable <span class="wp_keywordlink"><a href="http://man.linuxde.net/wait" target="_blank" title="wait命令">wait</a></span></pre>
+</div>

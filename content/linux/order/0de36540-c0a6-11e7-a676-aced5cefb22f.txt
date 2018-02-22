@@ -1,0 +1,63 @@
+<div class="post_bd post">
+<p>
+<strong>depmod命令</strong>可产生模块依赖的映射文件，在构建嵌入式系统时，需要由这个命令来生成相应的文件，由<span class="wp_keywordlink"><a href="http://man.linuxde.net/modprobe" target="_blank" title="modprobe命令">modprobe</a></span>使用。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+depmod(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a或--all：分析所有可用的模块；
+-d或debug：执行排错模式；
+-e：输出无法参照的符号；
+-i：不检查符号表的版本；
+-m&lt;文件&gt;或system-map&lt;文件&gt;：使用指定的符号表文件；
+-s或--system-log：在系统记录中记录错误；
+-v或--verbose：执行时显示详细的信息；
+-V或--version：显示版本信息；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+depmod -b /home/windsome/EMMA3PF-KernelSource-20080626/install_pos -e -F ./boot/System.map -v 2.6.18_pro500-bcm91250-mips2_fp_be -A -a</pre>
+<ul>
+<li>
+<code>/home/windsome/EMMA3PF-KernelSource-20080626/install_pos</code>是我<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/make" target="_blank" title="make命令">make</a></span> mod_install</code>后，所有模块的存放路径。
+	</li>
+<li>
+<code>./boot/System.map</code>是<code>make linux</code>后生成，我拷贝到此目录的。
+	</li>
+<li>
+<code>2.6.18_pro500-bcm91250-mips2_fp_be</code>是我build的linux的版本。
+	</li>
+</ul>
+<p>
+	编译linux过程及执行depmod的例子：
+</p>
+<pre>
+genkernel.sh (<span class="wp_keywordlink"><a href="http://man.linuxde.net/at" target="_blank" title="at命令">at</a></span> linux-2.6.18_pro500)
+#######
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/export" target="_blank" title="export命令">export</a></span> INSTALL_ROOT_EMMA3PF="/home/windsome/EMMA3PF-KernelSource-20080626/install_pos"
+export INSTALL_MOD_EMMA3PF="/home/windsome/EMMA3PF-KernelSource-20080626/install_pos"
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/rm" target="_blank" title="rm命令">rm</a></span> /home/windsome/EMMA3PF-KernelSource-20080626/install_pos/lib -rf
+rm /home/windsome/EMMA3PF-KernelSource-20080626/install_pos/boot/* -rf
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/cd" target="_blank" title="cd命令">cd</a></span> &lt;linux_src_dir&gt;
+make
+make modules_install
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/cp" target="_blank" title="cp命令">cp</a></span> vmlinux System.map /home/windsome/EMMA3PF-KernelSource-20080626/install_pos/boot/ -p
+cd /home/windsome/EMMA3PF-KernelSource-20080626/install_pos
+depmod -b /home/windsome/EMMA3PF-KernelSource-20080626/install_pos -e -F ./boot/System.map -v 2.6.18_pro500-bcm91250-mips2_fp_be -A -a</pre>
+<p>
+	其他用法：
+</p>
+<p>
+	在linux桌面系统中，当你编译了新的驱动，为了能够用<code>modprobe ***</code>加载模块, 你需要先将模块拷贝到<code>/lib/modules /2.6.31-20-generic</code>目录下，然后运行<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/sudo" target="_blank" title="sudo命令">sudo</a></span> depmod -a</code>将模块信息写入modules.dep、modules.dep.bin、modules.<span class="wp_keywordlink"><a href="http://man.linuxde.net/alias" target="_blank" title="alias命令">alias</a></span>.bin、modules.alias和modules.pcimap文件中。
+</p>
+<p>
+	如，我编译了一个新的wifi驱动r8192se_pci.ko，将其拷贝到<code>/lib/modules/2.6.31-20-generic/wireless</code>下，然后到<code>/lib/modules/2.6.31-20-generic</code>运行<code>depmod -a</code>，之后可以在任意目录运行modprobe r8192se_pci。</p>
+</div>

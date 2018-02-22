@@ -1,0 +1,56 @@
+<div class="post_bd post">
+<p>
+<strong>service命令</strong>是Redhat Linux兼容的发行版中用来控制系统服务的实用工具，它以启动、停止、重新启动和关闭系统服务，还可以显示所有系统服务的当前状态。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+service(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-h：显示帮助信息；
+--status-all：显示所服务的状态。</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		服务名：自动要控制的服务名，即<code>/etc/<span class="wp_keywordlink"><a href="http://man.linuxde.net/init" target="_blank" title="init命令">init</a></span>.d</code>目录下的脚本文件名；
+	</li>
+<li>
+		控制命令：系统服务脚本支持的控制命令。
+	</li>
+</ul>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	当修改了主机名、<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址等信息时，经常需要把网络重启使之生效。
+</p>
+<pre>
+<span style="color:#B22222;">service network status</span>
+配置设备：
+lo eth0
+当前的活跃设备：
+lo eth0
+
+<span style="color:#B22222;">service network restart</span>
+正在关闭接口 eth0：                                        [  确定  ]
+关闭环回接口：                                             [  确定  ]
+设置网络参数：                                             [  确定  ]
+弹出环回接口：                                             [  确定  ]
+弹出界面 eth0：                                            [  确定  ]</pre>
+<p>
+	重启<span class="wp_keywordlink"><a href="http://man.linuxde.net/mysql" target="_blank" title="mysql命令">mysql</a></span>
+</p>
+<pre>
+<span style="color:#B22222;">service mysqld status</span>
+mysqld (pid 1638) 正在运行...
+
+<span style="color:#B22222;">service mysqld restart</span>
+停止 MySQL：                                               [  确定  ]
+启动 MySQL：                                               [  确定  ]</pre>
+</div>

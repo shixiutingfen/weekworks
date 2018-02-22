@@ -1,0 +1,34 @@
+<div class="post_bd post">
+<p>
+<strong>bzcat命令</strong>解压缩指定的.bz2文件，并显示解压缩后的文件内容。保留原压缩文件，并且不生成解压缩后的文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bzcat(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	.bz2压缩文件：指定要显示内容的.bz2压缩文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	将<code>/tmp/<span class="wp_keywordlink"><a href="http://man.linuxde.net/man" target="_blank" title="man命令">man</a></span>.config</code>以<span class="wp_keywordlink"><a href="http://man.linuxde.net/bzip2" target="_blank" title="bzip2命令">bzip2</a></span>格式压缩：
+</p>
+<pre>
+bzip2 -z man.config</pre>
+<p>
+	此时man.config会变成man.config.bz2
+</p>
+<p>
+	将上面的压缩文件内容读出来：
+</p>
+<pre>
+bzcat man.config.bz2</pre>
+<p>
+	此时屏幕上会显示 man.config.bz2 解压缩之后的文件内容。</p>
+</div>

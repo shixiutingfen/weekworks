@@ -1,0 +1,33 @@
+<div class="post_bd post">
+<p>
+<strong>atrm命令</strong>用于删除待执行任务队列中的指定任务。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+atrm(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-V：显示版本号。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	任务号：指定待执行队列中要删除的任务。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	删除已经排队的任务
+</p>
+<pre>
+<span style="color:#B22222;"><span class="wp_keywordlink"><a href="http://man.linuxde.net/atq" target="_blank" title="atq命令">atq</a></span>        //显示当前已经设置的任务</span>
+2 Mon May 17 08:00:00 2010 a root
+1 Sat May 15 17:00:00 2010 a root
+
+<span style="color:#B22222;">atrm 2     //删除任务2</span></pre>
+</div>

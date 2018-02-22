@@ -1,0 +1,37 @@
+<div class="post_bd post">
+<p>
+<strong>lpr命令</strong>用于将文件发送给指定打印机进行打印，如果不指定目标打印机，则使用默认打印机。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lpr(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-E：与打印服务器连接时强制使用加密；
+-H：指定可选的打印服务器；
+-C：指定打印任务的名称；
+-P：指定接受打印任务的目标打印机；
+-U：指定可选的用户名；
+-#：指定打印的份数；
+-h：关闭banner打印；
+-m：打印完成后发送E-<span class="wp_keywordlink"><a href="http://man.linuxde.net/mail" target="_blank" title="mail命令">mail</a></span>；
+-r：打印完成后删除文件。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：需打印的文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	将man1和man2送到打印机<span class="wp_keywordlink"><a href="http://man.linuxde.net/lp" target="_blank" title="lp命令">lp</a></span>进行打印：
+</p>
+<pre>
+lpr -P lp man1 man2</pre>
+</div>

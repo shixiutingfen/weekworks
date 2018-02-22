@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>周周</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/assets/layui/css/layui.css">
+ <link rel="stylesheet" href="/static/assets/jquery-ui-1.12.1/jquery-ui.min.css">
+
+  <script type="text/javascript" src="/static/js/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/plugins/pinbox/jquery.pinBox.min.js"></script>
+  <script type="text/javascript" src="/static/js/plugins/totop/js/jquery.toTop.min.js"></script>
+  <script type="text/javascript" src="/static/assets/layui/layui.js"></script>
+  <script type="text/javascript" src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/static/assets/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<style>
+    .to-top{
+        background: #3498db;
+        color:#fff;
+        padding:15px;
+        border-radius:5px;
+    }
+    #menuDiv{
+        position: fixed;
+        width:100%;
+    }
+    a, a:hover {
+       text-decoration: none;
+    }
+</style>
+</head>
+
+ 
+<div class="header pinBox" id="menuDiv">
+  <ul class="layui-nav  " lay-filter="" id="menuList">
+      <li class="layui-nav-item"><a href="">首页</a></li>
+      <li class="layui-nav-item layui-this" id="python"><a href="/index">Python教程</a></li>
+      <li class="layui-nav-item" id="javascript"><a href="/index_javscript">javascript教程</a></li>
+      <li class="layui-nav-item" id="git"><a href="/index_git">git教程</a></li>
+      <li class="layui-nav-item" id="linux"><a href="/index_linux">linux指令</a></li>
+      <li class="layui-nav-item"><a href="">java教程</a></li>
+      <li class="layui-nav-item" id="book"><a href="/index_javscript">推荐书籍</a></li>
+      <li class="layui-nav-item" id="resources">
+        <a href="/java_resources">资源下载</a>
+      </li>
+      <li class="layui-nav-item"><a href="">社区</a></li>
+    </ul>
+</div>
+<a class="to-top">Top ↑</a>
+<script>
+//注意：导航 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+});
+    $(function(){
+         $(".pinBox").pinBox({
+            Top : '0px',
+            Container : 'body'
+        });
+        $('.to-top').toTop();
+    })
+    function changeMenuDiv(divId){
+        $("#menuList").find("li").each(function(){
+            $(this).removeClass("layui-this")
+        })
+        $("#"+divId).addClass("layui-this");
+    }
+</script>

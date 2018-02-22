@@ -1,0 +1,45 @@
+<div class="post_bd post">
+<p>
+<strong>aptitude命令</strong>与<span class="wp_keywordlink"><a href="http://man.linuxde.net/apt-get" target="_blank" title="apt-get命令">apt-get</a></span>命令一样，都是Debian Linux及其衍生系统中功能极其强大的包管理工具。与apt-get不同的是，aptitude在处理依赖问题上更佳一些。举例来说，aptitude在删除一个包时，会同时删除本身所依赖的包。这样，系统中不会残留无用的包，整个系统更为干净。它通过文本操作菜单和命令两种方式管理软件包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+aptitude(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-h：显示帮助信息；
+-d：仅下载软件包，不执行安装操作；
+-P：每一步操作都要求确认；
+-y：所有问题都回答“<span class="wp_keywordlink"><a href="http://man.linuxde.net/yes" target="_blank" title="yes命令">yes</a></span>”；
+-v：显示附加信息；
+-u：启动时下载新的软件包列表。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	操作命令：用户管理软件包的操作命令。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	以下是我总结的一些常用aptitude命令，仅供参考：
+</p>
+<pre>
+aptitude update           <span style="color:#808080;"> #更新可用的包列表</span>
+aptitude upgrade           <span style="color:#808080;">#升级可用的包</span>
+aptitude dist-upgrade      <span style="color:#808080;">#将系统升级到新的发行版</span>
+aptitude <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span> pkgname   <span style="color:#808080;">#安装包</span>
+aptitude remove pkgname    <span style="color:#808080;">#删除包</span>
+aptitude purge pkgname     <span style="color:#808080;">#删除包及其配置文件</span>
+aptitude search string     <span style="color:#808080;">#搜索包</span>
+aptitude show pkgname      <span style="color:#808080;">#显示包的详细信息</span>
+aptitude clean             <span style="color:#808080;">#删除下载的包文件</span>
+aptitude autoclean         <span style="color:#808080;">#仅删除过期的包文件</span></pre>
+<p>
+	当然，你也可以在文本界面模式中使用 aptitude。</p>
+</div>

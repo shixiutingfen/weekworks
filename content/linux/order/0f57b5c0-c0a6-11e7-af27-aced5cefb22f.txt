@@ -1,0 +1,50 @@
+<div class="post_bd post">
+<p>
+<strong>alias命令</strong>用来设置指令的别名。我们可以使用该命令可以将一些较长的命令进行简化。使用alias时，用户必须使用单引号<code>''</code>将原来的命令引起来，防止特殊字符导致错误。
+</p>
+<p>
+	alias命令的作用只局限于该次登入的操作。若要每次登入都能够使用这些命令别名，则可将相应的alias命令存放到bash的初始化文件<code>/etc/bashrc</code>中。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+alias(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-p：打印已经设置的命令别名。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	命令别名设置：定义命令别名，格式为“命令别名=‘实际命令’”。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+<strong>alias 的基本使用方法为：</strong>
+</p>
+<pre>
+alias 新的命令='原命令 -选项/参数'</pre>
+<p>
+	例如：<code>alias l=‘<span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span> -lsh'</code>将重新定义ls命令，现在只需输入l就可以列目录了。直接输入 alias 命令会列出当前系统中所有已经定义的命令别名。
+</p>
+<p>
+	要删除一个别名，可以使用 <span class="wp_keywordlink"><a href="http://man.linuxde.net/unalias" target="_blank" title="unalias命令">unalias</a></span> 命令，如 unalias l。
+</p>
+<p>
+<strong>查看系统已经设置的别名：</strong>
+</p>
+<pre>
+<span style="color:#FF0000;">alias -p</span>
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/cp" target="_blank" title="cp命令">cp</a></span>='cp -i'
+alias l.='ls -d .* --color=tty'
+alias ll='ls -l --color=tty'
+alias ls='ls --color=tty'
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/mv" target="_blank" title="mv命令">mv</a></span>='mv -i'
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/rm" target="_blank" title="rm命令">rm</a></span>='rm -i'
+alias <span class="wp_keywordlink"><a href="http://man.linuxde.net/which" target="_blank" title="which命令">which</a></span>='alias | /usr/bin/which --tty-only --<span class="wp_keywordlink"><a href="http://man.linuxde.net/read" target="_blank" title="read命令">read</a></span>-alias --show-dot --show-tilde'</pre>
+</div>

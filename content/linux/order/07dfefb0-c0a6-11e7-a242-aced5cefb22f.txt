@@ -1,0 +1,103 @@
+<div class="post_bd post">
+<p>
+<strong>pvcreate命令</strong>用于将物理硬盘分区初始化为物理卷，以便LVM使用。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+pvcreate(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-f：强制创建物理卷，不需要用户确认；
+-u：指定设备的UUID；
+-y：所有的问题都回答“<span class="wp_keywordlink"><a href="http://man.linuxde.net/yes" target="_blank" title="yes命令">yes</a></span>”；
+-Z：是否利用前4个扇区。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	物理卷：指定要创建的物理卷对应的设备文件名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	查看磁盘信息：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/fdisk" target="_blank" title="fdisk命令">fdisk</a></span> -l</span>
+Disk /dev/hda: 41.1 GB, 41174138880 bytes
+255 heads, 63 sectors/track, 5005 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   <span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>  System
+/dev/hda1   *           1          13      104391   83  Linux
+/dev/hda2              14        1288    10241437+  83  Linux
+/dev/hda3            1289        1925     5116702+  83  Linux
+/dev/hda4            1926        5005    24740100    5  Extended
+/dev/hda5            1926        2052     1020096   82  Linux swap / Solaris
+/dev/hda6            2053        2235     1469916   8e  Linux LVM
+/dev/hda7            2236        2418     1469916   8e  Linux LVM
+/dev/hda8            2419        2601     1469916   8e  Linux LVM
+/dev/hda9            2602        2784     1469916   8e  Linux LVM
+</pre>
+<p>
+	检查有无 PV 在系统上，然后将<code>/dev/hda6</code>到<code>/dev/hda9</code>建立成为PV格式
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/pvscan" target="_blank" title="pvscan命令">pvscan</a></span></span>
+No matching physical volumes found    #找不到任何的 PV 存在！</pre>
+<p>
+	将6-9分区转成pv，注意大括号的用途：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# pvcreate /dev/hda{6,7,8,9}</span>
+  Physical volume "/dev/hda6" successfully created
+  Physical volume "/dev/hda7" successfully created
+  Physical volume "/dev/hda8" successfully created
+  Physical volume "/dev/hda9" successfully created</pre>
+<p>
+	这就分別表示每个 PV 的信息与系统所有 PV 的信息：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# pvscan</span>
+  PV /dev/hda6         lvm2 [1.40 GB]
+  PV /dev/hda7         lvm2 [1.40 GB]
+  PV /dev/hda8         lvm2 [1.40 GB]
+  PV /dev/hda9         lvm2 [1.40 GB]
+  Total: 4 [5.61 GB] / in use: 0 [0   ] / in no VG: 4 [5.61 GB]</pre>
+<p>
+	更详细的列示出系统上面每个 PV 信息：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/pvdisplay" target="_blank" title="pvdisplay命令">pvdisplay</a></span></span>
+  "/dev/hda6" is a new physical volume of "1.40 GB"
+  --- NEW Physical volume ---
+  PV Name               /dev/hda6  <span style="color:#A9A9A9;">#实际的 partition 分区名称</span>
+  VG Name                          <span style="color:#A9A9A9;">#因为尚未分配出去，所以空白！</span>
+  PV Size               1.40 GB    <span style="color:#A9A9A9;">#就是容量说明</span>
+  Allocatable           NO         <span style="color:#A9A9A9;">#是否已被分配，结果是 NO</span>
+  PE Size (KByte)       0          <span style="color:#A9A9A9;">#在此 PV 內的 PE 大小</span>
+  Total PE              0          <span style="color:#A9A9A9;">#共分割出几个 PE</span>
+  <span class="wp_keywordlink"><a href="http://man.linuxde.net/free" target="_blank" title="free命令">free</a></span> PE               0          <span style="color:#A9A9A9;">#沒被 LV 用掉的 PE</span>
+  Allocated PE          0          <span style="color:#A9A9A9;">#尚可分配出去的 PE 数量</span>
+  PV UUID               Z13Jk5-RCls-UJ8B-HzDa-Gesn-atku-rf2biN
+....(底下省略)....</pre>
+<p>
+	删除物理卷：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/pvremove" target="_blank" title="pvremove命令">pvremove</a></span> /dev/sdb2</span>
+Labels on physical volume "/dev/sdb2" successfully wiped
+</pre>
+<p>
+	修改物理卷属性：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/pvchange" target="_blank" title="pvchange命令">pvchange</a></span> -x n /dev/sdb1</span>    <span style="color:#A9A9A9;">#禁止分配指定物理卷上的PE</span>
+Physical volume "/dev/sdb1" changed  
+1 physical volume changed / 0 physical volumes not changed </pre>
+</div>

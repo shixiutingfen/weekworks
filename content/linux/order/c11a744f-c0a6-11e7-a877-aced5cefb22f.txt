@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>lftpget命令</strong>通过调用<span class="wp_keywordlink"><a href="http://man.linuxde.net/lftp" target="_blank" title="lftp命令">lftp</a></span>指令下载指定的文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lftpget(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c：继续先前的下载；
+-d：输出调试信息；
+-v：输出详细信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要下载的文件，文件必须是合法的URL路径。</p>
+</div>

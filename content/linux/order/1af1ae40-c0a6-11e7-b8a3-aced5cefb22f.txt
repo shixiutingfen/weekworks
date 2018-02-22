@@ -1,0 +1,32 @@
+<div class="post_bd post">
+<p>
+<strong>vgscan命令</strong>查找系统中存在的LVM卷组，并显示找到的卷组列表。vgscan命令仅显示找到的卷组的名称和LVM元数据类型，要得到卷组的详细信息需要使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/vgdisplay" target="_blank" title="vgdisplay命令">vgdisplay</a></span>命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+vgscan(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d：调试模式；
+--ignorerlockingfailure：忽略锁定失败的错误。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用vgscan命令扫描系统中所有的卷组。在命令行中输入下面的命令：
+</p>
+<pre>
+[root@localhost ~]# vgscan     <span style="color:#A9A9A9;">#扫描并显示LVM卷组列表</span></pre>
+<p>
+	输出信息如下：
+</p>
+<pre>
+Found volume group "vg2000" using metadata <span class="wp_keywordlink"><a href="http://man.linuxde.net/type" target="_blank" title="type命令">type</a></span> lvm2  
+Found volume group "vg1000" using metadata type lvm2 </pre>
+<p>
+	说明：本例中，vgscan指令找到了两个LVM2卷组"vg1000"和"vg2000"。</p>
+</div>

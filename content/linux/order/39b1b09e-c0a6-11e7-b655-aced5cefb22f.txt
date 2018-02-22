@@ -1,0 +1,45 @@
+<div class="post_bd post">
+<p>
+<strong>ldd命令</strong>用于打印程序或者库文件所依赖的共享库列表。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ldd(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--version：打印指令版本号；
+-v：详细信息模式，打印所有相关信息；
+-u：打印未使用的直接依赖；
+-d：执行重定位和报告任何丢失的对象；
+-r：执行数据对象和函数的重定位，并且报告任何丢失的对象和函数；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定可执行程序或者文库。
+</p>
+<h3>
+	其他介绍<br/>
+</h3>
+<p>
+	首先ldd不是一个可执行程序，而只是一个shell脚本
+</p>
+<p>
+	ldd能够显示可执行模块的dependency，其原理是通过设置一系列的环境变量，如下：<code>LD_TRACE_LOADED_OBJECTS、LD_WARN、LD_BIND_NOW、LD_LIBRARY_VERSION、LD_VERBOSE</code>等。当<code>LD_TRACE_LOADED_OBJECTS</code>环境变量不为空时，任何可执行程序在运行时，它都会只显示模块的dependency，而程序并不真正执行。要不你可以在shell终端测试一下，如下：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/export" target="_blank" title="export命令">export</a></span> LD_TRACE_LOADED_OBJECTS=1</pre>
+<p>
+	再执行任何的程序，如<span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span>等，看看程序的运行结果。
+</p>
+<p>
+	ldd显示可执行模块的dependency的工作原理，其实质是通过<span class="wp_keywordlink"><a href="http://man.linuxde.net/ld" target="_blank" title="ld命令">ld</a></span>-linux.so（elf动态库的装载器）来实现的。我们知道，ld-linux.so模块会先于executable模块程序工作，并获得控制权，因此当上述的那些环境变量被设置时，ld-linux.so选择了显示可执行模块的dependency。
+</p>
+<p>
+	实际上可以直接执行ld-linux.so模块，如：<code>/lib/ld-linux.so.2 --list program</code>（这相当于ldd program）</p>
+</div>

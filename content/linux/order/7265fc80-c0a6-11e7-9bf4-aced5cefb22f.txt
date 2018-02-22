@@ -1,0 +1,48 @@
+<div class="post_bd post">
+<p>
+<strong>who命令</strong>是显示目前登录系统的用户信息。执行who命令可得知目前有那些用户登入系统，单独执行who命令会列出登入帐号，使用的终端机，登入时间以及从何处登入或正在使用哪个X显示器。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+who(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-H或--heading：显示各栏位的标题信息列；
+-i或-u或--idle：显示闲置时间，若该用户在前一分钟之内有进行任何动作，将标示成"."号，如果该用户已超过24小时没有任何动作，则标示出"old"字符串；
+-m：此参数的效果和指定"am i"字符串相同；
+-q或--count：只显示登入系统的帐号名称和总人数；
+-s：此参数将忽略不予处理，仅负责解决who指令其他版本的兼容性问题；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>或-T或--<span class="wp_keywordlink"><a href="http://man.linuxde.net/mesg" target="_blank" title="mesg命令">mesg</a></span>或--message或--writable：显示用户的信息状态栏；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+--version：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定查询文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# who</span>
+root     pts/0        2013-08-19 15:04 (192.168.0.134)
+root     pts/1        2013-12-20 10:37 (180.111.155.40)
+
+<span style="color:#FF0000;">[root@localhost ~]# who -q</span>
+root root
+# <span class="wp_keywordlink"><a href="http://man.linuxde.net/users" target="_blank" title="users命令">users</a></span>=2
+
+<span style="color:#FF0000;">[root@localhost ~]# who -H</span>
+NAME     LINE         <span class="wp_keywordlink"><a href="http://man.linuxde.net/time" target="_blank" title="time命令">time</a></span>             COMMENT
+root     pts/0        2013-08-19 15:04 (192.168.0.134)
+root     pts/1        2013-12-20 10:37 (180.111.155.40)
+
+<span style="color:#FF0000;">[root@localhost ~]# who -w</span>
+root     + pts/0        2013-08-19 15:04 (192.168.0.134)
+root     + pts/1        2013-12-20 10:37 (180.111.155.40)</pre>
+</div>

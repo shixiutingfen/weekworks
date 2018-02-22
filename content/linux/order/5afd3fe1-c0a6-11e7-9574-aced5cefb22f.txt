@@ -1,0 +1,16 @@
+<div class="post_bd post">
+<p>
+<strong>consoletype命令</strong>用于打印已连接的终端类型到标准输出，并能够检查已连接的终端是当前终端还是虚拟终端。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+consoletype</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# consoletype</span>
+pty</pre>
+</div>

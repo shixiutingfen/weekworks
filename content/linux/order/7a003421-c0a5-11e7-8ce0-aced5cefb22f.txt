@@ -1,0 +1,39 @@
+<div class="post_bd post">
+<p>
+<strong>which命令</strong>用于查找并显示给定命令的绝对路径，环境变量PATH中保存了查找命令时需要遍历的目录。which指令会在环境变量$PATH设置的目录里查找符合条件的文件。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+which(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-n&lt;文件名长度&gt;：制定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名；
+-p&lt;文件名长度&gt;：与-n参数相同，但此处的&lt;文件名长度&gt;包含了文件的路径；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>：指定输出时栏位的宽度；
+-V：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	指令名：指令名列表。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	查找文件、显示命令路径：
+</p>
+<pre>
+[root@localhost ~]# which <span class="wp_keywordlink"><a href="http://man.linuxde.net/pwd" target="_blank" title="pwd命令">pwd</a></span>
+/bin/pwd
+
+[root@localhost ~]#  which adduser
+/usr/sbin/adduser
+</pre>
+<p>
+	说明：which是根据使用者所配置的 PATH 变量内的目录去搜寻可运行档的！所以，不同的 PATH 配置内容所找到的命令当然不一样的！</p>
+</div>

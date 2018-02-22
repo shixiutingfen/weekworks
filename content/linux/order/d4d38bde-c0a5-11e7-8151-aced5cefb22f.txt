@@ -1,0 +1,28 @@
+<div class="post_bd post">
+<p>
+<strong>quotastats命令</strong>用于显示Linux系统当前的磁盘配额运行状态信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+quotastats</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示磁盘配额限制状态
+</p>
+<pre>
+<span style="color:#B22222;">[root@localhost ~]# quotastats</span>
+Kernel <span class="wp_keywordlink"><a href="http://man.linuxde.net/quota" target="_blank" title="quota命令">quota</a></span> version: 6.5.1
+Number of dquot lookups: 0
+Number of dquot drops: 0
+Number of dquot reads: 0
+Number of dquot writes: 0
+Number of quotafile syncs: 21
+Number of dquot cache hits: 0
+Number of allocated dquots: 0
+Number of <span class="wp_keywordlink"><a href="http://man.linuxde.net/free" target="_blank" title="free命令">free</a></span> dquots: 0
+Number of in use dquot entries (user/group): 0</pre>
+</div>

@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>uncompress命令</strong>用来解压缩由<span class="wp_keywordlink"><a href="http://man.linuxde.net/compress" target="_blank" title="compress命令">compress</a></span>命令压缩后产生的“.Z”压缩包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+uncompress(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-f：不提示用户，强制覆盖掉目标文件；
+-c：将结果送到标准输出，无文件被改变；
+-r：递归的操作方式。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要压缩的“.Z”压缩包。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	先创建一个.Z压缩文件
+</p>
+<pre>
+compress FileName</pre>
+<p>
+	解压：
+</p>
+<pre>
+uncompress FileName.Z</pre>
+</div>

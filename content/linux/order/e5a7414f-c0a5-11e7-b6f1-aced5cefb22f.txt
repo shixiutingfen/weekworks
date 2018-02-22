@@ -1,0 +1,45 @@
+<div class="post_bd post">
+<p>
+<strong>su命令</strong>用于切换当前用户身份到其他用户身份，变更时须输入所要变更的用户帐号与密码。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+su(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c&lt;指令&gt;或--<span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span>=&lt;指令&gt;：执行完指定的指令后，即恢复原来的身份；
+-f或——fast：适用于csh与tsch，使shell不用去读取启动文件；
+-l或——<span class="wp_keywordlink"><a href="http://man.linuxde.net/login" target="_blank" title="login命令">login</a></span>：改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,<span class="wp_keywordlink"><a href="http://man.linuxde.net/logname" target="_blank" title="logname命令">logname</a></span>。此外，也会变更PATH变量；
+-m,-p或--preserve-environment：变更身份时，不要变更环境变量；
+-s&lt;shell&gt;或--shell=&lt;shell&gt;：指定要执行的shell；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助；
+--version；显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	用户：指定要切换身份的目标用户。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	变更帐号为root并在执行<span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span>指令后退出变回原使用者：
+</p>
+<pre>
+su -c ls root</pre>
+<p>
+	变更帐号为root并传入<code>-f</code>选项给新执行的shell：
+</p>
+<pre>
+su root -f</pre>
+<p>
+	变更帐号为<span class="wp_keywordlink"><a href="http://man.linuxde.net/test" target="_blank" title="test命令">test</a></span>并改变工作目录至test的家目录：
+</p>
+<pre>
+su -test</pre>
+</div>

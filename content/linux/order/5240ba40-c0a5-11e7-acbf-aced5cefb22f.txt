@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>zfore命令</strong>强制为<span class="wp_keywordlink"><a href="http://man.linuxde.net/gzip" target="_blank" title="gzip命令">gzip</a></span>格式的压缩文件添加“.gz”后缀。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+zfore(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件列表：指定要添加“.gz”后缀的gzip压缩文件。</p>
+</div>

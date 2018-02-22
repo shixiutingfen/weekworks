@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>学习编程网</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+  <style>
+      .fly-column{
+          height: 50px;
+          line-height: 50px;
+      }
+      .fly-panel{
+          margin-bottom:15px;
+          border-radius:2px;
+          background-color:#fff;
+          box-shadow:0 1px 2px 0 rgba(0,0,0,.05);
+      }
+      .fly-column ul li{
+          position:relative;
+          display: inline-block;
+          height: 50px;
+          list-style：none;
+      }
+      .fly-column ul li a{
+          padding: 0 20px;
+      }
+      .fly-column ul li a:hover{
+          color:#5FB878;
+      }
+      .fly-column ul li.layui-this a{
+          color:#5FB878;
+      }
+      .layui-colla-content ul li a{
+          color:blue;
+      }
+  </style>
+</head>
+<body >
+{% include 'techlearn/header.html' %}
+<div class="layui-tab">
+  <ul class="layui-tab-title">
+    <li class="layui-this">java资源</li>
+    <li>python资源</li>
+    <li>前端资源</li>
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+        <div class="layui-collapse" lay-accordion>
+          <div class="layui-colla-item">
+            <h2 class="layui-colla-title">JDK</h2>
+            <div class="layui-colla-content layui-show">
+                <p>jdk7</p>
+                <ul>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/jdk/jdk7/windows/jdk-7u80-windows-i586.exe">windows 32位</a>
+                    </li>
+                    <li >
+                         <a  href="http://119.29.214.134:8090/download/java/jdk/jdk7/windows/jdk-7u80-windows-x64.exe">windows 64位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/jdk/jdk7/linux/jdk-7u80-linux-i586.tar.gz">linux 32位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/jdk/jdk7/linux/jdk-7u80-linux-x64.tar.gz">linux 64位</a>
+                    </li>
+
+                </ul>
+                <p>jdk8</p>
+                <ul>
+                     <li >
+                        <a  href="http://119.29.214.134:8090/download/java/jdk/jdk8/windows/jdk-8u144-windows-i586.exe">windows 32位</a>
+                    </li>
+                    <li >
+                         <a  href="http://119.29.214.134:8090/download/java/jdk/jdk8/windows/jdk-8u144-windows-x64.exe">windows 64位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/jdk/jdk8/linux/jdk-8u144-linux-i586.tar.gz">linux 32位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/jdk/jdk8/linux/jdk-8u144-linux-x64.tar.gz">linux 64位</a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+          <div class="layui-colla-item">
+            <h2 class="layui-colla-title">tomcat</h2>
+            <div class="layui-colla-content ">
+                <p>tomcat7</p>
+                <ul>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat7/apache-tomcat-7.0.82-windows-x86.zip">windows 32位</a>
+                    </li>
+                    <li >
+                         <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat7/apache-tomcat-7.0.82-windows-x64.zip">windows 64位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat7/apache-tomcat-7.0.82.tar.gz">linux</a>
+                    </li>
+                </ul>
+                <p>tomcat8.5</p>
+                <ul>
+                      <li >
+                        <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat8/apache-tomcat-8.5.23-windows-x86.zip">windows 32位</a>
+                    </li>
+                    <li >
+                         <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat8/apache-tomcat-8.5.23-windows-x64.zip">windows 64位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat8/apache-tomcat-8.5.23.tar.gz">linux</a>
+                    </li>
+                </ul>
+                 <p>tomcat9</p>
+                <ul>
+                      <li >
+                        <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat9/apache-tomcat-9.0.1-windows-x86.zip">windows 32位</a>
+                    </li>
+                    <li >
+                         <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat9/apache-tomcat-9.0.1-windows-x64.zip">windows 64位</a>
+                    </li>
+                    <li >
+                        <a  href="http://119.29.214.134:8090/download/java/tomcat/tomcat9/apache-tomcat-9.0.1.tar.gz">linux</a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+          <div class="layui-colla-item">
+            <h2 class="layui-colla-title">eclipse</h2>
+            <div class="layui-colla-content ">内容区域</div>
+          </div>
+
+        </div>
+    </div>
+    <div class="layui-tab-item">内容2</div>
+    <div class="layui-tab-item">内容3</div>
+  </div>
+</div>
+
+
+
+
+{#{% include 'techlearn/footer.html' %}#}
+<script>
+    $(function(){
+        changeMenuDiv("resources");
+    })
+</script>
+
+</body>
+</html>

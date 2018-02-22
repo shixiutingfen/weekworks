@@ -1,0 +1,32 @@
+<div class="post_bd post">
+<p>
+<strong>repquota命令</strong>以报表的格式输出指定分区，或者文件系统的磁盘配额信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+repquota(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a：列出在/etc/fstab文件里，有加入<span class="wp_keywordlink"><a href="http://man.linuxde.net/quota" target="_blank" title="quota命令">quota</a></span>设置的分区的使用状况，包括用户和群组；
+-g：列出所有群组的磁盘空间限制；
+-u：列出所有用户的磁盘空间限制；
+-v：显示该用户或群组的所有空间限制。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件系统：要打印报表的文件系统或者对应的设备文件名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示所有文件系统的磁盘使用情况
+</p>
+<pre>
+repquota -a</pre>
+</div>

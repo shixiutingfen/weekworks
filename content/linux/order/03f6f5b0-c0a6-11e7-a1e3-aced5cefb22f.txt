@@ -1,0 +1,35 @@
+<div class="post_bd post">
+<p>
+<strong>bg命令</strong>用于将作业放到后台运行，使前台可以执行其他任务。该命令的运行效果与在指令后面添加符号<code>&amp;</code>的效果是相同的，都是将其放到系统后台执行。
+</p>
+<p>
+	在Linux系统中执行某些操作时候，有时需要将当前任务暂停调至后台，或有时须将后台暂停的任务重启开启并调至前台，这一序列的操作将会使用到 <span class="wp_keywordlink"><a href="http://man.linuxde.net/jobs" target="_blank" title="jobs命令">jobs</a></span>、bg、和 <span class="wp_keywordlink"><a href="http://man.linuxde.net/fg" target="_blank" title="fg命令">fg</a></span> 三个命令以及两个快捷键来完成。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bg(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	作业标识：指定需要放到后台的作业标识号。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用bg命令将任务号为1的任务放到后台继续执行，输入如下命令：
+</p>
+<pre>
+bg 1            <span style="color:#A9A9A9;">#后台执行任务号为1的任务</span></pre>
+<p>
+	如果系统中只有一个挂起的任务时，即使不为该命令设置参数"1"，也可以实现这个功能。
+</p>
+<p>
+	注意：实际上，使用bg命令与在指令后面添加符号"&amp;"的效果是一样的。例如，使用<code>&amp;</code>将<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/find" target="_blank" title="find命令">find</a></span> / -name password</code>放到后台执行，输入如下命令：
+</p>
+<pre>
+find / -name password &amp;     <span style="color:#A9A9A9;">#后台执行任务</span></pre>
+</div>

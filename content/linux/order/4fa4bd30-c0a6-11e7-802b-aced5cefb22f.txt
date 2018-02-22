@@ -1,0 +1,28 @@
+<div class="post_bd post">
+<p>
+<strong>rpmquery命令</strong>使用多种依据从<span class="wp_keywordlink"><a href="http://man.linuxde.net/rpm" target="_blank" title="rpm命令">rpm</a></span>数据库中查询软件包信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rpmquery(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-qf：查询指定的文件所属的软件包；
+-q：查询指定的软件包是否被安装；
+-qc：查询软件包中的配置文件；
+-qd：查询软件包中的文档文件；
+-qi：查询软件包的基本信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用rpmquery命令查询指定文件所属的软件包：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# rpmquery -qf /usr/bin/<span class="wp_keywordlink"><a href="http://man.linuxde.net/htpasswd" target="_blank" title="htpasswd命令">htpasswd</a></span></span>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/httpd" target="_blank" title="httpd命令">httpd</a></span>-2.2.3-81.el5.centos</pre>
+</div>

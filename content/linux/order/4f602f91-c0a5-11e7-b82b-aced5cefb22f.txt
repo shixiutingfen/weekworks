@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>arj命令</strong>是“.arj”格式的压缩文件的管理器，用于创建和管理“.arj”压缩包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+arj(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		操作指令：对“.arj”压缩包执行的操作指令；
+	</li>
+<li>
+		压缩包名称：指定要操作的arj压缩包名称。
+	</li>
+</ul>
+</div>

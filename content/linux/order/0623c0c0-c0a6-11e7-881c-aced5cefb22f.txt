@@ -1,0 +1,29 @@
+<div class="post_bd post">
+<p>
+<strong>wait命令</strong>用来等待指令的指令，直到其执行完毕后返回终端。该指令常用于shell脚本编程中，待指定的指令执行完成后，才会继续执行后面的任务。该指令等待作业时，在作业标识号前必须添加备份号"%"。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+wait(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	进程或作业标示：指定进程号或者作业号。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用命令wait等待作业号为1的作业完成后再返回，输入如下命令：
+</p>
+<pre>
+wait %1       <span style="color:#A9A9A9;">#等待作业号为3的作业完成 </span></pre>
+<p>
+	执行上面的指令后，将输出指定作业号的指令，如下所示：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/find" target="_blank" title="find命令">find</a></span> / -name password</pre>
+</div>

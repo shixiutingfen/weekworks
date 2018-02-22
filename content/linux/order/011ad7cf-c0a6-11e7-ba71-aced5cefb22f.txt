@@ -1,0 +1,17 @@
+<div class="post_bd post">
+<p>
+<strong>dris命令</strong>用于显示和清空目录堆栈中的内容。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dris(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
++n：显示从左边算起第n笔的目录；
+-n：显示从右边算起第n笔的目录；
+-l：显示目录完整的记录。</pre>
+</div>

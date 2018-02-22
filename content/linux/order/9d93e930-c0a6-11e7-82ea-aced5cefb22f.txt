@@ -1,0 +1,26 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/ssh" target="_blank" title="ssh命令">ssh</a></span>-keyscan命令</strong>是一个收集大量主机公钥的使用工具。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ssh-keyscan(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-4：强制使用IPv4地址；
+-6：强制使用IPv6地址；
+-f：从指定文件中读取“地址列表/名字列表”；
+-p：指定连接远程主机的端口；
+-T：指定连接尝试的超时时间；
+-t：指定要创建的密钥类型；
+-v：信息模式，打印调试信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	主机列表：指定要收集公钥的主机列表。</p>
+</div>

@@ -1,0 +1,17 @@
+<div class="post_bd post">
+<p>
+<strong>rpmverify命令</strong>用来验证已安装的<span class="wp_keywordlink"><a href="http://man.linuxde.net/rpm" target="_blank" title="rpm命令">rpm</a></span>软件包的正确性。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rpmverify(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-Va：验证所有软件包；
+-V&lt;软件包&gt;f：验证指定软件包；
+--nomd5：不验证软件包的md5摘要。</pre>
+</div>

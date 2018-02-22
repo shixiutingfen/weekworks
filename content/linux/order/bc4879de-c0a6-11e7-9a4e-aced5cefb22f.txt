@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>elm命令</strong>是一个E-<span class="wp_keywordlink"><a href="http://man.linuxde.net/mail" target="_blank" title="mail命令">mail</a></span>客户端管理程序，它提供了纯文本交互式全屏幕界面。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+elm(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-s&lt;邮件主题&gt;：指定新邮件的邮件主题；
+-f&lt;目录&gt;：开启程序时，读取指定的目录；
+-h：显示帮助；
+-i&lt;文件名&gt;：将文件内容插入送出的邮件中；
+-m：进入elm后，不显示指令说明；
+-v：显示elm的版本信息；
+-z：若收件信箱没有邮件，则不启动elm程序。</pre>
+</div>

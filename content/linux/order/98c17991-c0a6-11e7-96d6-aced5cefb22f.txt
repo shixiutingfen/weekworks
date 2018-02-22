@@ -1,0 +1,10 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/sftp" target="_blank" title="sftp命令">sftp</a></span>-server命令</strong>是一个“sftp”协议的服务器端程序，它使用加密的方式进行文件传输。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+sftp-server</pre>
+</div>

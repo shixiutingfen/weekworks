@@ -1,0 +1,31 @@
+<div class="post_bd post">
+<p>
+<strong>dirname命令</strong>去除文件名中的非目录部分，仅显示与目录有关的内容。dirname命令读取指定路径名保留最后一个<code>/</code>及其后面的字符，删除其他部分，并写结果到标准输出。如果最后一个<code><cite>/</cite></code>后无字符，dirname 命令使用倒数第二个<code>/</code>，并忽略其后的所有字符。dirname 和 <span class="wp_keywordlink"><a href="http://man.linuxde.net/basename" target="_blank" title="basename命令">basename</a></span> 通常在 shell 内部命令替换使用，以指定一个与指定输入文件名略有差异的输出文件名。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dirname(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助；
+--version：显示版本号。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+dirname //
+结果为 /
+
+dirname /a/b/
+结果为：/a
+
+dirname a
+结果为 .
+
+dirname a/b
+结果为路径名 a</pre>
+</div>

@@ -1,0 +1,25 @@
+<div class="post_bd post">
+<p>
+<strong>findfs命令</strong>依据卷标（Label）和UUID查找文件系统所对应的设备文件。findfs命令会搜索整个磁盘，看是否有匹配的标签或者UUID没有，如果有则打印到标注输出上。findfs命令也是e2fsprogs项目的一部分。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+findfs(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+<code>LABEL=&lt;卷标&gt;</code>或者<code>UUID=&lt;UUID&gt;</code>：按照卷标或者UUID查询文件系统。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	通过卷标名查找对应的文件系统：
+</p>
+<pre>
+findfs LABEL=/boot
+/dev/hda1</pre>
+</div>

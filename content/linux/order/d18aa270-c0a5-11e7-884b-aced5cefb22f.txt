@@ -1,0 +1,27 @@
+<div class="post_bd post">
+<p>
+<strong>atq命令</strong>显示系统中待执行的任务列表，也就是列出当前用户的<span class="wp_keywordlink"><a href="http://man.linuxde.net/at" target="_blank" title="at命令">at</a></span>任务列表。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+atq(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-V：显示版本号；
+-q：查询指定队列的任务。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#B22222;">at now + 10 minutes</span>
+at&gt; <span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span> 1111
+at&gt; &lt;eot&gt;
+job 3 at Fri Apr 26 12:56:00 2013
+
+<span style="color:#B22222;">atq</span>
+3       Fri Apr 26 12:56:00 2013 a root</pre>
+</div>

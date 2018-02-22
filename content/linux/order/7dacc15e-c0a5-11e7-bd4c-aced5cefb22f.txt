@@ -1,0 +1,41 @@
+<div class="post_bd post">
+<p>
+<strong>tail命令</strong>用于输入文件中的尾部内容。tail命令默认在屏幕上显示指定文件的末尾10行。如果给定的文件不止一个，则在显示的每个文件前面加一个文件名标题。如果没有指定文件或者文件名为“-”，则读取标准输入。
+</p>
+<p>
+	注意：如果表示字节或行数的N值之前有一个”+”号，则从文件开头的第N项开始显示，而不是显示文件的最后N项。N值后面可以有后缀：b表示512，k表示1024，m表示1 048576(1M)。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+tail(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--retry：即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“——follow=name”连用；
+-c&lt;N&gt;或——bytes=&lt;N&gt;：输出文件尾部的N（N为整数）个字节内容；
+-f&lt;name/descriptor&gt;或；--follow&lt;nameldescript&gt;：显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。“-f”与“-fdescriptor”等效；
+-F：与选项“-follow=name”和“--retry"连用时功能相同；
+-n&lt;N&gt;或——line=&lt;N&gt;：输出文件的尾部N（N位数字）行内容。
+--pid=&lt;进程号&gt;：与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令；
+-q或——quiet或——silent：当有多个文件参数时，不输出各个文件名；
+-s&lt;秒数&gt;或——<span class="wp_keywordlink"><a href="http://man.linuxde.net/sleep" target="_blank" title="sleep命令">sleep</a></span>-interal=&lt;秒数&gt;：与“-f”选项连用，指定监视文件变化时间隔的秒数；
+-v或——verbose：当有多个文件参数时，总是输出各个文件名；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示指令的帮助信息；
+--version：显示指令的版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件列表：指定要显示尾部内容的文件列表。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+tail <span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span> （显示文件file的最后10行）
+tail +20 file （显示文件file的内容，从第20行至文件末尾）
+tail -c 10 file （显示文件file的最后10个字符）</pre>
+</div>

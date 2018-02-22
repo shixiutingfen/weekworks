@@ -1,0 +1,11 @@
+﻿<div class="x-content" style="width:100%">
+<h4>React</h4>
+<div class="x-wiki-info"><span>Reads: 40302</span></div>
+<hr/>
+<div class="x-wiki-content x-main-content"><p>即将推出，请耐心等待。等待不耐烦的，请关注微博<a href="http://www.weibo.com/liaoxuefeng" target="_blank">@廖雪峰</a></p>
+<script>
+window.hurry = true;
+</script>
+</div>
+
+</div>

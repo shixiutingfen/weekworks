@@ -1,0 +1,23 @@
+<div class="post_bd post">
+<p>
+<strong>unarj命令</strong>用来解压缩由<span class="wp_keywordlink"><a href="http://man.linuxde.net/arj" target="_blank" title="arj命令">arj</a></span>命令创建的压缩包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+unarj(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+e：解压缩.arj文件；
+l：显示压缩文件内所包含的文件；
+t：检查压缩文件是否正确；
+x：解压缩时保留原有的路径。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	.arj压缩包：指定要解压缩的.arj压缩包。</p>
+</div>

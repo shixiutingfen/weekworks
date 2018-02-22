@@ -1,0 +1,52 @@
+<div class="post_bd post">
+<p>
+<strong>vdfuse命令</strong>是VirtualBox软件挂载VDI分区文件的一个工具，VirtualBox是一款能创建虚拟机的开源软件，vdi是它的默认磁盘格式。
+</p>
+<h3>
+	什么是VirtualBox<br/>
+</h3>
+<p>
+	VirtualBox是一款功能强大的x86虚拟机软件，它不仅具有丰富的特色，而且性能也很优异。更可喜的是，VirtualBox于数日前走向开源，成为了一个发布在GPL许可之下的自由软件。VirtualBox可以在Linux和Windows主机中运行，并支持在其中安装Windows (NT 4.0、2000、XP、Server 2003、Vista)、DOS/Windows 3.x、Linux (2.4 和 2.6)、OpenBSD等系列的客户操作系统。
+</p>
+<p>
+<strong>在Ubuntu中安装vdfuse，打开终端，输入：</strong>
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/sudo" target="_blank" title="sudo命令">sudo</a></span> <span class="wp_keywordlink"><a href="http://man.linuxde.net/apt-get" target="_blank" title="apt-get命令">apt-get</a></span> <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span> virtualbox-fuse</pre>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+vdfuse [options] -f image-<span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span> <span class="wp_keywordlink"><a href="http://man.linuxde.net/mountpoint" target="_blank" title="mountpoint命令">mountpoint</a></span></pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-h 帮助
+-r 只读
+-t 类型 (VDI, VMDK, VHD, or raw; default: auto)
+-f 镜像文件
+-a 允许所有用户读取
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span> 允许所有用户都写
+-g 前台运行
+-v 输出反馈
+-d debug模式</pre>
+<p>
+	注意：必须编辑一下<code>/etc/fuse.confand</code>，去掉 "user_allow_other" 前面的注释符号（#），否则不能正确运行。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用如下如下语句挂载.vdi文件：
+</p>
+<pre>
+sudo vdfuse -f /path/to/file.vdi /path/to/mountpoint</pre>
+<p>
+<code>/path/to/mountpoint</code>应该包含如下文件EntireDisk、Partition1等，如果只有一个文件，你可能需要这样挂载：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/mount" target="_blank" title="mount命令">mount</a></span> /path/to/mountpoint/Partition1 /path/to/someother/mountpoint</pre>
+<p>
+	文件系统就挂载到<code>/path/to/someother/mountpoint</code>了。</p>
+</div>

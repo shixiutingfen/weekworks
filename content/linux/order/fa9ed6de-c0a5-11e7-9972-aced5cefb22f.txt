@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>lvremove命令</strong>用于删除指定LVM逻辑卷。如果逻辑卷已经使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/mount" target="_blank" title="mount命令">mount</a></span>命令加载，则不能使用lvremove命令删除。必须使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/umount" target="_blank" title="umount命令">umount</a></span>命令卸载后，逻辑卷方可被删除。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lvremove(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-f：强制删除。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	逻辑卷：指定要删除的逻辑卷。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用lvremove命令删除指定的逻辑卷。在命令行中输入下面的命令：
+</p>
+<pre>
+[root@localhost ~]# lvremove /dev/vg1000/lvol0    <span style="color:#A9A9A9;">#删除逻辑卷"lvol0"</span></pre>
+<p>
+	输出信息如下：
+</p>
+<pre>
+Do you really want to remove active logical 
+volume "lvol0"? [y/n]: y    <span style="color:#A9A9A9;">#确认删除</span>
+  Logical volume "lvol0" successfully removed</pre>
+</div>

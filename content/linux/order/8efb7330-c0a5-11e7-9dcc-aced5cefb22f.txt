@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>touch命令</strong>有两个功能：一是用于把已存在文件的时间标签更新为系统当前的时间（默认方式），它们的数据将原封不动地保留下来；二是用来创建新的空文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+touch(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a：或--<span class="wp_keywordlink"><a href="http://man.linuxde.net/time" target="_blank" title="time命令">time</a></span>=atime或--time=access或--time=use  只更改存取时间；
+-c：或--no-create  不建立任何文件；
+-d：&lt;时间日期&gt; 使用指定的日期时间，而非现在的时间；
+-f：此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题；
+-m：或--time=mtime或--time=modify  只更该变动时间；
+-r：&lt;参考文件或目录&gt;  把指定文件或目录的日期时间，统统设成和参考文件或目录的日期时间相同；
+-t：&lt;日期时间&gt;  使用指定的日期时间，而非现在的时间；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+--version：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要设置时间属性的文件列表。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+touch ex2</pre>
+<p>
+	在当前目录下建立一个空文件ex2，然后，利用<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span> -l</code>命令可以发现文件ex2的大小为0，表示它是空文件。</p>
+</div>

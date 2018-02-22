@@ -1,0 +1,122 @@
+<div class="post_bd post">
+<p>
+<strong>nc命令</strong>是<strong>netcat命令</strong>的简称，都是用来设置路由器。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+nc/netcat(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-g&lt;网关&gt;：设置路由器跃程通信网关，最多设置8个；
+-G&lt;指向器数目&gt;：设置来源路由指向器，其数值为4的倍数；
+-h：在线帮助；
+-i&lt;延迟秒数&gt;：设置时间间隔，以便传送信息及扫描通信端口；
+-l：使用监听模式，监控传入的资料；
+-n：直接使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址，而不通过域名服务器；
+-o&lt;输出文件&gt;：指定文件名称，把往来传输的数据以16进制字码倾倒成该文件保存；
+-p&lt;通信端口&gt;：设置本地主机使用的通信端口；
+-r：指定源端口和目的端口都进行随机的选择；
+-s&lt;来源位址&gt;：设置本地主机送出数据包的IP地址；
+-u：使用UDP传输协议；
+-v：显示指令执行过程；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>&lt;超时秒数&gt;：设置等待连线的时间；
+-z：使用0输入/输出模式，只在扫描通信端口时使用。</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		主机：指定主机的IP地址或主机名称；
+	</li>
+<li>
+		端口号：可以是单个整数或者是一个范围。
+	</li>
+</ul>
+<h3>
+	实例<br/>
+</h3>
+<p>
+<strong>远程拷贝文件</strong>
+</p>
+<p>
+	从server1拷贝文件到server2上。需要先在server2上，用nc激活监听。
+</p>
+<p>
+	server2上运行：
+</p>
+<pre>
+[root@localhost2 tmp]# nc -<span class="wp_keywordlink"><a href="http://man.linuxde.net/lp" target="_blank" title="lp命令">lp</a></span> 1234 &gt; <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span>.log</pre>
+<p>
+	server1上运行：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost1 ~]# ll install.log</span>
+-rw-r–r–   1 root root 39693 12月 20   2007 install.log
+
+[root@localhost1 ~]# nc -w 1 192.168.228.222 1234 &lt; install.log</pre>
+<p>
+<strong>克隆硬盘或分区</strong>
+</p>
+<p>
+	操作与上面的拷贝是雷同的，只需要由<span class="wp_keywordlink"><a href="http://man.linuxde.net/dd" target="_blank" title="dd命令">dd</a></span>获得硬盘或分区的数据，然后传输即可。克隆硬盘或分区的操作，不应在已经<span class="wp_keywordlink"><a href="http://man.linuxde.net/mount" target="_blank" title="mount命令">mount</a></span>的的系统上进行。所以，需要使用安装光盘引导后，进入拯救模式（或使用Knoppix工 具光盘）启动系统后，在server2上进行类似的监听动作：
+</p>
+<pre>
+nc -l -p 1234 | dd of=/dev/sda</pre>
+<p>
+	server1上执行传输，即可完成从server1克隆sda硬盘到server2的任务：
+</p>
+<pre>
+dd if=/dev/sda | nc 192.168.228.222 1234</pre>
+<p>
+	完成上述工作的前提，是需要落实光盘的拯救模式支持服务器上的网卡，并正确配置IP。
+</p>
+<p>
+<strong>端口扫描</strong>
+</p>
+<pre>
+<span style="color:#FF0000;">nc -v -w 1 192.168.228.222 -z 1-1000</span>
+localhost2 [192.168.228.222] 22 (<span class="wp_keywordlink"><a href="http://man.linuxde.net/ssh" target="_blank" title="ssh命令">ssh</a></span>) open</pre>
+<p>
+<strong>保存Web页面</strong>
+</p>
+<pre>
+while true; do
+    nc -l -p 80 -q 1 &lt; somepage.html;
+done</pre>
+<p>
+<strong>聊天</strong>
+</p>
+<p>
+	nc还可以作为简单的字符下聊天工具使用，同样的，server2上需要启动监听：
+</p>
+<pre>
+[root@localhost2 tmp]# nc -lp 1234</pre>
+<p>
+	server1上传输：
+</p>
+<pre>
+[root@localhost1 ~]# nc 192.168.228.222 1234</pre>
+<p>
+	这样，双方就可以相互交流了。使用Ctrl+D正常退出。
+</p>
+<p>
+<strong>传输目录</strong>
+</p>
+<p>
+	从server1拷贝nginx-0.6.34目录内容到server2上。需要先在server2上，用nc激活监听，server2上运行：
+</p>
+<pre>
+[root@localhost2 tmp]# nc -l 1234 | <span class="wp_keywordlink"><a href="http://man.linuxde.net/tar" target="_blank" title="tar命令">tar</a></span> xzvf -</pre>
+<p>
+	server1上运行：
+</p>
+<pre>
+[root@localhost1 ~]# ll -d nginx-0.6.34
+drwxr-xr-x 8 1000 1000 4096 12-23 17:25 nginx-0.6.34
+
+[root@localhost1 ~]# tar czvf – nginx-0.6.34 | nc 192.168.228.222 1234</pre>
+</div>

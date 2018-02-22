@@ -1,0 +1,28 @@
+<div class="post_bd post">
+<p>
+<strong>lvscan命令</strong>用于扫描当前系统中存在的所有的LVM逻辑卷。使用lvscan指令可以发现系统中的所有逻辑卷，及其对应的设备文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lvscan(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-b：显示逻辑卷的主设备和次设备号。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用lvscan命令扫描系统中的所有逻辑卷。在命令行中输入下面的命令：
+</p>
+<pre>
+[root@localhost ~]# lvscan     <span style="color:#A9A9A9;">#扫描所有的逻辑卷</span></pre>
+<p>
+	输出信息如下：
+</p>
+<pre>
+ACTIVE          '/dev/vg1000/lvol0' [200.00 MB] inherit</pre>
+</div>

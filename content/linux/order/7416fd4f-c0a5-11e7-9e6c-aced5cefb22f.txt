@@ -1,0 +1,45 @@
+<div class="post_bd post">
+<p>
+<strong>locate命令</strong>和<strong>slocate命令</strong>都用来查找文件或目录。
+</p>
+<p>
+	locate命令其实是<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/find" target="_blank" title="find命令">find</a></span> -name</code>的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个数据库<code>/var/lib/locatedb</code>，这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/updatedb" target="_blank" title="updatedb命令">updatedb</a></span>命令，手动更新数据库。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+locate/slocate(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d&lt;目录&gt;或--database=&lt;目录&gt;：指定数据库所在的目录；
+-u：更新slocate数据库；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助；
+--version：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	查找字符串：要查找的文件名中含有的字符串。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	搜索etc目录下所有以sh开头的文件：
+</p>
+<pre>
+locate /etc/sh</pre>
+<p>
+	搜索用户主目录下，所有以m开头的文件：
+</p>
+<pre>
+locate ~/m</pre>
+<p>
+	搜索用户主目录下，所有以m开头的文件，并且忽略大小写：
+</p>
+<pre>
+locate -i ~/m</pre>
+</div>

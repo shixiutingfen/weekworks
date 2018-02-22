@@ -1,0 +1,60 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/dpkg" target="_blank" title="dpkg命令">dpkg</a></span>-query命令</strong>是Debian Linux中软件包的查询工具，它从dpkg软件包数据库中查询并辨识软件包的信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dpkg-query(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-l：列出符合匹配模式的软件包；
+-s：查询软件包的状态信息；
+-L：显示软件包所安装的文件列表；
+-S：从安装的软件包中查询文件；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>：显示软件包信息；
+-c：显示软件包的控制文件路径；
+-p：显示软件包的细节。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	软件包名称：指定需要查询的软件包。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	查找文件file1在哪个包里安装：
+</p>
+<pre>
+dpkg-query -S file1</pre>
+<p>
+	列出ubuntu下所安装软件列表：
+</p>
+<pre>
+dpkg-query -W --showformat='${Package} ${Version}\n' &gt; filename</pre>
+<p>
+	查看软件包详细信息：
+</p>
+<pre>
+dpkg-query -s capistrano</pre>
+<p>
+	查看软件包安装时安装到系统的文件列表：
+</p>
+<pre>
+dpkg-query -L capistrano</pre>
+<p>
+	列出所有安装的包：
+</p>
+<pre>
+dpkg-query -l</pre>
+<p>
+	查看软件包的确切状态（是否安装）以及版本号：
+</p>
+<pre>
+dpkg-query -W -f='${Status} ${Version}\n' apache-<span class="wp_keywordlink"><a href="http://man.linuxde.net/perl" target="_blank" title="perl命令">perl</a></span></pre>
+</div>

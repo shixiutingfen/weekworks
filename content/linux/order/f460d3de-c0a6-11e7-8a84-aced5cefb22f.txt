@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>ifup命令</strong>用于激活指定的网络接口。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ifup(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	网络接口：要激活的网络接口。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+ifup eth0   <span style="color:#808080;">#激活eth0</span></pre>
+</div>

@@ -1,0 +1,22 @@
+<div class="post_bd post">
+<p>
+<strong>zipsplit命令</strong>用于将较大的“<span class="wp_keywordlink"><a href="http://man.linuxde.net/zip" target="_blank" title="zip命令">zip</a></span>”压缩包分割成各个较小的“zip”压缩包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+zipsplit(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-n：指定分割后每个zip文件的大小；
+-t：报告将要产生的较小的zip文件的大小；
+-b：指定分割后的zip文件的存放位置。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要分割的zip压缩包。</p>
+</div>

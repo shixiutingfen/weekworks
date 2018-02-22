@@ -1,0 +1,89 @@
+<div class="post_bd post">
+<p>
+<strong>iotop命令</strong>是一个用来监视磁盘I/O使用状况的<span class="wp_keywordlink"><a href="http://man.linuxde.net/top" target="_blank" title="top命令">top</a></span>类工具。iotop具有与top相似的UI，其中包括PID、用户、I/O、进程等相关信息。Linux下的IO统计工具如<span class="wp_keywordlink"><a href="http://man.linuxde.net/iostat" target="_blank" title="iostat命令">iostat</a></span>，nmon等大多数是只能统计到per设备的读写情况，如果你想知道每个进程是如何使用IO的就比较麻烦，使用iotop命令可以很方便的查看。
+</p>
+<p>
+	iotop使用Python语言编写而成，要求Python2.5（及以上版本）和Linux kernel2.6.20（及以上版本）。iotop提供有源代码及<span class="wp_keywordlink"><a href="http://man.linuxde.net/rpm" target="_blank" title="rpm命令">rpm</a></span>包，可从其<a href="http://guichaz.free.fr/iotop/" target="_blank">官方主页</a>下载。
+</p>
+<h3>
+	安装<br/>
+</h3>
+<p>
+<strong>Ubuntu</strong>
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/apt-get" target="_blank" title="apt-get命令">apt-get</a></span> <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span> iotop</pre>
+<p>
+<strong>CentOS</strong>
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/yum" target="_blank" title="yum命令">yum</a></span> install iotop</pre>
+<p>
+<strong>编译安装</strong>
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/wget" target="_blank" title="wget命令">wget</a></span> http://guichaz.<span class="wp_keywordlink"><a href="http://man.linuxde.net/free" target="_blank" title="free命令">free</a></span>.fr/iotop/files/iotop-0.4.4.<span class="wp_keywordlink"><a href="http://man.linuxde.net/tar" target="_blank" title="tar命令">tar</a></span>.gz    
+tar zxf iotop-0.4.4.tar.gz    
+python setup.py build    
+python setup.py install    
+</pre>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+iotop（选项）</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-o：只显示有io操作的进程
+-b：批量显示，无交互，主要用作记录到文件。
+-n NUM：显示NUM次，主要用于非交互式模式。
+-d SEC：间隔SEC秒显示一次。
+-p PID：监控的进程pid。
+-u USER：监控的进程用户。</pre>
+<p>
+<strong>iotop常用快捷键：</strong>
+</p>
+<ol>
+<li>
+		左右箭头：改变排序方式，默认是按IO排序。
+	</li>
+<li>
+		r：改变排序顺序。
+	</li>
+<li>
+		o：只显示有IO输出的进程。
+	</li>
+<li>
+		p：进程/线程的显示方式的切换。
+	</li>
+<li>
+		a：显示累积使用量。
+	</li>
+<li>
+		q：退出。
+	</li>
+</ol>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	直接执行iotop就可以看到效果了：
+</p>
+<pre>
+Total DISK <span class="wp_keywordlink"><a href="http://man.linuxde.net/read" target="_blank" title="read命令">read</a></span>:       0.00 B/s | Total DISK <span class="wp_keywordlink"><a href="http://man.linuxde.net/write" target="_blank" title="write命令">write</a></span>:       0.00 B/s
+  TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN     IO&gt;    <span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span>
+    1 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % <span class="wp_keywordlink"><a href="http://man.linuxde.net/init" target="_blank" title="init命令">init</a></span> [3]
+    2 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [kthreadd]
+    3 rt/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [migration/0]
+    4 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [ksoftirqd/0]
+    5 rt/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [watchdog/0]
+    6 rt/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [migration/1]
+    7 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [ksoftirqd/1]
+    8 rt/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [watchdog/1]
+    9 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [events/0]
+   10 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [events/1]
+   11 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [khelper]
+2572 be/4 root        0.00 B/s    0.00 B/s  0.00 %  0.00 % [bluetooth]</pre>
+</div>

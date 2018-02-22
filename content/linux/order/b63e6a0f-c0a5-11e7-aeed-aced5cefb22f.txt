@@ -1,0 +1,27 @@
+<div class="post_bd post">
+<p>
+<strong>xset命令</strong>是设置X-Window系统中的用户爱好的实用工具。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+xset(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-b：蜂鸣器开关设置；
+-c：键盘按键声响设置。</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		c：键盘按键声响设置；
+	</li>
+<li>
+		s：屏幕保护程序设置。
+	</li>
+</ul>
+</div>

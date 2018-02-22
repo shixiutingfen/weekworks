@@ -1,0 +1,81 @@
+<div class="post_bd post">
+<p>
+	在Linux下可以使用<strong>blkid命令</strong>对查询设备上所采用文件系统类型进行查询。blkid主要用来对系统的块设备（包括交换分区）所使用的文件系统类型、LABEL、UUID等信息进行查询。要使用这个命令必须安装e2fsprogs软件包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+blkid -L | -U
+blkid [-c ] [-ghlLv] [-o] [-s ][-t ] [-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span> ] [ ...]
+blkid -p [-s ] [-O ] [-S ][-o] ...
+blkid -i [-s ] [-o] ...</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c &lt;<span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span>&gt;   指定cache文件(default: /etc/blkid.tab, /dev/null = none)
+-d          don't encode non-printing characters
+-h          显示帮助信息
+-g          garbage collect the blkid cache
+-o &lt;format&gt; 指定输出格式
+-k          list all known filesystems/RAIDs and <span class="wp_keywordlink"><a href="http://man.linuxde.net/exit" target="_blank" title="exit命令">exit</a></span>
+-s &lt;tag&gt;    显示指定信息，默认显示所有信息
+-t &lt;token&gt;  <span class="wp_keywordlink"><a href="http://man.linuxde.net/find" target="_blank" title="find命令">find</a></span> device with a specific token (NAME=value pair)
+-l          <span class="wp_keywordlink"><a href="http://man.linuxde.net/look" target="_blank" title="look命令">look</a></span> up only first device with token specified by -t
+-L &lt;label&gt;  convert LABEL to device name
+-U &lt;uuid&gt;   convert UUID to device name
+-v          显示版本信息
+-w &lt;file&gt;   <span class="wp_keywordlink"><a href="http://man.linuxde.net/write" target="_blank" title="write命令">write</a></span> cache to different file (/dev/null = no write)
+&lt;dev&gt;       specify device(s) to probe (default: all devices)
+Low-level probing options:
+-p          low-level superblocks probing (bypass cache)
+-i          gather information about I/O limits
+-S &lt;size&gt;   overwrite device size
+-O &lt;offset&gt; probe <span class="wp_keywordlink"><a href="http://man.linuxde.net/at" target="_blank" title="at命令">at</a></span> the given offset
+-u &lt;list&gt;   filter by "usage" (e.g. -u filesystem,raid)
+-n &lt;list&gt;   filter by filesystem <span class="wp_keywordlink"><a href="http://man.linuxde.net/type" target="_blank" title="type命令">type</a></span> (e.g. -n vfat,ext3)</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	1、列出当前系统中所有已挂载文件系统的类型：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/sudo" target="_blank" title="sudo命令">sudo</a></span> blkid</pre>
+<p>
+	2、显示指定设备 UUID：
+</p>
+<pre>
+sudo blkid -s UUID /dev/sda5</pre>
+<p>
+	3、显示所有设备 UUID：
+</p>
+<pre>
+sudo blkid -s UUID</pre>
+<p>
+	4、显示指定设备 LABEL：
+</p>
+<pre>
+sudo blkid -s LABEL /dev/sda5</pre>
+<p>
+	5、显示所有设备 LABEL：
+</p>
+<pre>
+sudo blkid -s LABEL</pre>
+<p>
+	6、显示所有设备文件系统：
+</p>
+<pre>
+sudo blkid -s TYPE</pre>
+<p>
+	7、显示所有设备：
+</p>
+<pre>
+sudo blkid -o device</pre>
+<p>
+	8、以列表方式查看详细信息：
+</p>
+<pre>
+sudo blkid -o list</pre>
+</div>

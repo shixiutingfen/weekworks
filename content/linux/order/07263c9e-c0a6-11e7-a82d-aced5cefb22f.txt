@@ -1,0 +1,52 @@
+<div class="post_bd post">
+<p>
+<strong>exit命令</strong>同于退出shell，并返回给定值。在shell脚本中可以终止当前脚本执行。执行exit可使shell以指定的状态值退出。若不设置状态值参数，则shell以预设值退出。状态值0代表执行成功，其他值代表执行失败。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+exit(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	返回值：指定shell返回值。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	退出当前shell：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# exit</span>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/logout" target="_blank" title="logout命令">logout</a></span></pre>
+<p>
+	在脚本中，进入脚本所在目录，否则退出：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/cd" target="_blank" title="cd命令">cd</a></span> $(<span class="wp_keywordlink"><a href="http://man.linuxde.net/dirname" target="_blank" title="dirname命令">dirname</a></span> $0) || exit 1</pre>
+<p>
+	在脚本中，判断参数数量，不匹配就打印使用方式，退出：
+</p>
+<pre>
+if [ "$#" -ne "2" ]; then
+    <span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span> "usage: $0 &lt;area&gt; &lt;hours&gt;"
+    exit 2
+fi</pre>
+<p>
+	在脚本中，退出时删除临时文件：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/trap" target="_blank" title="trap命令">trap</a></span> "<span class="wp_keywordlink"><a href="http://man.linuxde.net/rm" target="_blank" title="rm命令">rm</a></span> -f tmpfile; echo Bye." EXIT</pre>
+<p>
+	检查上一命令的退出码：
+</p>
+<pre>
+./mycommand.sh
+EXCODE=$?
+if [ "$EXCODE" == "0" ]; then
+    echo "O.K"
+fi</pre>
+</div>

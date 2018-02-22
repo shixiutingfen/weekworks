@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>unlink命令</strong>用于系统调用函数unlink去删除指定的文件。和<span class="wp_keywordlink"><a href="http://man.linuxde.net/rm" target="_blank" title="rm命令">rm</a></span>命令作用一样，都是删除文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+unlink(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助；
+--version：显示版本号。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要删除的文件。</p>
+</div>

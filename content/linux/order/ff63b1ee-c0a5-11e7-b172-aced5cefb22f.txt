@@ -1,0 +1,29 @@
+<div class="post_bd post">
+<p>
+<strong>command命令</strong>调用指定的指令并执行，命令执行时不查询shell函数。command命令只能够执行shell内部的命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+command(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	指令：需要调用的指令及参数。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用command命令调用执行<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span> Linux</code>，输入如下命令：
+</p>
+<pre>
+command echo Linux            <span style="color:#A9A9A9;">#调用执行shell内部指令</span></pre>
+<p>
+	上面的命令执行后，将调用执行命令<code>echo Linux</code>，其执行结果如下：
+</p>
+<pre>
+Linux</pre>
+</div>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>学习编程网</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+    <style>
+        .layui-form-item{
+            position:relative;
+        }
+        .layui-form-item .layui-btn{
+            position:absolute;
+            right:0px;
+            top:0px;
+        }
+    </style>
+</head>
+<body >
+{% include 'techlearn/header.html' %}
+ <link rel="stylesheet" href="/static/css/liaoxuefeng.css">
+  <div class="layui-row" style="padding-top: 20px">
+    <div class="layui-col-md2 " style="border-right:1px solid #ddd">
+          <div class="layui-form-item">
+              <input type="text" name="title" id="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+               <input type="hidden" id="searchTitle"/>
+                <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="getContentBySearch()">搜索</button>
+          </div>
+      <div id="tree"></div>
+    </div>
+    <div class="layui-col-md9 " id="content" style="padding-left: 20px">
+
+    </div>
+  </div>
+
+
+{#{% include 'techlearn/footer.html' %}#}
+
+
+<script>
+    var searchData = [{"value": "145ab030-b01c-11e7-a8a0-aced5cefb22f.txt ", "label": "Python简介"}, {"value": "14908d40-b01c-11e7-9f91-aced5cefb22f.txt ", "label": "安装Python"}, {"value": "14d1dc00-b01c-11e7-a4c9-aced5cefb22f.txt ", "label": "Python解释器"}, {"value": "15082e40-b01c-11e7-b4ee-aced5cefb22f.txt ", "label": "第一个Python程序"}, {"value": "15388d11-b01c-11e7-ab48-aced5cefb22f.txt ", "label": "使用文本编辑器"}, {"value": "156198de-b01c-11e7-9d28-aced5cefb22f.txt ", "label": "Python代码运行助手"}, {"value": "1592e211-b01c-11e7-9f5b-aced5cefb22f.txt ", "label": "输入和输出"}, {"value": "15c3b60f-b01c-11e7-8f40-aced5cefb22f.txt ", "label": "Python基础"}, {"value": "15f06b61-b01c-11e7-be03-aced5cefb22f.txt ", "label": "数据类型和变量"}, {"value": "1620a321-b01c-11e7-a5a4-aced5cefb22f.txt ", "label": "字符串和编码"}, {"value": "165324d1-b01c-11e7-879e-aced5cefb22f.txt ", "label": "使用list和tuple"}, {"value": "16829940-b01c-11e7-9887-aced5cefb22f.txt ", "label": "条件判断"}, {"value": "16b20db0-b01c-11e7-92fb-aced5cefb22f.txt ", "label": "循环"}, {"value": "16de74de-b01c-11e7-b012-aced5cefb22f.txt ", "label": "使用dict和set"}, {"value": "1710a870-b01c-11e7-94a3-aced5cefb22f.txt ", "label": "函数"}, {"value": "174a07ee-b01c-11e7-a2a0-aced5cefb22f.txt ", "label": "调用函数"}, {"value": "177eac80-b01c-11e7-97e6-aced5cefb22f.txt ", "label": "定义函数"}, {"value": "17b6fa91-b01c-11e7-9416-aced5cefb22f.txt ", "label": "函数的参数"}, {"value": "17ea66a1-b01c-11e7-ad47-aced5cefb22f.txt ", "label": "递归函数"}, {"value": "181f0b30-b01c-11e7-93d5-aced5cefb22f.txt ", "label": "高级特性"}, {"value": "184d9540-b01c-11e7-a131-aced5cefb22f.txt ", "label": "切片"}, {"value": "18852000-b01c-11e7-9eff-aced5cefb22f.txt ", "label": "迭代"}, {"value": "18afd980-b01c-11e7-bf40-aced5cefb22f.txt ", "label": "列表生成式"}, {"value": "18e8c3d1-b01c-11e7-814b-aced5cefb22f.txt ", "label": "生成器"}, {"value": "1920c3c0-b01c-11e7-8016-aced5cefb22f.txt ", "label": "迭代器"}, {"value": "194e6370-b01c-11e7-b325-aced5cefb22f.txt ", "label": "函数式编程"}, {"value": "1982b9de-b01c-11e7-9e97-aced5cefb22f.txt ", "label": "高阶函数"}, {"value": "19bc8e91-b01c-11e7-89c1-aced5cefb22f.txt ", "label": "map/reduce"}, {"value": "19f048c0-b01c-11e7-a6a3-aced5cefb22f.txt ", "label": "filter"}, {"value": "1a19a2b0-b01c-11e7-916f-aced5cefb22f.txt ", "label": "sorted"}, {"value": "1a5413a1-b01c-11e7-87df-aced5cefb22f.txt ", "label": "返回函数"}, {"value": "1a802cae-b01c-11e7-ac5c-aced5cefb22f.txt ", "label": "匿名函数"}, {"value": "1ab2ae5e-b01c-11e7-a5d4-aced5cefb22f.txt ", "label": "装饰器"}, {"value": "1ae4bae1-b01c-11e7-a3ad-aced5cefb22f.txt ", "label": "偏函数"}, {"value": "1b171580-b01c-11e7-b11e-aced5cefb22f.txt ", "label": "模块"}, {"value": "1b47e980-b01c-11e7-b794-aced5cefb22f.txt ", "label": "使用模块"}, {"value": "1b73db80-b01c-11e7-bc5d-aced5cefb22f.txt ", "label": "安装第三方模块"}, {"value": "1b9f5851-b01c-11e7-86e4-aced5cefb22f.txt ", "label": "面向对象编程"}, {"value": "1bd0a180-b01c-11e7-958a-aced5cefb22f.txt ", "label": "类和实例"}, {"value": "1c034a40-b01c-11e7-a95b-aced5cefb22f.txt ", "label": "访问限制"}, {"value": "1c31ad40-b01c-11e7-b659-aced5cefb22f.txt ", "label": "继承和多态"}, {"value": "1c620c0f-b01c-11e7-8f68-aced5cefb22f.txt ", "label": "获取对象信息"}, {"value": "1c955111-b01c-11e7-beab-aced5cefb22f.txt ", "label": "实例属性和类属性"}, {"value": "1cc8e42e-b01c-11e7-b07a-aced5cefb22f.txt ", "label": "面向对象高级编程"}, {"value": "1cfaa28f-b01c-11e7-ba92-aced5cefb22f.txt ", "label": "使用__slots__"}, {"value": "1d2a1700-b01c-11e7-8470-aced5cefb22f.txt ", "label": "使用@property"}, {"value": "1d5aeb00-b01c-11e7-b93e-aced5cefb22f.txt ", "label": "多重继承"}, {"value": "1d8e7e1e-b01c-11e7-82a1-aced5cefb22f.txt ", "label": "定制类"}, {"value": "1dbb0c61-b01c-11e7-8245-aced5cefb22f.txt ", "label": "使用枚举类"}, {"value": "1df33361-b01c-11e7-bfee-aced5cefb22f.txt ", "label": "使用元类"}, {"value": "1e22a7cf-b01c-11e7-a26c-aced5cefb22f.txt ", "label": "错误、调试和测试"}, {"value": "1e52df8f-b01c-11e7-b4ad-aced5cefb22f.txt ", "label": "错误处理"}, {"value": "1e89f51e-b01c-11e7-98ee-aced5cefb22f.txt ", "label": "调试"}, {"value": "1eb63540-b01c-11e7-933e-aced5cefb22f.txt ", "label": "单元测试"}, {"value": "1ee5d0c0-b01c-11e7-b578-aced5cefb22f.txt ", "label": "文档测试"}, {"value": "1f19d911-b01c-11e7-a070-aced5cefb22f.txt ", "label": "IO编程"}, {"value": "1f4a37de-b01c-11e7-883b-aced5cefb22f.txt ", "label": "文件读写"}, {"value": "1f79ac51-b01c-11e7-b55e-aced5cefb22f.txt ", "label": "StringIO和BytesIO"}, {"value": "1faa0b21-b01c-11e7-a85e-aced5cefb22f.txt ", "label": "操作文件和目录"}, {"value": "1fde3a80-b01c-11e7-8e82-aced5cefb22f.txt ", "label": "序列化"}, {"value": "20264000-b01c-11e7-be74-aced5cefb22f.txt ", "label": "进程和线程"}, {"value": "205bf600-b01c-11e7-96c6-aced5cefb22f.txt ", "label": "多进程"}, {"value": "208ddb70-b01c-11e7-81ac-aced5cefb22f.txt ", "label": "多线程"}, {"value": "20c3df8f-b01c-11e7-b5d9-aced5cefb22f.txt ", "label": "ThreadLocal"}, {"value": "20f799c0-b01c-11e7-b597-aced5cefb22f.txt ", "label": "进程 vs. 线程"}, {"value": "2129cd51-b01c-11e7-85e5-aced5cefb22f.txt ", "label": "分布式进程"}, {"value": "215e98f0-b01c-11e7-b6f3-aced5cefb22f.txt ", "label": "正则表达式"}, {"value": "21903040-b01c-11e7-8c2f-aced5cefb22f.txt ", "label": "常用内建模块"}, {"value": "21c968b0-b01c-11e7-a924-aced5cefb22f.txt ", "label": "datetime"}, {"value": "2204c400-b01c-11e7-8729-aced5cefb22f.txt ", "label": "collections"}, {"value": "22334e0f-b01c-11e7-93c2-aced5cefb22f.txt ", "label": "base64"}, {"value": "2265819e-b01c-11e7-9899-aced5cefb22f.txt ", "label": "struct"}, {"value": "229718ee-b01c-11e7-91f2-aced5cefb22f.txt ", "label": "hashlib"}, {"value": "22ce0770-b01c-11e7-bc56-aced5cefb22f.txt ", "label": "itertools"}, {"value": "23020fc0-b01c-11e7-bee9-aced5cefb22f.txt ", "label": "contextlib"}, {"value": "23346a61-b01c-11e7-a306-aced5cefb22f.txt ", "label": "XML"}, {"value": "23653e61-b01c-11e7-835e-aced5cefb22f.txt ", "label": "HTMLParser"}, {"value": "2394d9e1-b01c-11e7-90ae-aced5cefb22f.txt ", "label": "urllib"}, {"value": "23bbe9e1-b01c-11e7-bc82-aced5cefb22f.txt ", "label": "常用第三方模块"}, {"value": "23ebfa8f-b01c-11e7-a11a-aced5cefb22f.txt ", "label": "PIL"}, {"value": "241a0f70-b01c-11e7-b568-aced5cefb22f.txt ", "label": "virtualenv"}, {"value": "24484b5e-b01c-11e7-a177-aced5cefb22f.txt ", "label": "图形界面"}, {"value": "247e4f80-b01c-11e7-8855-aced5cefb22f.txt ", "label": "网络编程"}, {"value": "24acb280-b01c-11e7-b2cf-aced5cefb22f.txt ", "label": "TCP/IP简介"}, {"value": "24e0459e-b01c-11e7-9d19-aced5cefb22f.txt ", "label": "TCP编程"}, {"value": "2518e1cf-b01c-11e7-bed8-aced5cefb22f.txt ", "label": "UDP编程"}, {"value": "2541eda1-b01c-11e7-a2c2-aced5cefb22f.txt ", "label": "电子邮件"}, {"value": "257b9b40-b01c-11e7-b860-aced5cefb22f.txt ", "label": "SMTP发送邮件"}, {"value": "25a5df8f-b01c-11e7-9597-aced5cefb22f.txt ", "label": "POP3收取邮件"}, {"value": "25d0c01e-b01c-11e7-85ab-aced5cefb22f.txt ", "label": "访问数据库"}, {"value": "25ff2321-b01c-11e7-8557-aced5cefb22f.txt ", "label": "使用SQLite"}, {"value": "2634b20f-b01c-11e7-9cd0-aced5cefb22f.txt ", "label": "使用MySQL"}, {"value": "2667a8f0-b01c-11e7-8d5a-aced5cefb22f.txt ", "label": "使用SQLAlchemy"}, {"value": "269f81cf-b01c-11e7-9486-aced5cefb22f.txt ", "label": "Web开发"}, {"value": "26c9ed30-b01c-11e7-b669-aced5cefb22f.txt ", "label": "HTTP协议简介"}, {"value": "26fd0b21-b01c-11e7-a1b9-aced5cefb22f.txt ", "label": "HTML简介"}, {"value": "27335d61-b01c-11e7-a0e3-aced5cefb22f.txt ", "label": "WSGI接口"}, {"value": "275f7670-b01c-11e7-8a66-aced5cefb22f.txt ", "label": "使用Web框架"}, {"value": "278db261-b01c-11e7-a7a4-aced5cefb22f.txt ", "label": "使用模板"}, {"value": "27c9f80f-b01c-11e7-9e6f-aced5cefb22f.txt ", "label": "异步IO"}, {"value": "2804de30-b01c-11e7-808c-aced5cefb22f.txt ", "label": "协程"}, {"value": "28338f4f-b01c-11e7-9fed-aced5cefb22f.txt ", "label": "asyncio"}, {"value": "28648a61-b01c-11e7-be05-aced5cefb22f.txt ", "label": "async/await"}, {"value": "28a0a900-b01c-11e7-9c4e-aced5cefb22f.txt ", "label": "aiohttp"}, {"value": "28d351c0-b01c-11e7-813f-aced5cefb22f.txt ", "label": "实战"}, {"value": "2901669e-b01c-11e7-a5ae-aced5cefb22f.txt ", "label": "Day 1 - 搭建开发环境"}, {"value": "2934d2b0-b01c-11e7-bcd1-aced5cefb22f.txt ", "label": "Day 2 - 编写Web App骨架"}, {"value": "29690211-b01c-11e7-82ed-aced5cefb22f.txt ", "label": "Day 3 - 编写ORM"}, {"value": "299fa26e-b01c-11e7-96d2-aced5cefb22f.txt ", "label": "Day 4 - 编写Model"}, {"value": "29d690f0-b01c-11e7-bb12-aced5cefb22f.txt ", "label": "Day 5 - 编写Web框架"}, {"value": "2a0b0e70-b01c-11e7-8b2b-aced5cefb22f.txt ", "label": "Day 6 - 编写配置文件"}, {"value": "2a39234f-b01c-11e7-9c33-aced5cefb22f.txt ", "label": "Day 7 - 编写MVC"}, {"value": "2a6a1e61-b01c-11e7-8242-aced5cefb22f.txt ", "label": "Day 8 - 构建前端"}, {"value": "2a9e26b0-b01c-11e7-bc25-aced5cefb22f.txt ", "label": "Day 9 - 编写API"}, {"value": "2ac9ca91-b01c-11e7-bec4-aced5cefb22f.txt ", "label": "Day 10 - 用户注册和登录"}, {"value": "2afac59e-b01c-11e7-aaa3-aced5cefb22f.txt ", "label": "Day 11 - 编写日志创建页"}, {"value": "2b32294f-b01c-11e7-bdba-aced5cefb22f.txt ", "label": "Day 12 - 编写日志列表页"}, {"value": "2b7dff61-b01c-11e7-b1a8-aced5cefb22f.txt ", "label": "Day 13 - 提升开发效率"}, {"value": "2baf96ae-b01c-11e7-b7e5-aced5cefb22f.txt ", "label": "Day 14 - 完成Web App"}, {"value": "2bf85f80-b01c-11e7-920c-aced5cefb22f.txt ", "label": "Day 15 - 部署Web App"}, {"value": "2c284921-b01c-11e7-a97d-aced5cefb22f.txt ", "label": "Day 16 - 编写移动App"}, {"value": "2c552580-b01c-11e7-bb5d-aced5cefb22f.txt ", "label": "FAQ"}, {"value": "2c855d40-b01c-11e7-a35c-aced5cefb22f.txt ", "label": "期末总结"}];
+    $(function (){
+        initData();
+        changeMenuDiv("python");
+        initFirstPage();
+        initSearch();
+
+    })
+
+   function initSearch(){
+        $("#title" ).autocomplete({
+            source: searchData ,
+            select: function(e, ui) {
+                $("#title").val(ui.item.label);
+                $("#searchTitle").val(ui.item.value);
+                ui.item.value = ui.item.label;
+            }
+        });
+    }
+    function getContentBySearch(){
+       $.ajax({
+            url : '/getContent',
+            dataType:'json',
+            data: {
+                url:$("#searchTitle").val(),
+                type:1
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+   }
+    function initData(){
+        $.ajax({
+            url : '/getJson',
+            dataType:'json',
+            data:{type:1},
+            async:false,
+            success: function (data) {
+                initTree(eval(data));
+            }
+        });
+    }
+
+    function initTree(data){
+        layui.use('tree', function(){
+             layui.tree({
+              elem: '#tree'
+              ,nodes: data
+              ,click: function(node){
+                getcontent(node);
+              }
+            });
+        });
+    }
+
+    function getcontent(node){
+        $.ajax({
+            url : '/getContent',
+            dataType:'json',
+            data: {
+                url:node['url'],
+                type:1
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+    }
+
+    function initFirstPage(){
+        $.ajax({
+            url : '/getFirstPage',
+            dataType:'json',
+            data: {
+                type:1
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

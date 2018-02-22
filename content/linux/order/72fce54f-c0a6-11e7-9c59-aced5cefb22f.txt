@@ -1,0 +1,31 @@
+<div class="post_bd post">
+<p>
+<strong>sum命令</strong>用于计算并显示指定文件的校验和与文件所占用的磁盘块数。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+sum(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-r：使用BSD的校验和算法，块大小为1k；
+-s：使用system V的校验和算法，块大小为512字节。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件列表：需要计算和与磁盘块数的文件列表。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	计算文件校验码：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# sum insert.sql</span>
+00827    12</pre>
+</div>

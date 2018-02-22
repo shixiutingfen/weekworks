@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>学习编程网</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+   <style>
+        .layui-form-item{
+            position:relative;
+        }
+        .layui-form-item .layui-btn{
+            position:absolute;
+            right:0px;
+            top:0px;
+        }
+    </style>
+</head>
+<body >
+{% include 'techlearn/header.html' %}
+ <link rel="stylesheet" href="/static/css/liaoxuefeng.css">
+  <div class="layui-row" style="padding-top: 20px">
+    <div class="layui-col-md2 " style="border-right:1px solid #ddd">
+     <div class="layui-form-item">
+          <input type="text" name="title" id="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+           <input type="hidden" id="searchTitle"/>
+            <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="getContentBySearch()">搜索</button>
+      </div>
+      <div id="tree"></div>
+    </div>
+    <div class="layui-col-md9 " id="content" style="padding-left: 20px">
+
+    </div>
+  </div>
+
+
+{#{% include 'techlearn/footer.html' %}#}
+
+
+<script>
+    var searchData = [{"value": "a2fc8000-b34d-11e7-bccc-aced5cefb22f.txt ", "label": "JavaScript简介"}, {"value": "a3334770-b34d-11e7-bd09-aced5cefb22f.txt ", "label": "快速入门"}, {"value": "a35c7a4f-b34d-11e7-ab18-aced5cefb22f.txt ", "label": "基本语法"}, {"value": "a3903480-b34d-11e7-a2d9-aced5cefb22f.txt ", "label": "数据类型和变量"}, {"value": "a3bdfb40-b34d-11e7-875e-aced5cefb22f.txt ", "label": "字符串"}, {"value": "a3f0cb0f-b34d-11e7-a30b-aced5cefb22f.txt ", "label": "数组"}, {"value": "a41d805e-b34d-11e7-a96c-aced5cefb22f.txt ", "label": "对象"}, {"value": "a4437ef0-b34d-11e7-af20-aced5cefb22f.txt ", "label": "条件判断"}, {"value": "a46c8ac0-b34d-11e7-9f37-aced5cefb22f.txt ", "label": "循环"}, {"value": "a4939ac0-b34d-11e7-82c0-aced5cefb22f.txt ", "label": "Map和Set"}, {"value": "a4bf178f-b34d-11e7-9f18-aced5cefb22f.txt ", "label": "iterable"}, {"value": "a4ec420f-b34d-11e7-ac7d-aced5cefb22f.txt ", "label": "函数"}, {"value": "a5244200-b34d-11e7-a334-aced5cefb22f.txt ", "label": "函数定义和调用"}, {"value": "a5569c9e-b34d-11e7-af32-aced5cefb22f.txt ", "label": "变量作用域"}, {"value": "a5888211-b34d-11e7-9081-aced5cefb22f.txt ", "label": "方法"}, {"value": "a5b44d00-b34d-11e7-ae64-aced5cefb22f.txt ", "label": "高阶函数"}, {"value": "a5deb85e-b34d-11e7-b95c-aced5cefb22f.txt ", "label": "map/reduce"}, {"value": "a60a5c40-b34d-11e7-a2ab-aced5cefb22f.txt ", "label": "filter"}, {"value": "a63563e1-b34d-11e7-8069-aced5cefb22f.txt ", "label": "sort"}, {"value": "a6659b9e-b34d-11e7-9207-aced5cefb22f.txt ", "label": "闭包"}, {"value": "a692c61e-b34d-11e7-b2f0-aced5cefb22f.txt ", "label": "箭头函数"}, {"value": "a6be42f0-b34d-11e7-a782-aced5cefb22f.txt ", "label": "generator"}, {"value": "a6eca5f0-b34d-11e7-b0a1-aced5cefb22f.txt ", "label": "标准对象"}, {"value": "a71822c0-b34d-11e7-b441-aced5cefb22f.txt ", "label": "Date"}, {"value": "a74489f0-b34d-11e7-a6ae-aced5cefb22f.txt ", "label": "RegExp"}, {"value": "a7738930-b34d-11e7-aafc-aced5cefb22f.txt ", "label": "JSON"}, {"value": "a7a45d30-b34d-11e7-93f2-aced5cefb22f.txt ", "label": "面向对象编程"}, {"value": "a7d642a1-b34d-11e7-ab17-aced5cefb22f.txt ", "label": "创建对象"}, {"value": "a802d0de-b34d-11e7-8429-aced5cefb22f.txt ", "label": "原型继承"}, {"value": "a8315af0-b34d-11e7-aec2-aced5cefb22f.txt ", "label": "class继承"}, {"value": "a85a8dcf-b34d-11e7-afd1-aced5cefb22f.txt ", "label": "浏览器"}, {"value": "a88baff0-b34d-11e7-9ed5-aced5cefb22f.txt ", "label": "浏览器对象"}, {"value": "a8b705ae-b34d-11e7-8bf8-aced5cefb22f.txt ", "label": "操作DOM"}, {"value": "a8deb1ee-b34d-11e7-a4d8-aced5cefb22f.txt ", "label": "更新DOM"}, {"value": "a924e2b0-b34d-11e7-a1fa-aced5cefb22f.txt ", "label": "插入DOM"}, {"value": "a94fc340-b34d-11e7-bdb8-aced5cefb22f.txt ", "label": "删除DOM"}, {"value": "a9791d30-b34d-11e7-a158-aced5cefb22f.txt ", "label": "操作表单"}, {"value": "a9a5845e-b34d-11e7-9952-aced5cefb22f.txt ", "label": "操作文件"}, {"value": "a9eec25e-b34d-11e7-b12d-aced5cefb22f.txt ", "label": "AJAX"}, {"value": "aa1a3f30-b34d-11e7-901d-aced5cefb22f.txt ", "label": "Promise"}, {"value": "aa4a4fe1-b34d-11e7-8eb5-aced5cefb22f.txt ", "label": "Canvas"}, {"value": "aa76de21-b34d-11e7-ad17-aced5cefb22f.txt ", "label": "jQuery"}, {"value": "aaaede0f-b34d-11e7-b933-aced5cefb22f.txt ", "label": "选择器"}, {"value": "aadb935e-b34d-11e7-ad1f-aced5cefb22f.txt ", "label": "层级选择器"}, {"value": "ab0b2ede-b34d-11e7-a4b7-aced5cefb22f.txt ", "label": "查找和过滤"}, {"value": "ab41f64f-b34d-11e7-98a1-aced5cefb22f.txt ", "label": "操作DOM"}, {"value": "ab6c3a9e-b34d-11e7-a963-aced5cefb22f.txt ", "label": "修改DOM结构"}, {"value": "ab9c725e-b34d-11e7-8dc5-aced5cefb22f.txt ", "label": "事件"}, {"value": "abca6030-b34d-11e7-8387-aced5cefb22f.txt ", "label": "动画"}, {"value": "abfce1e1-b34d-11e7-8139-aced5cefb22f.txt ", "label": "AJAX"}, {"value": "ac27744f-b34d-11e7-bfbb-aced5cefb22f.txt ", "label": "扩展"}, {"value": "ac58e48f-b34d-11e7-9c6c-aced5cefb22f.txt ", "label": "错误处理"}, {"value": "ac81a240-b34d-11e7-9d9c-aced5cefb22f.txt ", "label": "错误传播"}, {"value": "aca8d94f-b34d-11e7-a17b-aced5cefb22f.txt ", "label": "异步错误处理"}, {"value": "acd5dcc0-b34d-11e7-917c-aced5cefb22f.txt ", "label": "underscore"}, {"value": "acfffa00-b34d-11e7-990a-aced5cefb22f.txt ", "label": "Collections"}, {"value": "ad2d729e-b34d-11e7-9658-aced5cefb22f.txt ", "label": "Arrays"}, {"value": "ad59d9cf-b34d-11e7-9394-aced5cefb22f.txt ", "label": "Functions"}, {"value": "ad83f711-b34d-11e7-b25a-aced5cefb22f.txt ", "label": "Objects"}, {"value": "adb2cf40-b34d-11e7-9adf-aced5cefb22f.txt ", "label": "Chaining"}, {"value": "addd3aa1-b34d-11e7-abbb-aced5cefb22f.txt ", "label": "Node.js"}, {"value": "ae0a8c30-b34d-11e7-9f50-aced5cefb22f.txt ", "label": "安装Node.js和npm"}, {"value": "ae3e9480-b34d-11e7-9f2d-aced5cefb22f.txt ", "label": "第一个Node程序"}, {"value": "ae69c330-b34d-11e7-9a76-aced5cefb22f.txt ", "label": "搭建Node开发环境"}, {"value": "ae947cb0-b34d-11e7-9672-aced5cefb22f.txt ", "label": "模块"}, {"value": "aebd6170-b34d-11e7-bba2-aced5cefb22f.txt ", "label": "基本模块"}, {"value": "aef169c0-b34d-11e7-9ea2-aced5cefb22f.txt ", "label": "fs"}, {"value": "af1c9870-b34d-11e7-a519-aced5cefb22f.txt ", "label": "stream"}, {"value": "afa5c59e-b34d-11e7-ab9e-aced5cefb22f.txt ", "label": "http"}, {"value": "b02b9770-b34d-11e7-a5f1-aced5cefb22f.txt ", "label": "crypto"}, {"value": "b0b6724f-b34d-11e7-8b57-aced5cefb22f.txt ", "label": "Web开发"}, {"value": "b18d4a4f-b34d-11e7-a558-aced5cefb22f.txt ", "label": "koa"}, {"value": "b21d2e40-b34d-11e7-a86a-aced5cefb22f.txt ", "label": "koa入门"}, {"value": "b2515d9e-b34d-11e7-9d92-aced5cefb22f.txt ", "label": "处理URL"}, {"value": "b2814740-b34d-11e7-812b-aced5cefb22f.txt ", "label": "使用Nunjucks"}, {"value": "b2ac27cf-b34d-11e7-9668-aced5cefb22f.txt ", "label": "使用MVC"}, {"value": "b2d819cf-b34d-11e7-8f60-aced5cefb22f.txt ", "label": "mysql"}, {"value": "b3019acf-b34d-11e7-8a70-aced5cefb22f.txt ", "label": "使用Sequelize"}, {"value": "b336db9e-b34d-11e7-bb3f-aced5cefb22f.txt ", "label": "建立Model"}, {"value": "b367888f-b34d-11e7-9c4d-aced5cefb22f.txt ", "label": "mocha"}, {"value": "b39416cf-b34d-11e7-93b1-aced5cefb22f.txt ", "label": "编写测试"}, {"value": "b3c279cf-b34d-11e7-8406-aced5cefb22f.txt ", "label": "异步测试"}, {"value": "b3f43830-b34d-11e7-bd91-aced5cefb22f.txt ", "label": "Http测试"}, {"value": "b4246ff0-b34d-11e7-b0af-aced5cefb22f.txt ", "label": "WebSocket"}, {"value": "b4512540-b34d-11e7-acd0-aced5cefb22f.txt ", "label": "使用ws"}, {"value": "b481840f-b34d-11e7-b0eb-aced5cefb22f.txt ", "label": "编写聊天室"}, {"value": "b4a9575e-b34d-11e7-a48a-aced5cefb22f.txt ", "label": "REST"}, {"value": "b4e045e1-b34d-11e7-b53e-aced5cefb22f.txt ", "label": "编写REST API"}, {"value": "b50b9b9e-b34d-11e7-99ff-aced5cefb22f.txt ", "label": "开发REST API"}, {"value": "b537dbc0-b34d-11e7-8434-aced5cefb22f.txt ", "label": "MVVM"}, {"value": "b5646a00-b34d-11e7-a3cb-aced5cefb22f.txt ", "label": "单向绑定"}, {"value": "b591e2a1-b34d-11e7-9077-aced5cefb22f.txt ", "label": "双向绑定"}, {"value": "b5bc26f0-b34d-11e7-95b0-aced5cefb22f.txt ", "label": "同步DOM结构"}, {"value": "b5e755a1-b34d-11e7-b75a-aced5cefb22f.txt ", "label": "集成API"}, {"value": "b616ca0f-b34d-11e7-9cc2-aced5cefb22f.txt ", "label": "在线电子表格"}, {"value": "b6433140-b34d-11e7-99fe-aced5cefb22f.txt ", "label": "自动化工具"}, {"value": "b66b52b0-b34d-11e7-9604-aced5cefb22f.txt ", "label": "React"}, {"value": "b6963340-b34d-11e7-a57b-aced5cefb22f.txt ", "label": "期末总结"}];
+    $(function (){
+        initData();
+        changeMenuDiv("javascript");
+        initFirstPage();
+        initSearch();
+    })
+    function initData(){
+        $.ajax({
+            url : '/getJson',
+            dataType:'json',
+            data:{type:2},
+            async:false,
+            success: function (data) {
+                initTree(eval(data));
+                $("#tree").find("a").first().click();
+            }
+        });
+    }
+    function initSearch(){
+        $("#title" ).autocomplete({
+            source: searchData ,
+            select: function(e, ui) {
+                $("#title").val(ui.item.label);
+                $("#searchTitle").val(ui.item.value);
+                ui.item.value = ui.item.label;
+            }
+        });
+    }
+    function getContentBySearch(){
+       $.ajax({
+            url : '/getContent',
+            dataType:'json',
+            data: {
+                url:$("#searchTitle").val(),
+                type:2
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+   }
+
+    function initTree(data){
+        layui.use('tree', function(){
+             layui.tree({
+              elem: '#tree'
+              ,nodes: data
+              ,click: function(node){
+                getcontent(node);
+              }
+            });
+        });
+        $("#tree").find("a").eq(3).click();
+    }
+
+    function getcontent(node){
+        $.ajax({
+            url : '/getContent',
+            dataType:'json',
+            data: {
+                url:node['url'],
+                type:2
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+    }
+    function initFirstPage(){
+        $.ajax({
+            url : '/getFirstPage',
+            dataType:'json',
+            data: {
+                type:2
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

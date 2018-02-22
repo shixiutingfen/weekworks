@@ -1,0 +1,23 @@
+<div class="post_bd post">
+<p>
+<strong><span class="wp_keywordlink"><a href="http://man.linuxde.net/iptables" target="_blank" title="iptables命令">iptables</a></span>-<span class="wp_keywordlink"><a href="http://man.linuxde.net/restore" target="_blank" title="restore命令">restore</a></span>命令</strong>用来还原<span class="wp_keywordlink"><a href="http://man.linuxde.net/iptables-save" target="_blank" title="iptables-save命令">iptables-save</a></span>命令所备份的iptables配置。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+iptables-restor(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c：指定在还原iptables表时候，还原当前的数据包计数器和字节计数器的值；
+-t：指定要还原表的名称。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+iptables-restor &lt; iptables.bak</pre>
+<p>
+	iptables.bak是iptables-save命令所备份的文件。</p>
+</div>

@@ -1,0 +1,24 @@
+<div class="post_bd post">
+<p>
+<strong>xinit命令</strong>是Linux下X-Window系统的初始化程序，主要完成X服务器的初始化设置。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+xinit(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		客户端选项：客户端指令及选项；
+	</li>
+<li>
+		--：用于区分客户端选项和服务器端选项；
+	</li>
+<li>
+		服务器端选项：服务器端选项指令及选项。
+	</li>
+</ul>
+</div>

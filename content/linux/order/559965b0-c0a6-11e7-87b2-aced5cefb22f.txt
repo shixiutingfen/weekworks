@@ -1,0 +1,31 @@
+<div class="post_bd post">
+<p>
+<strong>yes命令</strong>在命令行中输出指定的字符串，直到yes进程被杀死。不带任何参数输入yes命令默认的字符串就是y。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+yes(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	字符串：指定要重复打印的字符串。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# yes testline</span>
+
+testline
+testline
+testline
+testline
+testline
+testline
+testline
+testline
+...一直重复打印 testline，按Ctrl+C结束。</pre>
+</div>

@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>bzmore命令</strong>用于查看<span class="wp_keywordlink"><a href="http://man.linuxde.net/bzip2" target="_blank" title="bzip2命令">bzip2</a></span>压缩过的文本文件的内容，当下一屏显示不下时可以实现分屏显示。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bzmore(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要分屏显示的.bz2压缩包。</p>
+</div>

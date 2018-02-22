@@ -1,0 +1,47 @@
+<div class="post_bd post">
+<p>
+<strong>init命令</strong>是Linux下的进程初始化工具，init进程是所有Linux进程的父进程，它的进程号为1。init命令是Linux操作系统中不可缺少的程序之一，init进程是Linux内核引导运行的，是系统中的第一个进程。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+init(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-b：不执行相关脚本而直接进入单用户模式；
+-s：切换到单用户模式。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	运行等级：指定Linux系统要切换到的运行等级。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	几个常用的命令
+</p>
+<p>
+	查看系统进程命令：<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/ps" target="_blank" title="ps命令">ps</a></span> -ef | <span class="wp_keywordlink"><a href="http://man.linuxde.net/head" target="_blank" title="head命令">head</a></span></code><br/>
+	查看init的配置文件：<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/more" target="_blank" title="more命令">more</a></span> /etc/inittab</code><br/>
+	查看系统当前运行的级别：<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/runlevel" target="_blank" title="runlevel命令">runlevel</a></span></code>
+</p>
+<p>
+<strong>运行级别</strong>
+</p>
+<p>
+	到底什么是运行级呢？简单的说，运行级就是操作系统当前正在运行的功能级别。这个级别从0到6 ，具有不同的功能。你也可以在<code>/etc/inittab</code>中查看它的英文介绍。
+</p>
+<pre>
+#0  停机（千万不能把initdefault 设置为0）
+#1  单用户模式
+#2  多用户，没有 NFS(和级别3相似，会停止部分服务)
+#3  完全多用户模式
+#4  没有用到
+#5  x11(Xwindow)
+#6  重新启动（千万不要把initdefault 设置为6）</pre>
+</div>

@@ -1,0 +1,55 @@
+<div class="post_bd post">
+<p>
+<strong>cmp命令</strong>用来比较两个文件是否有差异。当相互比较的两个文件完全一样时，则该指令不会显示任何信息。若发现有差异，预设会标示出第一个不通之处的字符和列数编号。若不指定任何文件名称或是所给予的文件名为“-”，则cmp指令会从标准输入设备读取数据。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+cmp(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c或--print-chars：除了标明差异处的十进制字码之外，一并显示该字符所对应字符；
+-i&lt;字符数目&gt;或--ignore-initial=&lt;字符数目&gt;：指定一个数目；
+-l或——verbose：标示出所有不一样的地方；
+-s或--quiet或——silent：不显示错误信息；
+-v或——version：显示版本信息；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	目录：比较两个文件的差异。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用cmp命令比较文件"testfile"和文件"testfile1"两个文件，则输入下面的命令：
+</p>
+<pre>
+cmp testfile testfile1            <span style="color:#808080;">#比较两个指定的文件</span></pre>
+<p>
+	在上述指令执行之前，使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/cat" target="_blank" title="cat命令">cat</a></span>命令查看两个指定的文件内容，如下所示：
+</p>
+<pre>
+<span style="color:#FF0000;">cat testfile</span>                    #查看文件内容  
+Absncn 50                       #显示文件“testfile”  
+Asldssja 60  
+Jslkadjls 85 
+
+<span style="color:#FF0000;">cat testfile1</span>                   #查看文件内容  
+Absncn 50                       #显示文件“testfile1”  
+AsldssjE 62  
+Jslkadjls 85  </pre>
+<p>
+	然后，再执行cmp命令，并返回比较结果，具体如下所示：
+</p>
+<pre>
+<span style="color:#FF0000;">cmp testfile testfile1</span>       #比较两个文件  
+testfile testfile1           #有差异：第8字节，第2行  </pre>
+<p>
+	注意：在比较结果中，只能够显示第一比较结果。</p>
+</div>

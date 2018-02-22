@@ -1,0 +1,56 @@
+<div class="post_bd post">
+<p>
+<strong>mountpoint命令</strong>用来判断指定的目录是否是加载点，<strong>如果是挂载点返回0，如果不是就返回非0。</strong>设备总是挂载在某个指定的目录下，所以就可以使用mountpoint这条命令来确认某个目录是否”临时性“的被文件系统占用。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+mountpoint(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-q：不打印任何信息；
+-d：打印文件系统的主设备号和次设备号；
+-x：打印块数设备的主设备号和次设备号。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	目录：指定要判断的目录。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	查看<code>/mnt</code>目录是不是挂载点：
+</p>
+<pre>
+<span style="color:#B22222;">mountpoint /mnt</span>
+/mnt is a mountpoint</pre>
+<p>
+	这里，我在<code>/mnt</code>目录下面挂载了一些东西。
+</p>
+<p>
+	查看<code>/usr/local</code>是不是挂载点： 
+</p>
+<pre>
+<span style="color:#B22222;">mountpoint /usr/local</span>
+/usr/local is not a mountpoint</pre>
+<p>
+	这里，我没有把任何分区挂载到<code>/usr/local</code>目录上面。 
+</p>
+<p>
+	查看挂载的<code>/mnt</code>的主/次设备号码： 
+</p>
+<pre>
+<span style="color:#B22222;">mountpoint -d /mnt</span>
+8:5 </pre>
+<p>
+	看一个设备的主/次设备号：
+</p>
+<pre>
+<span style="color:#B22222;">mountpoint -x /dev/sda9</span>
+8:9</pre>
+</div>

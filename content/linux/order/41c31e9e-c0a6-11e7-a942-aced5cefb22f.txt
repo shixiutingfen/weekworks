@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>rpmsign命令</strong>使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/rpm" target="_blank" title="rpm命令">rpm</a></span>软件包的签名管理工具。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rpmsign(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--addsign：为自动软件包添加签名；
+--checksig：验证软件包签名；
+--delsign：删除软件包签名；
+--import：导入公钥；
+--resign：重新签名软件包；
+--nodigest：不验证软件包摘要；
+--nosignature：不验证软件包签名。</pre>
+</div>

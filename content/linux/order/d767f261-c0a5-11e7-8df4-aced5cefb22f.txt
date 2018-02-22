@@ -1,0 +1,32 @@
+<div class="post_bd post">
+<p>
+<strong>grpconv命令</strong>用来开启群组的投影密码。Linux系统里的用户和群组密码，分别存放在<code>/etc</code>目录下的<span class="wp_keywordlink"><a href="http://man.linuxde.net/passwd" target="_blank" title="passwd命令">passwd</a></span>和group文件中。因系统运作所需，任何人都得以读取它们，造成安全上的破绽。投影密码将文件内的密码改存在<code>/etc</code>目录下的shadow和gshadow文件内，只允许系统管理者读取，同时把原密码置换为"x"字符。投影密码的功能可随时开启或关闭，您只需执行grpconv指令就能开启群组投影密码。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+grpconv</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	设置cdy组密码
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/groupmod" target="_blank" title="groupmod命令">groupmod</a></span> --password 123456 cdy
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/cat" target="_blank" title="cat命令">cat</a></span> /etc/group | <span class="wp_keywordlink"><a href="http://man.linuxde.net/grep" target="_blank" title="grep命令">grep</a></span> cdy
+cdy:123456:1000:     //看出密码是123456</pre>
+<p>
+	启动影子系统
+</p>
+<pre>
+grpconv
+cat /etc/group |  grep cdy
+cdy:x:1000:      //看出密码段已经被x替代
+
+cat /etc/gshadow | grep cdy
+cdy:123456::      //已经移到影子文件了</pre>
+<p>
+	注：gshadow, shadow只有root权限才可以查看。</p>
+</div>

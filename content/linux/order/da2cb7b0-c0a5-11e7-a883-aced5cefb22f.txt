@@ -1,0 +1,26 @@
+<div class="post_bd post">
+<p>
+<strong>halt命令</strong>用来关闭正在运行的Linux操作系统。halt命令会先检测系统的<span class="wp_keywordlink"><a href="http://man.linuxde.net/runlevel" target="_blank" title="runlevel命令">runlevel</a></span>，若runlevel为0或6，则关闭系统，否则即调用<span class="wp_keywordlink"><a href="http://man.linuxde.net/shutdown" target="_blank" title="shutdown命令">shutdown</a></span>来关闭系统。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+halt(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d：不要在wtmp中记录；
+-f：不论目前的runlevel为何，不调用shutdown即强制关闭系统；
+-i：在halt之前，关闭全部的网络界面；
+-n：halt前，不用先执行<span class="wp_keywordlink"><a href="http://man.linuxde.net/sync" target="_blank" title="sync命令">sync</a></span>；
+-p：halt之后，执行<span class="wp_keywordlink"><a href="http://man.linuxde.net/poweroff" target="_blank" title="poweroff命令">poweroff</a></span>；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/w" target="_blank" title="w命令">w</a></span>：仅在wtmp中记录，而不实际结束系统。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+halt -p     //关闭系统后关闭电源。
+halt -d     //关闭系统，但不留下纪录。</pre>
+</div>

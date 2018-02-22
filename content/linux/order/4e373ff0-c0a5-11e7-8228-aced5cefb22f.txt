@@ -1,0 +1,25 @@
+<div class="post_bd post">
+<p>
+<strong>znew命令</strong>用于将使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/compress" target="_blank" title="compress命令">compress</a></span>命令压缩的“.Z”压缩包重新转化为使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/gzip" target="_blank" title="gzip命令">gzip</a></span>命令压缩的“.gz”压缩包。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+znew(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-f：强制执行转换操作，即是目标“.gz”已经存在；
+-t：删除原文件前测试新文件；
+-v：显示文件名和每个文件的压缩比；
+-9：食用油花的压缩比，速度较慢；
+-P：使用管道完成转换操作，以降低磁盘空间使用；
+-K：当“.Z”文件比“.gz”文件小时，保留“.Z”文件。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定compress指令压缩生成的“.Z”压缩包。</p>
+</div>

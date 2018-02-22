@@ -1,0 +1,54 @@
+<div class="post_bd post">
+<p>
+<strong>sh命令</strong>是shell命令语言解释器，执行命令从标准输入读取或从一个文件中读取。通过用户输入命令，和内核进行沟通！Bourne Again Shell （即bash）是自由软件基金会（GNU）开发的一个Shell，它是Linux系统中一个默认的Shell。Bash不但与Bourne Shell兼容，还继承了C Shell、Korn Shell等优点。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bash [options] [<span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span>]</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c string：命令从-c后的字符串读取。
+-i：实现脚本交互。
+-n：进行shell脚本的语法检查。
+-x：实现shell脚本逐条语句的跟踪。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用-x选项跟踪脚本调试shell脚本，能打印出所执行的每一行命令以及当前状态：
+</p>
+<pre>
+[root@AY1307311912260196fcZ satools]# sh -x check_ssh_login.sh
++ DEFINE=30
++ <span class="wp_keywordlink"><a href="http://man.linuxde.net/cat" target="_blank" title="cat命令">cat</a></span> /var/log/secure
++ <span class="wp_keywordlink"><a href="http://man.linuxde.net/awk" target="_blank" title="awk命令">awk</a></span> '/Failed/ {++<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>[$(NF-3)]} END {for (i in ip) print i"="ip[i]}'
+++ cat /root/satools/black.txt
++ for i in '`cat /root/satools/black.txt`'
+++ <span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span> 121.42.0.16=1427
+++ awk -F= '{print $1}'
++ IP=121.42.0.16
+++ echo 121.42.0.16=1427
+++ awk -F= '{print $2}'
++ NUM=1427
++ '[' 1427 -gt 30 ']'
++ <span class="wp_keywordlink"><a href="http://man.linuxde.net/grep" target="_blank" title="grep命令">grep</a></span> 121.42.0.16 /etc/hosts.deny
++ '[' 1 -gt 0 ']'
++ echo <span class="wp_keywordlink"><a href="http://man.linuxde.net/sshd" target="_blank" title="sshd命令">sshd</a></span>:121.42.0.16
++ echo vsftpd:121.42.0.16
++ for i in '`cat /root/satools/black.txt`'
+++ echo 121.42.0.72=276
+++ awk -F= '{print $1}'
++ IP=121.42.0.72
+++ awk -F= '{print $2}'
+++ echo 121.42.0.72=276
++ NUM=276
++ '[' 276 -gt 30 ']'
++ grep 121.42.0.72 /etc/hosts.deny
++ '[' 1 -gt 0 ']'
++ echo sshd:121.42.0.72
++ echo vsftpd:121.42.0.72</pre>
+</div>

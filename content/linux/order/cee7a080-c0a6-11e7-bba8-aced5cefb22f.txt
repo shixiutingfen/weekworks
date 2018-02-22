@@ -1,0 +1,18 @@
+<div class="post_bd post">
+<p>
+<strong>arpwatch命令</strong>用来监听网络上<span class="wp_keywordlink"><a href="http://man.linuxde.net/arp" target="_blank" title="arp命令">arp</a></span>的记录。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+arpwatch(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d：启动排错模式；
+-f&lt;记录文件&gt;：设置存储ARP记录的文件，预设为/var/arpwatch/arp.dat；
+-i&lt;接口&gt;：指定监听ARP的接口，预设的接口为eth0；
+-r&lt;记录文件&gt;：从指定的文件中读取ARP记录，而不是从网络上监听。</pre>
+</div>

@@ -1,0 +1,47 @@
+<div class="post_bd post">
+<p>
+<strong>blockdev命令</strong>在命令调用“ioxtls”函数，以实现对设备的控制。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+blockdev(选项)(参数)</pre>
+<p>
+	选项
+</p>
+<pre>
+-V：打印版本号并退出；
+-q：安静模式；
+-v：详细信息模式；
+--setro：只读；
+--setrw：只写；
+--getro：打印只读状态，“1”表示只读，“0”表示非只读；
+--getss：打印扇区大小。通常为521；
+--flushbufs：刷新缓冲区；
+--rereadpt：重新读取分区表。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	设备文件名：指定要操作的磁盘的设备文件名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	设置设备为只读：
+</p>
+<pre>
+blockdev --setro /dev/hda4</pre>
+<p>
+	读取设备是否为只读：
+</p>
+<pre>
+blockdev --getro /dev/hda4</pre>
+<p>
+	设置设别为可读写：
+</p>
+<pre>
+blockdev --setrw /dev/hda4</pre>
+</div>

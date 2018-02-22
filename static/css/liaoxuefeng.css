@@ -1,0 +1,60 @@
+body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    line-height:20px;
+    color:#666;
+}
+h3{
+    font-size:18px;
+    line-height:24px;
+}
+h4{
+     font-size:16px;
+    line-height:22px;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+#content p{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+pre .number, pre .hexcolor, pre .ruby .constant{
+    color:#099
+}
+pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .nginx .title, pre .subst, pre .request, pre .status{
+    color:#333;
+    font-weight:bold;
+}
+pre .string, pre .tag .value, pre .phpdoc, pre .tex .formula{
+    color:#d14
+}
+p, ul, ol, dl, blockquote, pre, address, fieldset, figure{
+    margin: 0 0 15px 0;
+}
+.list-group-item{
+    border:0px
+}
+.x-content p{
+    word-wrap:break-word;
+    white-space:pre-wrap;
+}
+#content pre{
+    word-break:break-all;
+    word-wrap:break-word;
+    white-space:pre-wrap;
+}
+pre{
+    padding:10px;
+    background:#fafafa;
+    font:12px / 18px Consolas,monospace,serif;
+    color:#444;
+    tab-size:4;
+    overflow:auto;
+    border:1px solid #ddd;
+    border-radius:3px;
+}

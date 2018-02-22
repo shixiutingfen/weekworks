@@ -1,0 +1,34 @@
+<div class="post_bd post">
+<p>
+<strong>groupadd命令</strong>用于创建一个新的工作组，新工作组的信息将被添加到系统文件中。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+groupadd(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-g：指定新建工作组的<span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>；
+-r：创建系统工作组，系统工作组的组ID小于500；
+-K：覆盖配置文件“/ect/<span class="wp_keywordlink"><a href="http://man.linuxde.net/login" target="_blank" title="login命令">login</a></span>.defs”；
+-o：允许添加组ID号不唯一的工作组。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	组名：指定新建工作组的组名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	建立一个新组，并设置组ID加入系统：
+</p>
+<pre>
+groupadd -g 344 linuxde</pre>
+<p>
+	此时在<code>/etc/<span class="wp_keywordlink"><a href="http://man.linuxde.net/passwd" target="_blank" title="passwd命令">passwd</a></span></code>文件中产生一个组ID（GID）是344的项目。</p>
+</div>

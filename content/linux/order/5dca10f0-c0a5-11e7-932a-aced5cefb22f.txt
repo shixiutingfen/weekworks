@@ -1,0 +1,77 @@
+<div class="post_bd post">
+<p>
+<strong>ncftp命令</strong>是增强的的<span class="wp_keywordlink"><a href="http://man.linuxde.net/ftp" target="_blank" title="ftp命令">ftp</a></span>工具，比传统的FTP指令更加强大。FTP让用户得以下载存放于服务器主机的文件，也能将文件上传到远端主机放置。ncftp是文字模式FTP程序的佼佼者，它具备多样特色，包括显示传输速率，下载进度，自动续传，标住书签，可通过防火墙和代理服务器等。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ncftp(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-u：指定登录FTP服务器时使用的用户名；
+-p：指定登录FTP服务器时使用的密码；
+-P：如果FTP服务器没有使用默认的TCP协议的21端口，则使用此选项指定FTP服务器的端口号。
+-m：在传之前尝试在目录位置创建目录(用于传目录的情况)
+-R：递规传子目录</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	FTP服务器：指定远程FTP服务器的<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址或主机名。
+</p>
+<h3>
+	安装<br/>
+</h3>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/wget" target="_blank" title="wget命令">wget</a></span> ftp://ftp.ncftp.com/ncftp/ncftp-3.2.3-src.<span class="wp_keywordlink"><a href="http://man.linuxde.net/tar" target="_blank" title="tar命令">tar</a></span>.gz
+tar zxvf ncftp-3.2.3-src.tar.gz
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/cd" target="_blank" title="cd命令">cd</a></span> ncftp-3.2.3/
+./configure --prefix=/usr/local/ncftp
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/make" target="_blank" title="make命令">make</a></span> &amp;&amp; make <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span></pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	将本地/etc/目录内的所有文件和目录，上传到FTP服务器的flv/games/目录内(如果不存在flv/games/目录则自动创建)。
+</p>
+<pre>
+/usr/local/ncftp/bin/ncftpput -u koumm -p koumm -P 21 -m -R 192.168.162.137  flv/games/ /etc/*</pre>
+<p>
+<strong>指令说明</strong>
+</p>
+<p>
+	ncftp的基本命令和普通ftp一样，可以输入<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>获得命令列表。对于所有的命令，都可以使用help &lt;命令&gt;的格式获得详细帮助。l开头的就是对本地执行的命令，其它的就是对登入的ftp服务目录的操作命令。
+</p>
+<p>
+	增加的本地文件系统的操作命令：
+</p>
+<ul>
+<li>
+		lls: 列出本地当前目录文件；
+	</li>
+<li>
+		lmkdir : 本地建立目录；
+	</li>
+<li>
+		lrename: 本地文件改名；
+	</li>
+<li>
+		lpwd: 显示当前本地路 径；
+	</li>
+<li>
+		lchmod: 改变本地文件权限；
+	</li>
+<li>
+		lpage: 显示本地文件内容；
+	</li>
+<li>
+		lrm: 删除本地文件；
+	</li>
+<li>
+		lrmdir: 删除本地目录。
+	</li>
+</ul>
+</div>

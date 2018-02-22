@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>spell命令</strong>对文件进行拼写检查，并把拼写错误的单词输出。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+spell(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定需要进行拼写检查的文件。</p>
+</div>

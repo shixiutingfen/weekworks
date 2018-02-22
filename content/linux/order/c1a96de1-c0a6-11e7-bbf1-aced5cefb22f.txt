@@ -1,0 +1,25 @@
+<div class="post_bd post">
+<p>
+<strong>elinks命令</strong>能实现一个纯文本界面的WWW浏览器，操作方式与“<span class="wp_keywordlink"><a href="http://man.linuxde.net/lynx" target="_blank" title="lynx命令">lynx</a></span>”类似。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+elinks(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-anonymous：是否使用匿名帐号方式；
+-auto-submit：对于偶然遇到的第一个表单是否自动提交；
+-config-dir：指定elinks指令运行时读取和写入自身的配置和运行状态的存放目录；
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/dump" target="_blank" title="dump命令">dump</a></span>：将HTML文档以纯文本的方式打印到标准输出设备；
+-version：显示指令的版本信息；
+-h：显示帮助信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	URL：指定要访问的URL地址。</p>
+</div>

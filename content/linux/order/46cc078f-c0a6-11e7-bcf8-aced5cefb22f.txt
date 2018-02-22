@@ -1,0 +1,71 @@
+<div class="post_bd post">
+<p>
+<strong>lp命令</strong>用于打印文件，或者修改排队的打印任务。与<span class="wp_keywordlink"><a href="http://man.linuxde.net/lpr" target="_blank" title="lpr命令">lpr</a></span>命令类似，lp命令既支持文件输入也支持标准输入。它与lpr的不同之处在于它有一个不同（稍微复杂点）的参数选项设置。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lp(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-E：与打印服务器连接时强制使用加密；
+-U：指定连接打印服务器时使用的用户名；
+-d：指定接收打印任务的目标打印机；
+-i：指定一个存在的打印任务号；
+-m：打印完成时发送E-<span class="wp_keywordlink"><a href="http://man.linuxde.net/mail" target="_blank" title="mail命令">mail</a></span>；
+-n：指定打印的份数；
+-t：指定打印任务的名称；
+-H：指定打印任务开始的时间；
+-P：指定需要打印的页码。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：需打印的文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	要在连接在设备dlp0上的打印机lp0上打印文件<code>/etc/motd</code>，请输入：
+</p>
+<pre>
+lp /etc/motd</pre>
+<p>
+	要使用文件的一个副本打印<code>/etc/motd</code>文件的30个副本，并且要用邮件通知用户作业完成，请输入：
+</p>
+<pre>
+lp -c -m -n30 -dlp0:lpd0 /etc/motd</pre>
+<p>
+	要使用后端标志-f和-a并带上作业标题blah打印<code>/etc/motd</code>文件，请输入：
+</p>
+<pre>
+lp -t "blah" -o -f -o -a /etc/motd</pre>
+<p>
+	要排队MyFile文件并返回作业编号，请输入：
+</p>
+<pre>
+lp myfile</pre>
+<p>
+	要排队MyFile文件并禁止作业编号，请输入：
+</p>
+<pre>
+lp -s myfile</pre>
+<p>
+<strong>退出状态</strong>
+</p>
+<p>
+	该命令返回以下退出值：
+</p>
+<ul>
+<li>
+		0：所有输入文件成功处理。
+	</li>
+<li>
+		&gt;0：没有输出设备可用，或者出现一个错误。
+	</li>
+</ul>
+</div>

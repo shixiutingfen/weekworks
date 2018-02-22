@@ -1,0 +1,35 @@
+<div class="post_bd post">
+<p>
+<strong>getsebool命令</strong>是用来查询SElinux策略内各项规则的布尔值。SELinux的策略与规则管理相关命令：<span class="wp_keywordlink"><a href="http://man.linuxde.net/seinfo" target="_blank" title="seinfo命令">seinfo</a></span>命令、<span class="wp_keywordlink"><a href="http://man.linuxde.net/sesearch" target="_blank" title="sesearch命令">sesearch</a></span>命令、getsebool命令、<span class="wp_keywordlink"><a href="http://man.linuxde.net/setsebool" target="_blank" title="setsebool命令">setsebool</a></span>命令、<span class="wp_keywordlink"><a href="http://man.linuxde.net/semanage" target="_blank" title="semanage命令">semanage</a></span>命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+getsebool [-a] [布尔值条款]</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a：列出目前系统上面的所有布尔值条款设置为开启或关闭值。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	查询本系统内所有的布尔值设置状况：
+</p>
+<pre>
+getsebool -a
+NetworkManager_disable_trans --&gt; off
+allow_console_login --&gt; off
+allow_cvs_read_shadow --&gt; off
+allow_daemons_dump_core --&gt; on
+....(底下省略)....</pre>
+<p>
+	查询httpd_enable_homedirs是否为关闭，若没关闭，请关闭它：
+</p>
+<pre>
+getsebool httpd_enable_homedirs
+setsebool -P httpd_enable_homedirs=0    //0是关闭  1是开启
+</pre>
+</div>

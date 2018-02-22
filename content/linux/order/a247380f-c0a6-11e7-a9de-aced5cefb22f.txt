@@ -1,0 +1,26 @@
+<div class="post_bd post">
+<p>
+<strong>mysqlshow命令</strong>用于显示<span class="wp_keywordlink"><a href="http://man.linuxde.net/mysql" target="_blank" title="mysql命令">mysql</a></span>服务器中数据库、表和列表信息。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+mysqlshow(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-h：MySQL服务器的<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址或主机名；
+-u：连接MySQL服务器的用户名；
+-p：连接MySQL服务器的密码；
+--count：显示每个数据表中数据的行数；
+-k：显示数据表的索引；
+-t：显示数据表的类型；
+-i：显示数据表的额外信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	数据库信息：指定要显示的数据库信息，可以是一个数据库名，或者是数据库名和表名，或者是数据库名、表名和列名。</p>
+</div>

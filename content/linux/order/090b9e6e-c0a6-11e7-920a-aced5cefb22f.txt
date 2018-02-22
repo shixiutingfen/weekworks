@@ -1,0 +1,10 @@
+<div class="post_bd post">
+<p>
+<strong>logout命令</strong>用于退出当前登录的Shell，logout指令让用户退出系统，其功能和<span class="wp_keywordlink"><a href="http://man.linuxde.net/login" target="_blank" title="login命令">login</a></span>指令相互对应。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+logout</pre>
+</div>

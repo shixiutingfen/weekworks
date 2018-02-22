@@ -1,0 +1,20 @@
+<div class="post_bd post">
+<p>
+<strong>expand命令</strong>用于将文件的制表符（TAB）转换为空白字符（space），将结果显示到标准输出设备。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+expand(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-t&lt;数字&gt;：指定制表符所代表的空白字符的个数，而不使用默认的8。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要转换制表符为空白的文件。</p>
+</div>

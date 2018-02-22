@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>pvck命令</strong>用来检测物理卷的LVM元数据的一致性。默认情况下，物理卷中的前4个扇区保存着LVM卷标，可以使用<code>--labelsector</code>选项指定其他的位置（例如：数据恢复时）。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+pvck(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-d：调试模式；
+-v：详细信息模式；
+--labelsector：指定LVE卷标所在扇区。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	物理卷：指定要检查的物理卷对应的设备文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用pvck命令检查物理卷<code>/dev/sdb1</code>。在命令行中输入下面的命令：
+</p>
+<pre>
+<span style="color:#FF0000;">pvck -v /dev/sdb1</span>    <span style="color:#A9A9A9;">#检查物理卷元数据</span>
+Scanning /dev/sdb1  
+Found label on /dev/sdb1, sector 1, <span class="wp_keywordlink"><a href="http://man.linuxde.net/type" target="_blank" title="type命令">type</a></span>=LVM2 001  
+Found text metadata area: offset=4096, size=192512 
+Found LVM2 metadata record <span class="wp_keywordlink"><a href="http://man.linuxde.net/at" target="_blank" title="at命令">at</a></span> offset=125952,  
+size=70656, offset2=0 size2=0</pre>
+</div>

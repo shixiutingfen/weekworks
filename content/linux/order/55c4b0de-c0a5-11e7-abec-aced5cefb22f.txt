@@ -1,0 +1,59 @@
+<div class="post_bd post">
+<p>
+<strong>gunzip命令</strong>用来解压缩文件。gunzip是个使用广泛的解压缩程序，它用于解开被<span class="wp_keywordlink"><a href="http://man.linuxde.net/gzip" target="_blank" title="gzip命令">gzip</a></span>压缩过的文件，这些压缩文件预设最后的扩展名为.gz。事实上gunzip就是gzip的硬连接，因此不论是压缩或解压缩，都可通过gzip指令单独完成。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+gunzip(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a或——ascii：使用ASCII文字模式；
+-c或--stdout或--to-stdout：把解压后的文件输出到标准输出设备；
+-f或-force：强行解开压缩文件，不理会文件名称或硬连接是否存在以及该文件是否为符号连接；
+-h或——<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+-l或——list：列出压缩文件的相关信息；
+-L或——license：显示版本与版权信息；
+-n或--no-name：解压缩时，若压缩文件内含有原来的文件名称及时间戳记，则将其忽略不予处理；
+-N或——name：解压缩时，若压缩文件内含有原来的文件名称及时间戳记，则将其回存到解开的文件上；
+-q或——quiet：不显示警告信息；
+-r或——recursive：递归处理，将指定目录下的所有文件及子目录一并处理；
+-S或&lt;压缩字尾字符串&gt;或----suffix&lt;压缩字尾字符串&gt;：更改压缩字尾字符串；
+-t或——<span class="wp_keywordlink"><a href="http://man.linuxde.net/test" target="_blank" title="test命令">test</a></span>：测试压缩文件是否正确无误；
+-v或——verbose：显示指令执行过程；
+-V或——version：显示版本信息；</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件列表：指定要解压缩的压缩包。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	首先将<code>/etc</code>目录下的所有文件以及子目录进行压缩，备份压缩包etc.<span class="wp_keywordlink"><a href="http://man.linuxde.net/zip" target="_blank" title="zip命令">zip</a></span>到<code>/opt</code>目录，然后对etc.zip文件进行gzip压缩，设置gzip的压缩级别为9。
+</p>
+<pre>
+zip –r /opt/etc.zip /etc
+gzip -9v /opt/etc.zip</pre>
+<p>
+	查看上述etc.zip.gz文件的压缩信息。
+</p>
+<pre>
+gzip -l /opt/etc.zip.gz
+compressed        uncompressed ratio uncompressed_name
+11938745            12767265   6.5% /opt/etc.zip</pre>
+<p>
+	解压上述etc.zip.gz文件到当前目录。
+</p>
+<pre>
+[root@mylinux ~]#gzip –d /opt/etc.zip.gz 
+或者执行
+[root@mylinux ~]#gunzip /opt/etc.zip.gz</pre>
+<p>
+	通过上面的示例可以知道<code>gzip –d</code>等价于<code>gunzip</code>命令。</p>
+</div>

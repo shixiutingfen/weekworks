@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>学习编程网</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+<style>
+        .layui-form-item{
+            position:relative;
+        }
+        .layui-form-item .layui-btn{
+            position:absolute;
+            right:0px;
+            top:0px;
+        }
+    </style>
+</head>
+<body >
+{% include 'techlearn/header.html' %}
+ <link rel="stylesheet" href="/static/css/liaoxuefeng.css">
+  <div class="layui-row" style="padding-top: 20px">
+    <div class="layui-col-md2 " style="border-right:1px solid #ddd">
+         <div class="layui-form-item">
+          <input type="text" name="title" id="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+           <input type="hidden" id="searchTitle"/>
+            <button class="layui-btn" lay-submit lay-filter="formDemo" onclick="getContentBySearch()">搜索</button>
+      </div>
+      <div id="tree"></div>
+    </div>
+    <div class="layui-col-md9 " id="content" style="padding-left: 20px">
+
+    </div>
+  </div>
+
+
+{#{% include 'techlearn/footer.html' %}#}
+
+
+<script>
+    var searchData = [{"value": "73c7ec0f-b5a6-11e7-8a79-aced5cefb22f.txt ", "label": "Git简介"}, {"value": "73fcb7b0-b5a6-11e7-9322-aced5cefb22f.txt ", "label": "Git的诞生"}, {"value": "742945f0-b5a6-11e7-842d-aced5cefb22f.txt ", "label": "集中式vs分布式"}, {"value": "74542680-b5a6-11e7-a4dc-aced5cefb22f.txt ", "label": "安装Git"}, {"value": "74817811-b5a6-11e7-afe3-aced5cefb22f.txt ", "label": "创建版本库"}, {"value": "74b3aba1-b5a6-11e7-a37c-aced5cefb22f.txt ", "label": "时光机穿梭"}, {"value": "74e60640-b5a6-11e7-973a-aced5cefb22f.txt ", "label": "版本回退"}, {"value": "7517ebae-b5a6-11e7-83e4-aced5cefb22f.txt ", "label": "工作区和暂存区"}, {"value": "7547d54f-b5a6-11e7-8747-aced5cefb22f.txt ", "label": "管理修改"}, {"value": "7576ad80-b5a6-11e7-a571-aced5cefb22f.txt ", "label": "撤销修改"}, {"value": "75acffc0-b5a6-11e7-b1b5-aced5cefb22f.txt ", "label": "删除文件"}, {"value": "75d8f1c0-b5a6-11e7-b0ff-aced5cefb22f.txt ", "label": "远程仓库"}, {"value": "760be8a1-b5a6-11e7-ab9b-aced5cefb22f.txt ", "label": "添加远程库"}, {"value": "763ac0cf-b5a6-11e7-9fe2-aced5cefb22f.txt ", "label": "从远程库克隆"}, {"value": "766ccd51-b5a6-11e7-8003-aced5cefb22f.txt ", "label": "分支管理"}, {"value": "769e8bb0-b5a6-11e7-b841-aced5cefb22f.txt ", "label": "创建与合并分支"}, {"value": "76cf5fb0-b5a6-11e7-8739-aced5cefb22f.txt ", "label": "解决冲突"}, {"value": "76fc3c0f-b5a6-11e7-9325-aced5cefb22f.txt ", "label": "分支管理策略"}, {"value": "772a9f11-b5a6-11e7-8b85-aced5cefb22f.txt ", "label": "Bug分支"}, {"value": "77566a00-b5a6-11e7-9ac8-aced5cefb22f.txt ", "label": "Feature分支"}, {"value": "77860580-b5a6-11e7-b44c-aced5cefb22f.txt ", "label": "多人协作"}, {"value": "77bbe28f-b5a6-11e7-a5fe-aced5cefb22f.txt ", "label": "标签管理"}, {"value": "77ee3d2e-b5a6-11e7-9e87-aced5cefb22f.txt ", "label": "创建标签"}, {"value": "781dd8ae-b5a6-11e7-a255-aced5cefb22f.txt ", "label": "操作标签"}, {"value": "784d9b40-b5a6-11e7-b098-aced5cefb22f.txt ", "label": "使用GitHub"}, {"value": "7882b500-b5a6-11e7-ad2e-aced5cefb22f.txt ", "label": "使用码云"}, {"value": "78b5abe1-b5a6-11e7-a22f-aced5cefb22f.txt ", "label": "自定义Git"}, {"value": "78e74330-b5a6-11e7-bb48-aced5cefb22f.txt ", "label": "忽略特殊文件"}, {"value": "7917c90f-b5a6-11e7-988e-aced5cefb22f.txt ", "label": "配置别名"}, {"value": "79503e30-b5a6-11e7-aab4-aced5cefb22f.txt ", "label": "搭建Git服务器"}, {"value": "79877acf-b5a6-11e7-8254-aced5cefb22f.txt ", "label": "期末总结"}];
+    $(function (){
+        initData();
+        changeMenuDiv("git");
+        initFirstPage();
+        initSearch();
+    })
+    function initData(){
+        $.ajax({
+            url : '/getJson',
+            dataType:'json',
+            data:{type:3},
+            async:false,
+            success: function (data) {
+                initTree(eval(data));
+                $("#tree").find("a").first().click();
+            }
+        });
+    }
+    function initSearch(){
+        $("#title" ).autocomplete({
+            source: searchData ,
+            select: function(e, ui) {
+                $("#title").val(ui.item.label);
+                $("#searchTitle").val(ui.item.value);
+                ui.item.value = ui.item.label;
+            }
+        });
+    }
+    function getContentBySearch(){
+       $.ajax({
+            url : '/getContent',
+            dataType:'json',
+            data: {
+                url:$("#searchTitle").val(),
+                type:3
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+   }
+
+    function initTree(data){
+        layui.use('tree', function(){
+             layui.tree({
+              elem: '#tree'
+              ,nodes: data
+              ,click: function(node){
+                getcontent(node);
+              }
+            });
+        });
+        $("#tree").find("a").eq(3).click();
+    }
+
+    function getcontent(node){
+        $.ajax({
+            url : '/getContent',
+            dataType:'json',
+            data: {
+                url:node['url'],
+                type:3
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+    }
+
+    function initFirstPage(){
+        $.ajax({
+            url : '/getFirstPage',
+            dataType:'json',
+            data: {
+                type:3
+            },
+            success: function (data) {
+                $("#content").empty().append(data.data);
+                $(".to-top").click();
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>bzless命令</strong>是增强“.bz2”压缩包查看器，bzless比<span class="wp_keywordlink"><a href="http://man.linuxde.net/bzmore" target="_blank" title="bzmore命令">bzmore</a></span>命令功能更加强大。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bzless(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要分屏显示的.bz2压缩包。</p>
+</div>

@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>ispell命令</strong>用于检查文件中出现的拼写错误。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ispell(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要进行拼写检查的文件。</p>
+</div>

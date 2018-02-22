@@ -1,0 +1,20 @@
+<div class="post_bd post">
+<p>
+<strong>lpc命令</strong>式命令行方式打印机控制程序，有5个内置命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lpc</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# lpc</span>
+lpc&gt; ?         
+命令可能是缩写。命令是：
+
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/exit" target="_blank" title="exit命令">exit</a></span>    <span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>    quit    status  ?
+lpc&gt; exit</pre>
+</div>

@@ -1,0 +1,46 @@
+<div class="post_bd post">
+<p>
+<strong>exec命令</strong>用于调用并执行指令的命令。exec命令通常用在shell脚本程序中，可以调用其他的命令。如果在当前终端中使用命令，则当指定的命令执行完毕后会立即退出终端。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+exec(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-c：在空环境中执行指定的命令。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	指令：要执行的指令和相应的参数。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	首先使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span>命令将文本“Linux C++”进行输出，输入如下命令：
+</p>
+<pre>
+echo Linux C++           <span style="color:#A9A9A9;">#输出指定信息</span></pre>
+<p>
+	执行上面的指令后，输出如下信息：
+</p>
+<pre>
+Linux C++                <span style="color:#A9A9A9;">#输出信息</span></pre>
+<p>
+	然后再使用exec命令调用echo命令输出同样的信息，并且对输出的信息进行对比，输入指令如下所示：
+</p>
+<pre>
+exec -c echo Linux C++          <span style="color:#A9A9A9;">#调用命令</span></pre>
+<p>
+	执行以上命令后，其输出信息如下：
+</p>
+<pre>
+Linux C++                       <span style="color:#A9A9A9;">#使用指定指令输出信息</span></pre>
+<p>
+	通过比较两者执行后的结果来看，所实现的功能是相同的，即使用exec命令调用echo命令成功。</p>
+</div>

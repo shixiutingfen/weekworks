@@ -1,0 +1,67 @@
+<div class="post_bd post">
+<p>
+<strong>install命令</strong>的作用是安装或升级软件或备份数据，它的使用权限是所有用户。install命令和<span class="wp_keywordlink"><a href="http://man.linuxde.net/cp" target="_blank" title="cp命令">cp</a></span>命令类似，都可以将文件/目录拷贝到指定的地点。但是，install允许你控制目标文件的属性。install通常用于程序的makefile，使用它来将程序拷贝到目标（安装）目录。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+install [OPTION]... [-T] SOURCE DEST
+install [OPTION]... SOURCE... DIRECTORY
+install [OPTION]... -t DIRECTORY SOURCE...
+install [OPTION]... -d DIRECTORY...</pre>
+<p>
+	在前两种格式中，会将&lt;来源&gt;复制至&lt;目的地&gt;或将多个&lt;来源&gt;文件复制至已存在的&lt;目录&gt;，同时设定权限模式及所有者/所属组。在第三种格式中，会创建所有指定的目录及它们的主目录。长选项必须用的参数在使用短选项时也是必须的。
+</p>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--backup[=CONTROL]：为每个已存在的目的地文件进行备份。
+-b：类似 --backup，但不接受任何参数。
+-c：(此选项不作处理)。
+-d，--directory：所有参数都作为目录处理，而且会创建指定目录的所有主目录。
+-D：创建&lt;目的地&gt;前的所有主目录，然后将&lt;来源&gt;复制至 &lt;目的地&gt;；在第一种使用格式中有用。
+-g，--group=组：自行设定所属组，而不是进程目前的所属组。
+-m，--mode=模式：自行设定权限模式 (像<span class="wp_keywordlink"><a href="http://man.linuxde.net/chmod" target="_blank" title="chmod命令">chmod</a></span>)，而不是rwxr-xr-x。
+-o，--owner=所有者：自行设定所有者 (只适用于超级用户)。
+-p，--preserve-timestamps：以&lt;来源&gt;文件的访问/修改时间作为相应的目的地文件的时间属性。
+-s，--strip：用strip命令删除symbol table，只适用于第一及第二种使用格式。
+-S，--suffix=后缀：自行指定备份文件的&lt;后缀&gt;。
+-v，--verbose：处理每个文件/目录时印出名称。
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示此帮助信息并离开。
+--version：显示版本信息并离开。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+install -d [option] DIRECTORY [DIRECTORY...]</pre>
+<p>
+	支持多个，类似<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/mkdir" target="_blank" title="mkdir命令">mkdir</a></span> -p</code>支持递归。例如：<code>install -d a/b/c e/f</code>结果和<code>mkdir -p a/b/c e/f</code>一样。
+</p>
+<pre>
+install [option] SOURCE DEST</pre>
+<p>
+<strong>复制SOURCE文件（测试不能是目录）到DEST <span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span>（文件）：</strong>
+</p>
+<pre>
+install a/e c
+结果类似：
+cp a/e c    #注意c必须是文件。</pre>
+<p>
+<strong>有用选项<code>-D</code>：</strong>
+</p>
+<pre>
+install -D x a/b/c
+效果类似：
+mkdir -p a/b &amp;&amp; cp x a/b/c</pre>
+<pre>
+install [option] SOURCE [SOURCE...] DIRECTORY</pre>
+<p>
+<strong>复制多个SOURCE文件到目的目录：</strong>
+</p>
+<pre>
+install a/* d</pre>
+<p>
+	其中d是目录。</p>
+</div>

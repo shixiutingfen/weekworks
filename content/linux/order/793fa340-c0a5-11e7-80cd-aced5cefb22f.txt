@@ -1,0 +1,40 @@
+<div class="post_bd post">
+<p>
+<strong>rmdir命令</strong>用来删除空目录。当目录不再被使用时，或者磁盘空间已到达使用限定值，就需要删除失去使用价值的目录。利用rmdir命令可以从一个目录中删除一个或多个空的子目录。该命令从一个目录中删除一个或多个子目录，其中<span class="wp_keywordlink"><a href="http://man.linuxde.net/dirname" target="_blank" title="dirname命令">dirname</a></span>佬表示目录名。如果dirname中没有指定路径，则删除当前目录下由dirname指定的目录；如dirname中包含路径，则删除指定位置的目录。删除目录时，必须具有对其父目录的写权限。
+</p>
+<p>
+	注意：子目录被删除之前应该是空目录。就是说，该目录中的所有文件必须用<span class="wp_keywordlink"><a href="http://man.linuxde.net/rm" target="_blank" title="rm命令">rm</a></span>命令全部，另外，当前工作目录必须在被删除目录之上，不能是被删除目录本身，也不能是被删除目录的子目录。
+</p>
+<p>
+	虽然还可以用带有<code>-r</code>选项的rm命令递归删除一个目录中的所有文件和该目录本身，但是这样做存在很大的危险性。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rmdir(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-p或--parents：删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除；
+--ignore-fail-on-non-empty：此选项使rmdir命令忽略由于删除非空目录时导致的错误信息；
+-v或-verboes：显示命令的详细执行过程；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示命令的帮助信息；
+--version：显示命令的版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	目录列表：要删除的空目录列表。当删除多个空目录时，目录名之间使用空格隔开。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	删除子目录os_1和其父目录bin
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/cd" target="_blank" title="cd命令">cd</a></span> /usr/meng/<span class="wp_keywordlink"><a href="http://man.linuxde.net/test" target="_blank" title="test命令">test</a></span>
+rmdir -p bin/os_1</pre>
+</div>

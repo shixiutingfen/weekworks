@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>bzgrep命令</strong>使用正则表达式搜索“.bz2”压缩包中文件，将匹配的行显示到标注输出。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bzgrep(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		搜索模式：指定要搜索的模式；
+	</li>
+<li>
+		.bz2文件：指定要搜索的.bz2压缩包。
+	</li>
+</ul>
+</div>

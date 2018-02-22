@@ -1,0 +1,30 @@
+<div class="post_bd post">
+<p>
+<strong>dhclient命令</strong>使用动态主机配置协议动态的配置网络接口的网络参数。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+dhclient(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+0：指定dhcp客户端监听的端口号；
+-d：总是以前台方式运行程序；
+-q：安静模式，不打印任何错误的提示信息；
+-r：释放<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	网络接口：操作的网络接口。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+dhclient -r     <span style="color:#808080;">#释放IP</span>
+dhclient        <span style="color:#808080;">#获取IP</span></pre>
+</div>

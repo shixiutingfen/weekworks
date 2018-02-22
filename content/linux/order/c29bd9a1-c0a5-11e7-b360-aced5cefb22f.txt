@@ -1,0 +1,51 @@
+<div class="post_bd post">
+<p>
+<strong>lastlog命令</strong>用于显示系统中所有用户最近一次登录信息。
+</p>
+<p>
+	lastlog文件在每次有用户登录时被查询。可以使用lastlog命令检查某特定用户上次登录的时间，并格式化输出上次登录日志<code>/var/log/lastlog</code>的内容。它根据UID排序显示登录名、端口号（tty）和上次登录时间。如果一个用户从未登录过，lastlog显示<code>**Never logged**</code>。注意需要以root身份运行该命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lastlog(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-b&lt;天数&gt;：显示指定天数前的登录信息；
+-h：显示召集令的帮助信息；
+-t&lt;天数&gt;：显示指定天数以来的登录信息；
+-u&lt;用户名&gt;：显示指定用户的最近登录信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#B22222;">lastlog</span>
+Username         Port     From             Latest
+root             pts/0    221.6.45.34      Tue Dec 17 09:40:48 +0800 2013
+bin                                        **Never logged in**
+daemon                                     **Never logged in**
+adm                                        **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/lp" target="_blank" title="lp命令">lp</a></span>                                         **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/sync" target="_blank" title="sync命令">sync</a></span>                                       **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/shutdown" target="_blank" title="shutdown命令">shutdown</a></span>                                   **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/halt" target="_blank" title="halt命令">halt</a></span>                                       **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/mail" target="_blank" title="mail命令">mail</a></span>                                       **Never logged in**
+news                                       **Never logged in**
+uucp                                       **Never logged in**
+operator                                   **Never logged in**
+games                                      **Never logged in**
+gopher                                     **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/ftp" target="_blank" title="ftp命令">ftp</a></span>                                        **Never logged in**
+nobody                                     **Never logged in**
+vcsa                                       **Never logged in**
+ntp                                        **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/sshd" target="_blank" title="sshd命令">sshd</a></span>                                       **Never logged in**
+nscd                                       **Never logged in**
+ldap                                       **Never logged in**
+postfix                                    **Never logged in**
+www                                        **Never logged in**
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/mysql" target="_blank" title="mysql命令">mysql</a></span>                                      **Never logged in**</pre>
+</div>

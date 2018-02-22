@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>rpm2cpio命令</strong>用于将<span class="wp_keywordlink"><a href="http://man.linuxde.net/rpm" target="_blank" title="rpm命令">rpm</a></span>软件包转换为<span class="wp_keywordlink"><a href="http://man.linuxde.net/cpio" target="_blank" title="cpio命令">cpio</a></span>格式的文件。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+rpm2cpio(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要转换的rpm包的文件名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+rpm2cpio ../libstdc++-4.3.0-8.i386.rpm | cpio -idv</pre>
+</div>

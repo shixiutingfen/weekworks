@@ -1,0 +1,68 @@
+<div class="post_bd post">
+<p>
+<strong>uname命令</strong>用于打印当前系统相关信息（内核版本号、硬件架构、主机名称和操作系统类型等）。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+uname(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a或--all：显示全部的信息；
+-m或--machine：显示电脑类型；
+-n或-nodename：显示在网络上的主机名称；
+-r或--release：显示操作系统的发行编号；
+-s或--sysname：显示操作系统名称；
+-v：显示操作系统的版本；
+-p或--processor：输出处理器类型或"unknown"；
+-i或--hardware-platform：输出硬件平台或"unknown"；
+-o或--operating-system：输出操作系统名称；
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助；
+--version：显示版本信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用uname命令查看全部信息：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# uname </span>   <span style="color:#A9A9A9;">#单独使用uname命令时相当于uname -s</span>
+Linux
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -a</span>
+Linux localhost 2.6.18-348.6.1.el5 #1 SMP Tue May 21 15:34:22 EDT 2013 i686 i686 i386 GNU/Linux
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -m</span>
+i686
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -n</span>
+localhost
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -r</span>
+2.6.18-4-686
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -s</span>
+Linux
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -v</span>
+#1 SMP Tue May 21 15:34:22 EDT 2013
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -p</span>
+i686
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -i</span>
+i386
+
+<span style="color:#FF0000;">[root@localhost ~]# uname -o</span>
+GNU/Linux
+
+<span style="color:#FF0000;">[root@localhost ~]# uname --version</span>
+uname (GNU coreutils) 5.97
+Copyright (C) 2006 <span class="wp_keywordlink"><a href="http://man.linuxde.net/free" target="_blank" title="free命令">free</a></span> Software Foundation, Inc.
+这是自由软件。您可以按照 GNU GPL 协议 &lt;http://www.gnu.org/licenses/gpl.html&gt; 的条款再发布此软件的副本，但我们无法保证相关法律不对这一情形进行限制。
+
+由 David MacKenzie 编写。</pre>
+</div>

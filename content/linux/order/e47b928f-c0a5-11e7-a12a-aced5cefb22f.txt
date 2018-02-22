@@ -1,0 +1,31 @@
+<div class="post_bd post">
+<p>
+<strong>groups命令</strong>在标准输入输出上输出指定用户所在组的组成员，每个用户属于<code>/etc/<span class="wp_keywordlink"><a href="http://man.linuxde.net/passwd" target="_blank" title="passwd命令">passwd</a></span></code>中指定的一个组和在<code>/etc/group</code>中指定的其他组。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+groups(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示命令的帮助信息；
+--version：显示命令的版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	用户名：指定要打印所属工作组的用户名。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示linux用户所属的组
+</p>
+<pre>
+groups linux
+linux : linux adm dialout cdrom plugdev <span class="wp_keywordlink"><a href="http://man.linuxde.net/lpadmin" target="_blank" title="lpadmin命令">lpadmin</a></span> admin sambashare</pre>
+</div>

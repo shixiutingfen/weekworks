@@ -1,0 +1,10 @@
+<div class="post_bd post">
+<p>
+<strong>kernelversion命令</strong>用于打印当前内核的主版本号。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+kernelversion</pre>
+</div>

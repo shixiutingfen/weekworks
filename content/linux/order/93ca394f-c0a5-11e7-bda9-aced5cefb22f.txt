@@ -1,0 +1,23 @@
+<div class="post_bd post">
+<p>
+<strong>pwd命令</strong>以绝对路径的方式显示用户当前工作目录。命令将当前目录的全路径名称（从根目录）写入标准输出。全部目录使用<code>/</code>分隔。第一个<code>/</code>表示根目录，最后一个目录是当前目录。执行pwd命令可立刻得知您目前所在的工作目录的绝对路径名称。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+pwd（选项）</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：显示帮助信息；
+--version：显示版本信息。
+</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+[root@localhost ~]# pwd
+/root</pre>
+</div>

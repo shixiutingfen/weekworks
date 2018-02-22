@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>apt-sortpkgs命令</strong>是Debian Linux下对软件包索引文件进行排序的简单工具。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+apt-sortpkgs(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-s：使用源索引字段排序；
+-h：显示帮助信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：指定要排序的包含debian包信息的索引文件。</p>
+</div>

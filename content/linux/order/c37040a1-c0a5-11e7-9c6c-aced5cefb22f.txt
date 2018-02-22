@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>nohup命令</strong>可以将程序以忽略挂起信号的方式运行起来，被运行的程序的输出信息将不会显示到终端。
+</p>
+<p>
+	无论是否将 nohup 命令的输出重定向到终端，输出都将附加到当前目录的 nohup.out 文件中。如果当前目录的 nohup.out 文件不可写，输出重定向到<code>$HOME/nohup.out</code>文件中。如果没有文件能创建或打开以用于追加，那么 <span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span> 参数指定的命令不可调用。如果标准错误是一个终端，那么把指定的命令写给标准错误的所有输出作为标准输出重定向到相同的文件描述符。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<p>
+	nohup(选项)(参数)
+</p>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+--version：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	程序及选项：要运行的程序及选项。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	使用nohup命令提交作业，如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：
+</p>
+<pre>
+nohup command &gt; myout.<span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span> 2&gt;&amp;1 &amp;</pre>
+<p>
+	在上面的例子中，输出被重定向到myout.file文件中。</p>
+</div>

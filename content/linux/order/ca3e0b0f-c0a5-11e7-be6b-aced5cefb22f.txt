@@ -1,0 +1,38 @@
+<div class="post_bd post">
+<p>
+<strong>pstree命令</strong>以树状图的方式展现进程之间的派生关系，显示效果比较直观。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+pstree(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a：显示每个程序的完整指令，包含路径，参数或是常驻服务的标示；
+-c：不使用精简标示法；
+-G：使用VT100终端机的列绘图字符；
+-h：列出树状图时，特别标明现在执行的程序；
+-H&lt;程序识别码&gt;：此参数的效果和指定"-h"参数类似，但特别标明指定的程序；
+-l：采用长列格式显示树状图；
+-n：用程序识别码排序。预设是以程序名称来排序；
+-p：显示程序识别码；
+-u：显示用户名称；
+-U：使用UTF-8列绘图字符；
+-V：显示版本信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示当前所有进程的进程号和进程<span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>
+</p>
+<pre>
+pstree -p</pre>
+<p>
+	显示所有进程的所有详细信息，遇到相同的进程名可以压缩显示。
+</p>
+<pre>
+pstree  -a</pre>
+</div>

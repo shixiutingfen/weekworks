@@ -1,0 +1,60 @@
+<div class="post_bd post">
+<p>
+<strong>lastb命令</strong>用于显示用户错误的登录列表，此指令可以发现系统的登录异常。单独执行lastb命令，它会读取位于<code>/var/log</code>目录下，名称为btmp的文件，并把该文件内容记录的登入失败的用户名单，全部显示出来。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+lastb(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-a：把从何处登入系统的主机名称或<span class="wp_keywordlink"><a href="http://man.linuxde.net/ip" target="_blank" title="ip命令">ip</a></span>地址显示在最后一行；
+-d：将IP地址转换成主机名称；
+-f&lt;记录文件&gt;：指定记录文件；
+-n&lt;显示列数&gt;或-&lt;显示列数&gt;：设置列出名单的显示列数；
+-R：不显示登入系统的主机名称或IP地址；
+-x：显示系统关机，重新开机，以及执行等级的改变等信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		用户名：显示中的用户的登录列表；
+	</li>
+<li>
+		终端：显示从指定终端的登录列表。
+	</li>
+</ul>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	首次运行lastb命令会报下的错误：
+</p>
+<pre>
+lastb: /var/log/btmp: No such <span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span> or directory
+Perhaps this file was removed by the operator to prevent logging lastb <span class="wp_keywordlink"><a href="http://man.linuxde.net/info" target="_blank" title="info命令">info</a></span>.</pre>
+<p>
+	只需建立这个不存在的文件即可。
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/touch" target="_blank" title="touch命令">touch</a></span> /var/log/btmp</pre>
+<p>
+	使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/ssh" target="_blank" title="ssh命令">ssh</a></span>的登录失败不会记录在btmp文件中。
+</p>
+<pre>
+<span style="color:#B22222;">lastb | <span class="wp_keywordlink"><a href="http://man.linuxde.net/head" target="_blank" title="head命令">head</a></span></span>
+root     ssh:notty    110.84.129.3     Tue Dec 17 06:19 - 06:19  (00:00)
+root     ssh:notty    110.84.129.3     Tue Dec 17 04:05 - 04:05  (00:00)
+root     ssh:notty    110.84.129.3     Tue Dec 17 01:52 - 01:52  (00:00)
+root     ssh:notty    110.84.129.3     Mon Dec 16 23:38 - 23:38  (00:00)
+leonob   ssh:notty    222.211.85.18    Mon Dec 16 22:18 - 22:18  (00:00)
+leonob   ssh:notty    222.211.85.18    Mon Dec 16 22:18 - 22:18  (00:00)
+root     ssh:notty    110.84.129.3     Mon Dec 16 21:25 - 21:25  (00:00)
+root     ssh:notty    110.84.129.3     Mon Dec 16 19:12 - 19:12  (00:00)
+root     ssh:notty    110.84.129.3     Mon Dec 16 17:00 - 17:00  (00:00)
+admin    ssh:notty    129.171.193.99   Mon Dec 16 16:52 - 16:52  (00:00)</pre>
+</div>

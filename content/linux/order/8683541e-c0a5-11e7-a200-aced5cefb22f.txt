@@ -1,0 +1,65 @@
+<div class="post_bd post">
+<p>
+<strong>file命令</strong>用来探测给定文件的类型。file命令对文件的检查分为文件系统、魔法幻数检查和语言检查3个过程。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+file(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-b：列出辨识结果时，不显示文件名称；
+-c：详细显示指令执行过程，便于排错或分析程序执行的情形；
+-f&lt;名称文件&gt;：指定名称文件，其内容有一个或多个文件名称时，让file依序辨识这些文件，格式为每列一个文件名称；
+-L：直接显示符号连接所指向的文件类别；
+-m&lt;魔法数字文件&gt;：指定魔法数字文件；
+-v：显示版本信息；
+-z：尝试去解读压缩文件的内容。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	文件：要确定类型的文件列表，多个文件之间使用空格分开，可以使用shell通配符匹配多个文件。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示文件类型
+</p>
+<pre>
+[root@localhost ~]# file <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span>.log
+install.log: UTF-8 Unicode text
+
+[root@localhost ~]# file -b install.log      &lt;== 不显示文件名称
+UTF-8 Unicode text
+
+[root@localhost ~]# file -i install.log      &lt;== 显示MIME类别。
+install.log: text/plain; charset=utf-8
+
+[root@localhost ~]# file -b -i install.log
+text/plain; charset=utf-8
+</pre>
+<p>
+	显示符号链接的文件类型
+</p>
+<pre>
+[root@localhost ~]# <span class="wp_keywordlink"><a href="http://man.linuxde.net/ls" target="_blank" title="ls命令">ls</a></span> -l /var/<span class="wp_keywordlink"><a href="http://man.linuxde.net/mail" target="_blank" title="mail命令">mail</a></span>
+lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
+
+[root@localhost ~]# file /var/mail
+/var/mail: symbolic link to `spool/mail'
+
+[root@localhost ~]# file -L /var/mail
+/var/mail: directory
+
+[root@localhost ~]# file /var/spool/mail
+/var/spool/mail: directory
+
+[root@localhost ~]# file -L /var/spool/mail
+/var/spool/mail: directory
+</pre>
+</div>

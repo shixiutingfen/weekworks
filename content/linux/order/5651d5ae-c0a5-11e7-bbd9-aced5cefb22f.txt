@@ -1,0 +1,21 @@
+<div class="post_bd post">
+<p>
+<strong>bzdiff命令</strong>用于直接比较两个“.bz2”压缩包中文件的不同，省去了解压缩后再调用<span class="wp_keywordlink"><a href="http://man.linuxde.net/diff" target="_blank" title="diff命令">diff</a></span>命令的过程。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+bzdiff(参数)</pre>
+<h3>
+	参数<br/>
+</h3>
+<ul>
+<li>
+		文件1：指定要比较的第一个.bz2压缩包；
+	</li>
+<li>
+		文件2：指定要比较的第二个.bz2压缩包。
+	</li>
+</ul>
+</div>

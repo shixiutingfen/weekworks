@@ -1,0 +1,43 @@
+<div class="post_bd post">
+<p>
+<strong>vgconvert命令</strong>用于转换指定LVM卷组的元数据格式，通常将“LVM1”格式的卷组转换为“LVM2”格式。转换卷组元数据前必须保证卷组处于非活动状态，否则无法完成转换操作。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+vgconvert(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-M：要转换的卷组格式。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	卷组：指定要转换格式的卷组。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	转换卷组元数据格式前，使用<span class="wp_keywordlink"><a href="http://man.linuxde.net/vgchange" target="_blank" title="vgchange命令">vgchange</a></span>命令将卷组设置为非活动状态。在命令行中输入下面的命令：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost lvm]# vgchange -an vg1000</span>    <span style="color:#A9A9A9;">#设置卷组状态为非活动状态</span>
+0 logical volume(s) in volume group "vg1000" now active 
+</pre>
+<p>
+	使用vgconvert命令将卷组"vg1000"从"LVM1"格式转换为"LVM2"格式。在命令行中输入下面的命令：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost lvm]# vgconvert -M2 vg1000 </span>   <span style="color:#A9A9A9;">#转换卷组为"LVM2"格式</span>
+Volume group vg1000 successfully converted</pre>
+<p>
+	使用vgchange命令将卷组设置为活动状态。在命令行中输入下面的命令：
+</p>
+<pre>
+<span style="color:#FF0000;">[root@localhost lvm]# vgchange -ay vg1000</span>     <span style="color:#A9A9A9;">#设置卷组状态为活动状态</span>
+0 logical volume(s) in volume group "vg1000" now active</pre>
+</div>

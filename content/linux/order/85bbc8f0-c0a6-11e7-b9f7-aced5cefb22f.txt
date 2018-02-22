@@ -1,0 +1,10 @@
+<div class="post_bd post">
+<p>
+	显示目前已<span class="wp_keywordlink"><a href="http://man.linuxde.net/ftp" target="_blank" title="ftp命令">ftp</a></span>登入的用户人数。执行这项指令可得知目前用FTP登入系统的人数以及FTP登入人数的上限。
+</p>
+<p>
+	语法：
+</p>
+<pre>
+ftpcount</pre>
+</div>

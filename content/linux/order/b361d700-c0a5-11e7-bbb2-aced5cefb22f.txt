@@ -1,0 +1,36 @@
+<div class="post_bd post">
+<p>
+<strong>pidof命令</strong>用于查找指定名称的进程的进程号<span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>号。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+pidof(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-s：仅返回一个进程号；
+-c：仅显示具有相同“root”目录的进程；
+-x：显示由脚本开启的进程；
+-o：指定不显示的进程ID。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	进程名称：指定要查找的进程名称。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#B22222;">pidof nginx</span>
+13312 5371
+
+<span style="color:#B22222;">pidof crond</span>
+1509
+
+<span style="color:#B22222;">pidof <span class="wp_keywordlink"><a href="http://man.linuxde.net/init" target="_blank" title="init命令">init</a></span></span>
+1</pre>
+</div>

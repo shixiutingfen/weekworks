@@ -1,0 +1,56 @@
+<div class="post_bd post">
+<p>
+<strong>jwhois</strong> searches Whois servers for the object on the <span class="wp_keywordlink"><a href="http://man.linuxde.net/command" target="_blank" title="command命令">command</a></span> line.The <span class="wp_keywordlink"><a href="http://man.linuxde.net/host" target="_blank" title="host命令">host</a></span> to query is taken from a global configuration <span class="wp_keywordlink"><a href="http://man.linuxde.net/file" target="_blank" title="file命令">file</a></span>, a configuration file specified on the command line, or selected directly on the command line.
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+jwhois [选项]</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--version                  display version number and <span class="wp_keywordlink"><a href="http://man.linuxde.net/patch" target="_blank" title="patch命令">patch</a></span> level
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>                     display this help
+-v, --verbose              verbose debug output
+-c FILE, --config=FILE     use FILE <span class="wp_keywordlink"><a href="http://man.linuxde.net/as" target="_blank" title="as命令">as</a></span> configuration file
+-h HOST, --host=HOST       explicitly query HOST
+-n, --no-redirect          disable content redirection
+-s, --no-whoisservers      disable whois-servers.net <span class="wp_keywordlink"><a href="http://man.linuxde.net/service" target="_blank" title="service命令">service</a></span> support
+-a, --raw                  disable reformatting of the query
+-i, --display-redirections display all redirects instead of hiding them
+-p PORT, --port=PORT       use port number PORT (in conjunction with HOST)
+-r, --rwhois               force an rwhois query to be made
+--rwhois-display=DISPLAY   sets the display option in rwhois queries
+--rwhois-limit=LIMIT       sets the maximum number of matches to return</pre>
+<blockquote>
+<p>
+<span style="color:#FF0000;">注：以上英文部分寻求网友协助翻译，翻译结果可发送至 sa(<span class="wp_keywordlink"><a href="http://man.linuxde.net/at" target="_blank" title="at命令">at</a></span>)linuxde.net，谢谢！</span>
+</p>
+</blockquote>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	显示指定用户信息：
+</p>
+<pre>
+# jwhois root
+
+//查找root用户信息</pre>
+<p>
+	查询域名信息：
+</p>
+<pre>
+[root@localhost ~]# jwhois linuxde.net
+[Querying whois.verisign-grs.com]
+[Redirected to whois.west263.com]
+[Querying whois.west263.com]
+[whois.west263.com]
+Domain Name: linuxde.net                   
+Registry Domain <span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span>: whois protect
+Registrar WHOIS Server: whois.west263.com
+
+...省略部分内容</pre>
+</div>

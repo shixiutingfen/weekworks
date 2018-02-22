@@ -1,0 +1,62 @@
+<div class="post_bd post">
+<p>
+<strong>axel</strong>是Linux下一个不错的HTTP/<span class="wp_keywordlink"><a href="http://man.linuxde.net/ftp" target="_blank" title="ftp命令">ftp</a></span>高速下载工具。支持多线程下载、断点续传，且可以从多个地址或者从一个地址的多个连接来下载同一个文件。适合网速不给力时多线程下载提高下载速度。比如在国内VPS或服务器上下载lnmp一键安装包用Axel就比<span class="wp_keywordlink"><a href="http://man.linuxde.net/wget" target="_blank" title="wget命令">wget</a></span>快。
+</p>
+<h3>
+	安装<br/>
+</h3>
+<p>
+	CentOS安装Axel：
+</p>
+<p>
+	目前<span class="wp_keywordlink"><a href="http://man.linuxde.net/yum" target="_blank" title="yum命令">yum</a></span>源上没有Axel，我们可以到http://pkgs.repoforge.org/axel/下载<span class="wp_keywordlink"><a href="http://man.linuxde.net/rpm" target="_blank" title="rpm命令">rpm</a></span>包安装。
+</p>
+<p>
+	32位CentOS执行下面命令：
+</p>
+<pre>
+wget -c http://pkgs.repoforge.org/axel/axel-2.4-1.el5.rf.i386.rpm
+rpm -ivh axel-2.4-1.el5.rf.i386.rpm</pre>
+<p>
+	64位CentOS执行下面命令：
+</p>
+<pre>
+wget -c http://pkgs.repoforge.org/axel/axel-2.4-1.el5.rf.x86_64.rpm
+rpm -ivh axel-2.4-1.el5.rf.x86_64.rpm</pre>
+<p>
+	Debian/Ubuntu安装Axel：
+</p>
+<pre>
+<span class="wp_keywordlink"><a href="http://man.linuxde.net/apt-get" target="_blank" title="apt-get命令">apt-get</a></span> <span class="wp_keywordlink"><a href="http://man.linuxde.net/install" target="_blank" title="install命令">install</a></span> axel</pre>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+axel [options] url1 [url2] [url...]</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--max-speed=x , -s x         最高速度x
+--num-connections=x , -n x   连接数x
+--output=f , -o f            下载为本地文件f
+--search[=x] , -S [x]        搜索镜像
+--header=x , -H x            添加头文件字符串x（指定 HTTP header）
+--user-agent=x , -U x        设置用户代理（指定 HTTP user agent）
+--no-proxy ， -N             不使用代理服务器
+--quiet ， -q                静默模式
+--verbose ，-v               更多状态信息
+--alternate ， -a            Alternate progress indicator
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span> ，-h                  帮助
+--version ，-V               版本信息</pre>
+<h3>
+	实例<br/>
+</h3>
+<p>
+	如下载lnmp安装包指定10个线程，存到/tmp/：
+</p>
+<pre>
+axel -n 10 -o /tmp/ http://www.linuxde.net/lnmp.<span class="wp_keywordlink"><a href="http://man.linuxde.net/tar" target="_blank" title="tar命令">tar</a></span>.gz</pre>
+<p>
+	如果下载过程中下载中断可以再执行下载命令即可恢复上次的下载进度。</p>
+</div>

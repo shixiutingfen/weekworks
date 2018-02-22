@@ -1,0 +1,14 @@
+﻿<div class="x-content" style="width:100%">
+<h4>自定义Git</h4>
+<div class="x-wiki-info"><span>Reads: 221196</span></div>
+<hr/>
+<div class="x-wiki-content x-main-content"><p>在<a href="/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000" target="_blank">安装Git</a>一节中，我们已经配置了<code>user.name</code>和<code>user.email</code>，实际上，Git还有很多可配置项。</p>
+<p>比如，让Git显示颜色，会让命令输出看起来更醒目：</p>
+<pre><code>$ git config --global color.ui true
+</code></pre><p>这样，Git会适当地显示不同的颜色，比如<code>git status</code>命令：</p>
+<p><img alt="git-color" src="/files/attachments/0013849265828833012fe6261a54c5794959d6c1883590b000/0"/></p>
+<p>文件名就会标上颜色。</p>
+<p>我们在后面还会介绍如何更好地配置Git，以便让你的工作更高效。</p>
+</div>
+
+</div>

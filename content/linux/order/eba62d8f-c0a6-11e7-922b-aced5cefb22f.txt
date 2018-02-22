@@ -1,0 +1,15 @@
+<div class="post_bd post">
+<p>
+<strong>ypdomainname命令</strong>显示主机的NIS的域名。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+ypdomainname(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-v：详细信息模式。</pre>
+</div>

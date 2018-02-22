@@ -1,0 +1,25 @@
+<div class="post_bd post">
+<p>
+<strong>whoami命令</strong>用于打印当前有效的用户名称，相当于执行<code><span class="wp_keywordlink"><a href="http://man.linuxde.net/id" target="_blank" title="id命令">id</a></span> -un</code>命令。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+whoami(选项)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+--version：显示版本信息。</pre>
+<h3>
+	实例<br/>
+</h3>
+<pre>
+<span style="color:#FF0000;">[root@localhost ~]# whoami</span>
+root
+
+<span style="color:#FF0000;">[root@localhost ~]# id -un</span>
+root</pre>
+</div>

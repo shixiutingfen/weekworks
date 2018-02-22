@@ -1,0 +1,86 @@
+<div class="post_bd post">
+<p>
+<strong>chsh命令</strong>用来更换登录系统时使用的shell。若不指定任何参数与用户名称，则chsh会以应答的方式进行设置。
+</p>
+<h3>
+	语法<br/>
+</h3>
+<pre>
+chsh(选项)(参数)</pre>
+<h3>
+	选项<br/>
+</h3>
+<pre>
+-s&lt;shell 名称&gt;或--shell&lt;shell 名称&gt;：更改系统预设的shell环境。；
+-l或--list-shells：列出目前系统可用的shell清单；
+-u或--<span class="wp_keywordlink"><a href="http://man.linuxde.net/help" target="_blank" title="help命令">help</a></span>：在线帮助；
+-v或-version：显示版本信息。</pre>
+<h3>
+	参数<br/>
+</h3>
+<p>
+	用户名：要改变默认shell的用户。
+</p>
+<h3>
+	实例<br/>
+</h3>
+<p>
+<strong>查看系统安装了哪些shell的两种方法：</strong>
+</p>
+<p>
+	第一种：
+</p>
+<pre>
+[rocrocket@localhost ~]$ chsh -l
+/bin/sh
+/bin/bash
+/sbin/<span class="wp_keywordlink"><a href="http://man.linuxde.net/nologin" target="_blank" title="nologin命令">nologin</a></span>
+/bin/zsh</pre>
+<p>
+	第二种：
+</p>
+<pre>
+[rocrocket@localhost ~]$ <span class="wp_keywordlink"><a href="http://man.linuxde.net/cat" target="_blank" title="cat命令">cat</a></span> /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/zsh</pre>
+<p>
+	其实<code>chsh -l</code>也是来查看这个文件。
+</p>
+<p>
+<strong>查看当前正在使用的shell：</strong>
+</p>
+<pre>
+[rocrocket@localhost ~]$ <span class="wp_keywordlink"><a href="http://man.linuxde.net/echo" target="_blank" title="echo命令">echo</a></span> $SHELL
+/bin/bash</pre>
+<p>
+	注意SHELL一定要是大写。可以看到，目前使用的shell是<code>/bin/bash</code>
+</p>
+<p>
+<strong>把我的shell改成zsh：</strong>
+</p>
+<pre>
+[rocrocket@localhost ~]$ chsh -s /bin/zsh
+Changing shell for rocrocket.
+Password:
+Shell changed.
+[rocrocket@localhost ~]$</pre>
+<p>
+	使用chsh加选项<code>-s</code>就可以修改登录的shell了！你会发现你现在执行<code>echo $SHELL</code>后仍然输出为<code>/bin/bash</code>，这是因为你需要重启你的shell才完全投入到zsh怀抱中去。<code>chsh -s</code>其实修改的就是<code>/etc/<span class="wp_keywordlink"><a href="http://man.linuxde.net/passwd" target="_blank" title="passwd命令">passwd</a></span></code>文件里和你的用户名相对应的那一行。现在来查看下：
+</p>
+<pre>
+[rocrocket@localhost ~]$ cat /etc/passwd|<span class="wp_keywordlink"><a href="http://man.linuxde.net/grep" target="_blank" title="grep命令">grep</a></span> ^rocrocket
+rocrocket:x:500:500:rocrocket,China:/rocrocket/PSB/home:/bin/zsh</pre>
+<p>
+	你可以发现输出内容的最后部分已经变成了<code>/bin/zsh</code>了，下次重启的时候，linux就会读取这一命令来启动shell了！
+</p>
+<p>
+<strong>把shell修改回/bin/bash：</strong>
+</p>
+<pre>
+[rocrocket@localhost ~]$ chsh -s /bin/bash
+Changing shell for rocrocket.
+Password:
+Shell changed.</pre>
+</div>
